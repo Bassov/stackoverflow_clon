@@ -40,7 +40,7 @@ group :development, :test do
 end
 
 group :test do
-  gem 'shoulda-matchers'
+  gem 'shoulda'
 end
 
 group :development do
