@@ -1,3 +1,5 @@
+# encoding: utf-8
+# One day there would be comment about this controller
 class ApplicationController < ActionController::Base
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.

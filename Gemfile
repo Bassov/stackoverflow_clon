@@ -36,7 +36,13 @@ group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
   gem 'rspec-rails'
+  gem 'rubocop-rspec'
+  gem 'rubocop', require: false
   gem 'factory_girl_rails'
+end
+
+group :test do
+  gem 'shoulda'
 end
 
 group :development do

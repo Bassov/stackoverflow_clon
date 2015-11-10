@@ -1,0 +1,20 @@
+require: rubocop-rspec
+
+AllCops:
+  Include:
+    - '**/Rakefile'
+    - '**/config.ru'
+  Exclude:
+    - 'db/**/*'
+    - 'config/**/*'
+    - 'script/**/*'
+    - 'bin/**/*'
+    - 'vendor/**/*'
+  DisplayCopNames: true
+  RunRailsCops: true
+
+Style/Encoding:
+  Enabled: true
+
+Metrics/LineLength:
+  Max: 120
