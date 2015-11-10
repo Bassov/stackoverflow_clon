@@ -3,10 +3,12 @@
 === Сторонние гемы, которые не создаются при генерации нового приложения
 
 * gem 'rspec-rails' https://github.com/rspec/rspec-rails
-    * Используется для написания тестов в приложении BDD
+    Используется для написания тестов в приложении BDD
 * gem 'rubocop-rspec' https://github.com/rspec/rspec-rails
-    * Используется вместе с rubocop, для рефакторинга
+    Используется вместе с rubocop, для рефакторинга
 * gem 'factory_girl_rails' https://github.com/thoughtbot/factory_girl_rails
-    * Пока не знаю зачем, говорили что надо поставить в скринкасте
+    Пока не знаю зачем, говорили что надо поставить в скринкасте
 * gem 'shoulda' https://github.com/thoughtbot/shoulda-matchers
-    * Используется для более короткой записи тестов для ActiveRecord
+    Используется для более короткой записи тестов для ActiveRecord
+* gem 'slim' https://github.com/slim-template/slim
+    Данный пропроцессор используется для написания более простого html кода с ruby (вместо erb)
