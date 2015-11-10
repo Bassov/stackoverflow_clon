@@ -37,6 +37,7 @@ group :development, :test do
   gem 'byebug'
   gem 'rspec-rails'
   gem 'rubocop-rspec'
+  gem 'rubocop', require: false
   gem 'factory_girl_rails'
 end
 
