@@ -1,0 +1,12 @@
+.container
+  = form_for(@question, html: { class: 'col-md-8' }) do |f|
+
+    .field
+      = f.text_field :title, placeholder: 'Тема', class: 'form-control'
+
+    .field
+      = f.text_area :body, placeholder: 'Вопрос', class: 'form-control', rows: 10
+
+    .actions
+      = f.submit @question.new_record? ? 'Соранить' : 'Изменить', class: 'btn btn-primary'
+      = link_to 'Назад', questions_path, class: 'btn btn-primary'
