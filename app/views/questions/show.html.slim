@@ -3,6 +3,6 @@ h1 Вопрос
 p = @question.title
 p = @question.body
 
-button = link_to 'Ответить', question_answers_path(@question)
+button = link_to 'Ответить', new_question_answer_path(@question)
 button = link_to 'Изменить', edit_question_path
 button = link_to 'Удалить', question_path, method: :delete, data: { confirm: 'Вы уверены?' }
