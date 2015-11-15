@@ -1,0 +1,7 @@
+h2 Вопросы
+table.table-striped.col-md-12
+  tr
+    td Тема
+    = render @questions
+
+button class="btn btn-default btn-lg" = link_to 'Задать вопрос', new_question_path
