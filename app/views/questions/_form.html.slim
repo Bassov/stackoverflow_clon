@@ -1,12 +1,6 @@
-.container
-  = form_for(@question, html: { class: 'col-md-8' }) do |f|
+= bootstrap_form_for(@question) do |f|
+    = f.text_field :title, placeholder: 'Тема', hide_label: true
+    = f.text_area :body, placeholder: 'Вопрос', rows: 10, hide_label: true
+    = f.submit @question.new_record? ? 'Сохранить' : 'Изменить'
 
-    .field
-      = f.text_field :title, placeholder: 'Тема', class: 'form-control'
-
-    .field
-      = f.text_area :body, placeholder: 'Вопрос', class: 'form-control', rows: 10
-
-    .actions
-      = f.submit @question.new_record? ? 'Соранить' : 'Изменить', class: 'btn btn-primary'
-      = link_to 'Назад', questions_path, class: 'btn btn-primary'
+    = link_to 'Назад', questions_path, class: 'btn btn-default'
