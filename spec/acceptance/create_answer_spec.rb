@@ -23,7 +23,7 @@ feature 'Answer questions', '
     expect(page).to have_content 'Test body'
   end
 
-  scenartio 'Non-authenticateed user tries to answer question' do
+  scenario 'Non-authenticateed user tries to answer question' do
     question
 
     visit questions_path

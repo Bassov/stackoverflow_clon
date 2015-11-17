@@ -25,6 +25,6 @@ feature 'Create question', '
     visit questions_path
     click_on 'Задать вопрос'
 
-    expect(page). to have_content 'You need to sign in or sign up before continuing.'
+    expect(page).to have_content 'You need to sign in or sign up before continuing.'
   end
 end
