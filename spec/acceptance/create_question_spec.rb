@@ -1,10 +1,11 @@
+# encoding: utf-8
 require 'rails_helper'
 
-feature 'Create question', %q{
+feature 'Create question', '
   In order to get answers from community
   As an authenticated user
   I want to be able to ask questions
-} do
+' do
   given(:user) { create(:user) }
 
   scenario 'Authenticated user creates question' do
@@ -26,5 +27,4 @@ feature 'Create question', %q{
 
     expect(page). to have_content 'You need to sign in or sign up before continuing.'
   end
-
 end

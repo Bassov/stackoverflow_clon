@@ -1,3 +1,4 @@
+# encoding: utf-8
 require 'rails_helper'
 
 RSpec.describe AnswersController, type: :controller do
@@ -23,9 +24,9 @@ RSpec.describe AnswersController, type: :controller do
 
     context 'with valid attribute' do
       it 'creates new answer' do
-        expect {
+        expect do
           post :create, question_id: question, answer: attributes_for(:answer)
-        }.to change(question.answers, :count).by 1
+        end.to change(question.answers, :count).by 1
       end
 
       it 'redirect to question/show view' do
@@ -36,9 +37,9 @@ RSpec.describe AnswersController, type: :controller do
 
     context 'don`t creates new answer`' do
       it 'does not save the question' do
-        expect {
+        expect do
           post :create, question_id: question, answer: attributes_for(:invalid_answer)
-        }.to_not change(Answer, :count)
+        end.to_not change(Answer, :count)
       end
 
       it 're-renders new view' do

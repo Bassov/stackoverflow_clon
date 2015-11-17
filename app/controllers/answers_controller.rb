@@ -1,3 +1,4 @@
+# encoding: utf-8
 class AnswersController < ApplicationController
   before_action :set_question, only: [:new, :create]
 
