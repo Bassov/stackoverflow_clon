@@ -6,7 +6,6 @@ feature 'View question', '
   As a guest
   I want to be able to view existing questions
 ' do
-
   scenario 'guest views question' do
     question = create(:question)
     answer = create(:answer, question: question)

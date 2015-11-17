@@ -1,3 +1,4 @@
+# encoding: utf-8
 require 'rails_helper'
 
 feature 'registration', '
@@ -5,7 +6,6 @@ feature 'registration', '
   As a guest
   I want to be able to sign up
 ' do
-
   scenario 'guest signs up with correct data' do
     visit root_path
     click_on 'Зарегистрироваться'

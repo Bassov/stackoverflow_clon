@@ -6,7 +6,6 @@ feature 'list questions', '
   As an guest
   I can view questions page
 ' do
-
   scenario 'guest visit questions page' do
     questions = create_list(:question, 2)
 

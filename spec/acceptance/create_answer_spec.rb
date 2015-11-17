@@ -6,8 +6,8 @@ feature 'Answer questions', '
   As an authenticated user
   I want to be able to answer questions
 ' do
-  given(:user) {create(:user)}
-  given(:question) {create(:question)}
+  given(:user) { create(:user) }
+  given(:question) { create(:question) }
 
   scenario 'Authenticated user answers question' do
     sign_in(user)
