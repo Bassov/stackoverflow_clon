@@ -3,7 +3,7 @@ require 'rails_helper'
 
 RSpec.describe QuestionsController, type: :controller do
   let(:questions) { create_list(:question, 2) }
-  let(:question) { create(:question, user: user) }
+  let(:question) { create(:question) }
   let(:user) { create(:user) }
   before { request.env["HTTP_REFERER"] = 'where_i_came_from' }
 
