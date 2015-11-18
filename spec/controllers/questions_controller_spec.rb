@@ -4,6 +4,8 @@ require 'rails_helper'
 RSpec.describe QuestionsController, type: :controller do
   let(:questions) { create_list(:question, 2) }
   let(:question) { create(:question) }
+  let(:user) { create(:user) }
+  let(:user_question) { create :question, user: user }
 
   describe 'GET #index' do
     before { get :index }
@@ -40,19 +42,36 @@ RSpec.describe QuestionsController, type: :controller do
     it 'renders new view' do
       expect(response).to render_template :new
     end
+
+    it 'assigns current user to question' do
+      expect(assigns(:question).user_id).to eq @user.id
+    end
   end
 
   describe 'GET #edit' do
     sign_in_user
 
-    before { get :edit, id: question }
+    context 'author of question edits it' do
+      before do
+        @question = create(:question, user: @user)
+        get :edit, id: @question
+      end
 
-    it 'assigns the requested question to @question' do
-      expect(assigns(:question)).to eq question
+      it 'assigns the requested question to @question' do
+        expect(assigns(:question)).to eq @question
+      end
+
+      it 'renders new edit' do
+        expect(response).to render_template :edit
+      end
     end
 
-    it 'renders new edit' do
-      expect(response).to render_template :edit
+    context 'non-author tries to edit question' do
+      before { get :edit, id: user_question }
+
+      it 're-renders question view' do
+        expect(response).to render_template question_path(user_question)
+      end
     end
   end
 
