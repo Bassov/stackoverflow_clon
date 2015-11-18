@@ -7,4 +7,8 @@ class User < ActiveRecord::Base
 
   has_many :answers
   has_many :questions
+
+  def author_of(object)
+    self == object.user
+  end
 end

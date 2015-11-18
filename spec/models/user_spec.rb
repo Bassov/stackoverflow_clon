@@ -7,4 +7,11 @@ RSpec.describe User, type: :model do
 
   it { should validate_presence_of(:email) }
   it { should validate_presence_of(:password) }
+
+  it 'checks the authority of objects' do
+    user = create(:user)
+    object = create(:question, user: user)
+
+    user.author_of(object).should == true
+  end
 end
