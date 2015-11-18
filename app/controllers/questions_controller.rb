@@ -2,6 +2,7 @@
 class QuestionsController < ApplicationController
   before_action :authenticate_user!, except:  [:index, :show]
   before_action :set_question, only: [:show, :edit, :update, :destroy]
+  before_action :check_authority, only: [:edit]
 
   def index
     @questions = Question.all
@@ -41,11 +42,15 @@ class QuestionsController < ApplicationController
 
   private
 
+  def check_authority
+    redirect_to :back unless current_user.author_of(@question)
+  end
+
   def set_question
     @question = Question.find(params[:id])
   end
 
   def questions_params
-    params.require(:question).permit(:title, :body)
+    params.require(:question).permit(:title, :body, :user_id)
   end
 end

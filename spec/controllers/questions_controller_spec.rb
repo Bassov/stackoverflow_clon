@@ -3,9 +3,9 @@ require 'rails_helper'
 
 RSpec.describe QuestionsController, type: :controller do
   let(:questions) { create_list(:question, 2) }
-  let(:question) { create(:question) }
+  let(:question) { create(:question, user: user) }
   let(:user) { create(:user) }
-  let(:user_question) { create :question, user: user }
+  before { request.env["HTTP_REFERER"] = 'where_i_came_from' }
 
   describe 'GET #index' do
     before { get :index }
@@ -67,10 +67,10 @@ RSpec.describe QuestionsController, type: :controller do
     end
 
     context 'non-author tries to edit question' do
-      before { get :edit, id: user_question }
+      before { get :edit, id: question }
 
       it 're-renders question view' do
-        expect(response).to render_template question_path(user_question)
+        expect(response).to redirect_to 'where_i_came_from'
       end
     end
   end
