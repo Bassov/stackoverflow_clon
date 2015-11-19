@@ -9,6 +9,7 @@ class AnswersController < ApplicationController
 
   def create
     @answer = @question.answers.new(answer_params)
+    @answer.user = current_user
     if @answer.save
       redirect_to question_path(@question)
     else
@@ -24,11 +25,11 @@ class AnswersController < ApplicationController
 
   private
 
-  def answer_params
-    params.require(:answer).permit(:question_id, :body)
-  end
-
   def set_question
     @question = Question.find(params[:question_id])
+  end
+
+  def answer_params
+    params.require(:answer).permit(:question_id, :body, :user_id)
   end
 end
