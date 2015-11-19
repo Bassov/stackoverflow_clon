@@ -3,8 +3,10 @@ require 'rails_helper'
 
 RSpec.describe AnswersController, type: :controller do
   let(:question) { create(:question, user: user) }
+  let(:user_answer) { create(:answer, question: question, user: @user) }
   let(:answer) { create(:answer, question: question, user: user) }
   let(:user) { create(:user) }
+  before { request.env["HTTP_REFERER"] = 'where_i_came_from' }
 
   describe 'GET #new' do
     sign_in_user
@@ -53,14 +55,28 @@ RSpec.describe AnswersController, type: :controller do
   describe 'DELETE #destroy' do
     sign_in_user
 
-    it 'deletes answer' do
-      answer
-      expect { delete :destroy, id: answer }.to change(Answer, :count).by(-1)
+    context 'author of answer deletes answer' do
+      it 'deletes answer' do
+        user_answer
+        expect { delete :destroy, id: user_answer }.to change(Answer, :count).by(-1)
+      end
+
+      it 'redirects to index view' do
+        delete :destroy, id: user_answer
+        expect(response).to redirect_to question_path(question)
+      end
     end
 
-    it 'redirects to index view' do
-      delete :destroy, id: answer
-      expect(response).to redirect_to question_path(question)
+    context 'non-author of answer tries to delete it' do
+      it 'does not delete answer' do
+        answer
+        expect { delete :destroy, id: answer }.to_not change(Answer, :count)
+      end
+
+      it 'redirects user back' do
+        delete :destroy, id: answer
+        expect(response).to redirect_to 'where_i_came_from'
+      end
     end
   end
 end

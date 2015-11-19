@@ -2,6 +2,8 @@
 class AnswersController < ApplicationController
   before_action :authenticate_user!
   before_action :set_question, only: [:new, :create]
+  before_action :set_answer, only: :destroy
+  before_action :check_authority, only: :destroy
 
   def new
     @answer = @question.answers.new
@@ -18,7 +20,6 @@ class AnswersController < ApplicationController
   end
 
   def destroy
-    @answer = Answer.find(params[:id])
     @answer.destroy
     redirect_to @answer.question
   end
@@ -27,6 +28,14 @@ class AnswersController < ApplicationController
 
   def set_question
     @question = Question.find(params[:question_id])
+  end
+
+  def set_answer
+    @answer = Answer.find(params[:id])
+  end
+
+  def check_authority
+    redirect_to :back unless current_user.author_of(@answer)
   end
 
   def answer_params
