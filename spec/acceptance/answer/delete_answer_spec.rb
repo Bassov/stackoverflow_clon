@@ -12,11 +12,11 @@ feature 'Delete answer', '
   scenario 'Author of answer deletes answer' do
     sign_in(user)
     question = create(:question)
-    answer = create(:answer, question: question)
+    answer = create(:answer, question: question, user: user)
 
     visit questions_path
     click_on question.title
-    click_on 'Удалить'
+    page.first(:link, 'Удалить').click
 
     expect(current_path).to eq question_path(question)
     expect(page).to have_content 'Ответ успешно удален'
