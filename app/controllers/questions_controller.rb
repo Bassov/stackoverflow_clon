@@ -37,13 +37,13 @@ class QuestionsController < ApplicationController
 
   def destroy
     @question.destroy
-    redirect_to questions_path
+    redirect_to questions_path, notice: 'Успешно удалено'
   end
 
   private
 
   def check_authority
-    redirect_to :back unless current_user.author_of(@question)
+    redirect_to :back, notice: 'Вы не являетесь автором вопроса' unless current_user.author_of(@question)
   end
 
   def set_question
