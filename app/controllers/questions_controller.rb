@@ -2,7 +2,7 @@
 class QuestionsController < ApplicationController
   before_action :authenticate_user!, except:  [:index, :show]
   before_action :set_question, only: [:show, :edit, :update, :destroy]
-  before_action :check_authority, only: [:edit]
+  before_action :check_authority, only: [:edit, :update]
 
   def index
     @questions = Question.all
@@ -19,7 +19,7 @@ class QuestionsController < ApplicationController
   end
 
   def create
-    @question = Question.create(questions_params)
+    @question = current_user.questions.new(questions_params)
     if @question.save
       redirect_to questions_path
     else
