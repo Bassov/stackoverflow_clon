@@ -12,7 +12,7 @@ feature 'Delete answer', '
   scenario 'Author of answer deletes answer' do
     sign_in(user)
     question = create(:question)
-    answer = create(:answer, question: question, user: user)
+    create(:answer, question: question, user: user)
 
     visit questions_path
     click_on question.title
@@ -20,5 +20,17 @@ feature 'Delete answer', '
 
     expect(current_path).to eq question_path(question)
     expect(page).to have_content 'Ответ успешно удален'
+  end
+
+  scenario 'Non-author of answer tries to delete answer' do
+    sign_in(user)
+    question = create(:question)
+    create(:answer, question: question, user: another_user)
+
+    visit questions_path
+    click_on question.title
+    page.first(:link, 'Удалить').click
+
+    expect(page).to have_content 'Вы не являетесь автором ответаg'
   end
 end
