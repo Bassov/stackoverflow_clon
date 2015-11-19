@@ -7,8 +7,9 @@ feature 'View question', '
   I want to be able to view existing questions
 ' do
   scenario 'guest views question' do
-    question = create(:question)
-    answer = create(:answer, question: question)
+    user = create(:user)
+    question = create(:question, user: user)
+    answer = create(:answer, question: question, user: user)
 
     visit questions_path
     click_on question.title
