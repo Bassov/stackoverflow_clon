@@ -29,7 +29,7 @@ class QuestionsController < ApplicationController
 
   def update
     if @question.update(questions_params)
-      redirect_to @question
+      redirect_to @question, notice: 'Вопрос успешно отредактирован'
     else
       render :edit
     end
