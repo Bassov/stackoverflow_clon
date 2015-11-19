@@ -21,7 +21,7 @@ class AnswersController < ApplicationController
 
   def destroy
     @answer.destroy
-    redirect_to @answer.question
+    redirect_to @answer.question, notice: 'Ответ успешно удален'
   end
 
   private
@@ -35,7 +35,7 @@ class AnswersController < ApplicationController
   end
 
   def check_authority
-    redirect_to :back unless current_user.author_of(@answer)
+    redirect_to :back, notice: 'Вы не являетесь автором ответа' unless current_user.author_of(@answer)
   end
 
   def answer_params

@@ -2,7 +2,7 @@
 require 'rails_helper'
 
 feature 'Delete question', '
-  In order to delete quetion
+  In order to delete question
   As an author of question
   I want to be able to delete question
 ' do
