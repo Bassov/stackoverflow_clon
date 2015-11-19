@@ -31,6 +31,6 @@ feature 'Delete answer', '
     click_on question.title
     page.first(:link, 'Удалить').click
 
-    expect(page).to have_content 'Вы не являетесь автором ответаg'
+    expect(page).to have_content 'Вы не являетесь автором ответа'
   end
 end
