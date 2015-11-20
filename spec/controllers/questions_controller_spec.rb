@@ -6,7 +6,7 @@ RSpec.describe QuestionsController, type: :controller do
   let(:question) { create(:question, user: user) }
   let(:user_question) { create(:question, user: @user) }
   let(:user) { create(:user) }
-  before { request.env["HTTP_REFERER"] = 'where_i_came_from' }
+  before { request.env['HTTP_REFERER'] = 'where_i_came_from' }
 
   describe 'GET #index' do
     before { get :index }
@@ -128,7 +128,7 @@ RSpec.describe QuestionsController, type: :controller do
         it 'does not change question attributes' do
           old_title = user_question.title
           old_body = user_question.body
-          
+
           user_question.reload
           expect(user_question.title).to eq old_title
           expect(user_question.body).to eq old_body
@@ -176,7 +176,7 @@ RSpec.describe QuestionsController, type: :controller do
     context 'non-author tries to delete question' do
       it 'don`t deletes question' do
         question
-        expect { delete :destroy, id: question}.to_not change(Question, :count)
+        expect { delete :destroy, id: question }.to_not change(Question, :count)
       end
 
       it 'redirects back' do

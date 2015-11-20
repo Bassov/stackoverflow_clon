@@ -6,7 +6,7 @@ RSpec.describe AnswersController, type: :controller do
   let(:user_answer) { create(:answer, question: question, user: @user) }
   let(:answer) { create(:answer, question: question, user: user) }
   let(:user) { create(:user) }
-  before { request.env["HTTP_REFERER"] = 'where_i_came_from' }
+  before { request.env['HTTP_REFERER'] = 'where_i_came_from' }
 
   describe 'GET #new' do
     sign_in_user
