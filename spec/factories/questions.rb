@@ -1,8 +1,16 @@
 # encoding: utf-8
 FactoryGirl.define do
+  sequence :title do |n|
+    "MyQuestionString#{n}"
+  end
+
+  sequence :body do |n|
+    "MyQuestionText#{n}"
+  end
+
   factory :question do
-    title 'MyQuestionString'
-    body 'MyQuestionText'
+    title
+    body
     user
   end
 

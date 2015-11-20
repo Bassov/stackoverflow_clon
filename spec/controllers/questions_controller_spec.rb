@@ -126,9 +126,12 @@ RSpec.describe QuestionsController, type: :controller do
         before { patch :update, id: user_question, question: { title: 'new title', body: nil } }
 
         it 'does not change question attributes' do
+          old_title = user_question.title
+          old_body = user_question.body
+          
           user_question.reload
-          expect(user_question.title).to eq 'MyQuestionString'
-          expect(user_question.body).to eq 'MyQuestionText'
+          expect(user_question.title).to eq old_title
+          expect(user_question.body).to eq old_body
         end
 
         it 're-renders edit template' do
@@ -141,9 +144,12 @@ RSpec.describe QuestionsController, type: :controller do
       before { patch :update, id: question, question: { title: 'new title', body: 'new body' } }
 
       it 'does not change question attributes' do
+        old_title = question.title
+        old_body = question.body
+
         question.reload
-        expect(question.title).to eq 'MyQuestionString'
-        expect(question.body).to eq 'MyQuestionText'
+        expect(question.title).to eq old_title
+        expect(question.body).to eq old_body
       end
 
       it 're-renders question view' do
