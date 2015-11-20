@@ -127,8 +127,8 @@ RSpec.describe QuestionsController, type: :controller do
 
         it 'does not change question attributes' do
           user_question.reload
-          expect(user_question.title).to eq 'MyString'
-          expect(user_question.body).to eq 'MyText'
+          expect(user_question.title).to eq 'MyQuestionString'
+          expect(user_question.body).to eq 'MyQuestionText'
         end
 
         it 're-renders edit template' do
@@ -142,8 +142,8 @@ RSpec.describe QuestionsController, type: :controller do
 
       it 'does not change question attributes' do
         question.reload
-        expect(question.title).to eq 'MyString'
-        expect(question.body).to eq 'MyText'
+        expect(question.title).to eq 'MyQuestionString'
+        expect(question.body).to eq 'MyQuestionText'
       end
 
       it 're-renders question view' do

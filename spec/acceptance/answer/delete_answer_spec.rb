@@ -9,10 +9,10 @@ feature 'Delete answer', '
   given(:user) { create(:user) }
   given(:another_user) { create(:user) }
   given!(:question) { create(:question) }
+  given!(:answer) { create(:answer, question: question, user: user) }
 
   scenario 'Author of answer deletes answer' do
     sign_in(user)
-    create(:answer, question: question, user: user)
 
     visit questions_path
     click_on question.title
@@ -20,5 +20,6 @@ feature 'Delete answer', '
 
     expect(current_path).to eq question_path(question)
     expect(page).to have_content 'Ответ успешно удален'
+    expect(page).to_not have_content answer.body
   end
 end
