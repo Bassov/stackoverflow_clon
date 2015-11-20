@@ -9,6 +9,6 @@ class User < ActiveRecord::Base
   has_many :questions
 
   def author_of(object)
-    self == object.user
+    id == object.user_id
   end
 end
