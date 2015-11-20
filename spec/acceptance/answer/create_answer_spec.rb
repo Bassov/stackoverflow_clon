@@ -7,11 +7,10 @@ feature 'Answer questions', '
   I want to be able to answer questions
 ' do
   given(:user) { create(:user) }
-  given(:question) { create(:question) }
+  given!(:question) { create(:question) }
 
   scenario 'Authenticated user answers question' do
     sign_in(user)
-    question
 
     visit questions_path
     click_on question.title
@@ -23,7 +22,7 @@ feature 'Answer questions', '
     expect(page).to have_content 'Test body'
   end
 
-  scenario 'Non-authenticateed user tries to answer question' do
+  scenario 'Non-authenticated user tries to answer question' do
     question
 
     visit questions_path
