@@ -1,8 +1,5 @@
 # encoding: utf-8
 FactoryGirl.define do
-  sequence :answer do |n|
-    "MyAnswerString#{n}"
-  end
 
   factory :answer do
     body

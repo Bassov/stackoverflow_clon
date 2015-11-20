@@ -1,11 +1,11 @@
 # encoding: utf-8
 FactoryGirl.define do
   sequence :title do |n|
-    "MyQuestionString#{n}"
+    "MyString#{n}"
   end
 
   sequence :body do |n|
-    "MyQuestionText#{n}"
+    "MyText#{n}"
   end
 
   factory :question do
