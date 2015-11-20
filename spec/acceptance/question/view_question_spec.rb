@@ -6,16 +6,16 @@ feature 'View question', '
   As a guest
   I want to be able to view existing questions
 ' do
-  scenario 'guest views question' do
-    user = create(:user)
-    question = create(:question, user: user)
-    answer = create(:answer, question: question, user: user)
+  given(:user) { create(:user) }
+  given!(:question) { create(:question, user: user) }
+  given!(:answers) { create_list(:answer, 2, question: question, user: user) }
 
+  scenario 'guest views question' do
     visit questions_path
     click_on question.title
 
     expect(page).to have_content question.title
     expect(page).to have_content question.body
-    expect(page).to have_content answer.body
+    answers.each { |answer| expect(page).to have_content answer.body }
   end
 end
