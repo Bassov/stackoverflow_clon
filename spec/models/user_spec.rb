@@ -12,6 +12,6 @@ RSpec.describe User, type: :model do
     user = create(:user)
     object = create(:question, user: user)
 
-    user.author_of(object).should == true
+    expect(user.author_of(object)).to eq true
   end
 end
