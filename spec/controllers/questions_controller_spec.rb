@@ -2,8 +2,11 @@
 require 'rails_helper'
 
 RSpec.describe QuestionsController, type: :controller do
-  let(:questions) { create_list(:question, 2) }
-  let(:question) { create(:question) }
+  let(:questions) { create_list(:question, 2, user: user) }
+  let(:question) { create(:question, user: user) }
+  let(:user_question) { create(:question, user: @user) }
+  let(:user) { create(:user) }
+  before { request.env['HTTP_REFERER'] = 'where_i_came_from' }
 
   describe 'GET #index' do
     before { get :index }
@@ -29,6 +32,8 @@ RSpec.describe QuestionsController, type: :controller do
   end
 
   describe 'GET #new' do
+    sign_in_user
+
     before { get :new }
 
     it 'assigns a new Question to @question' do
@@ -38,29 +43,47 @@ RSpec.describe QuestionsController, type: :controller do
     it 'renders new view' do
       expect(response).to render_template :new
     end
+
+    it 'assigns current user to question' do
+      expect(assigns(:question).user_id).to eq @user.id
+    end
   end
 
   describe 'GET #edit' do
-    before { get :edit, id: question }
+    sign_in_user
 
-    it 'assigns the requested question to @question' do
-      expect(assigns(:question)).to eq question
+    context 'author of question edits it' do
+      before { get :edit, id: user_question }
+
+      it 'assigns the requested question to @question' do
+        expect(assigns(:question)).to eq user_question
+      end
+
+      it 'renders new edit' do
+        expect(response).to render_template :edit
+      end
     end
 
-    it 'renders new edit' do
-      expect(response).to render_template :edit
+    context 'non-author tries to edit question' do
+      before { get :edit, id: question }
+
+      it 're-renders question view' do
+        expect(response).to redirect_to 'where_i_came_from'
+      end
     end
   end
 
   describe 'POST #create' do
+    sign_in_user
+
     context 'with valid attributes' do
       it 'saves the new question in the database' do
         expect { post :create, question: attributes_for(:question) }.to change(Question, :count).by(1)
       end
 
-      it 'redirects to show view' do
+      it 'redirects to questions view' do
         post :create, question: attributes_for(:question)
-        expect(response).to redirect_to question_path(assigns(:question))
+        expect(response).to redirect_to questions_path
       end
     end
 
@@ -77,50 +100,89 @@ RSpec.describe QuestionsController, type: :controller do
   end
 
   describe 'PATCH #update' do
-    context 'valid attributes' do
-      it 'assigns the requested question to @question' do
-        patch :update, id: question, question: attributes_for(:question)
-        expect(assigns(:question)).to eq question
+    sign_in_user
+
+    context 'author of question updates question' do
+      context 'valid attributes' do
+        it 'assigns the requested question to @question' do
+          patch :update, id: user_question, question: attributes_for(:question)
+          expect(assigns(:question)).to eq user_question
+        end
+
+        it 'change questions attributes' do
+          patch :update, id: user_question, question: { title: 'new title', body: 'new body' }
+          user_question.reload
+          expect(user_question.title).to eq 'new title'
+          expect(user_question.body).to eq 'new body'
+        end
+
+        it 'redirects to the updated question' do
+          patch :update, id: user_question, question: attributes_for(:question)
+          expect(response).to redirect_to user_question
+        end
       end
 
-      it 'change questions attributes' do
-        patch :update, id: question, question: { title: 'new title', body: 'new body' }
-        question.reload
-        expect(question.title).to eq 'new title'
-        expect(question.body).to eq 'new body'
-      end
+      context 'invalid attributes' do
+        before { patch :update, id: user_question, question: { title: 'new title', body: nil } }
 
-      it 'redirects to the updated question' do
-        patch :update, id: question, question: attributes_for(:question)
-        expect(response).to redirect_to question
+        it 'does not change question attributes' do
+          old_title = user_question.title
+          old_body = user_question.body
+
+          user_question.reload
+          expect(user_question.title).to eq old_title
+          expect(user_question.body).to eq old_body
+        end
+
+        it 're-renders edit template' do
+          expect(response).to render_template :edit
+        end
       end
     end
 
-    context 'invalid attributes' do
-      before { patch :update, id: question, question: { title: 'new title', body: nil } }
+    context 'non-author tries to update question' do
+      before { patch :update, id: question, question: { title: 'new title', body: 'new body' } }
 
       it 'does not change question attributes' do
-        patch :update, id: question, question: { title: 'new title', body: nil }
+        old_title = question.title
+        old_body = question.body
+
         question.reload
-        expect(question.title).to eq 'MyString'
-        expect(question.body).to eq 'MyText'
+        expect(question.title).to eq old_title
+        expect(question.body).to eq old_body
       end
 
-      it 're-renders edit template' do
-        expect(response).to render_template :edit
+      it 're-renders question view' do
+        expect(response).to redirect_to 'where_i_came_from'
       end
     end
   end
 
   describe 'DELETE #destroy' do
-    it 'deletes question' do
-      question
-      expect { delete :destroy, id: question }.to change(Question, :count).by(-1)
+    sign_in_user
+
+    context 'author of question deletes question' do
+      it 'deletes question' do
+        user_question
+        expect { delete :destroy, id: user_question }.to change(Question, :count).by(-1)
+      end
+
+      it 'redirects to index view' do
+        delete :destroy, id: user_question
+        expect(response).to redirect_to questions_path
+      end
     end
 
-    it 'redirects to index view' do
-      delete :destroy, id: question
-      expect(response).to redirect_to questions_path
+    context 'non-author tries to delete question' do
+      it 'don`t deletes question' do
+        question
+        expect { delete :destroy, id: question }.to_not change(Question, :count)
+      end
+
+      it 'redirects back' do
+        delete :destroy, id: question
+        expect(response).to redirect_to 'where_i_came_from'
+      end
     end
   end
 end

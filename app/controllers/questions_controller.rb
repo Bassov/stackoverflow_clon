@@ -1,6 +1,8 @@
 # encoding: utf-8
 class QuestionsController < ApplicationController
+  before_action :authenticate_user!, except:  [:index, :show]
   before_action :set_question, only: [:show, :edit, :update, :destroy]
+  before_action :check_authority, only: [:edit, :update, :destroy]
 
   def index
     @questions = Question.all
@@ -10,16 +12,16 @@ class QuestionsController < ApplicationController
   end
 
   def new
-    @question = Question.new
+    @question = current_user.questions.new
   end
 
   def edit
   end
 
   def create
-    @question = Question.create(questions_params)
+    @question = current_user.questions.new(questions_params)
     if @question.save
-      redirect_to @question
+      redirect_to questions_path
     else
       render :new
     end
@@ -27,7 +29,7 @@ class QuestionsController < ApplicationController
 
   def update
     if @question.update(questions_params)
-      redirect_to @question
+      redirect_to @question, notice: 'Вопрос успешно отредактирован'
     else
       render :edit
     end
@@ -35,10 +37,14 @@ class QuestionsController < ApplicationController
 
   def destroy
     @question.destroy
-    redirect_to questions_path
+    redirect_to questions_path, notice: 'Успешно удалено'
   end
 
   private
+
+  def check_authority
+    redirect_to :back, notice: 'Вы не являетесь автором вопроса' unless current_user.author_of(@question)
+  end
 
   def set_question
     @question = Question.find(params[:id])

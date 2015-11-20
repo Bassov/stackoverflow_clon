@@ -31,8 +31,15 @@ html lang="en"
           .navbar-collapse.collapse.navbar-responsive-collapse
             ul.nav.navbar-nav
               li= link_to 'Вопросы', questions_path
+              - if user_signed_in?
+                li = link_to 'Выйти', destroy_user_session_path, method: :delete
+              - else
+                li = link_to 'Войти', new_user_session_path
+                li = link_to 'Зарегистрироваться', new_user_registration_path
 
     .container
+      p.notice = notice
+      p.alert = alert
 
       = yield
 
