@@ -16,22 +16,13 @@ feature 'Edit question', '
     visit questions_path
     click_on question.title
     clic_on 'Изменить'
-    fill_in 'Title', with: 'Edited question'
+    fill_in 'Title', with: 'Edited title'
     fill_in 'Body', with: 'Edited body'
     click_on 'Изменить'
 
     expect(current_path).to eq question_path(question)
     expect(page).to have_content 'Вопрос успешно отредактирован'
-  end
-
-  scenario 'Non-author tries to edit another users question' do
-    sign_in(user)
-    question = create(:question, user: another_user)
-
-    visit questions_path
-    click_on question.title
-    click_on 'Изменить'
-
-    expect(page).to have_content 'Вы не являетесь автором вопроса'
+    expect(page).to have_content 'Edited title'
+    expect(page).to have_contetn 'Edited body'
   end
 end
