@@ -8,20 +8,6 @@ RSpec.describe AnswersController, type: :controller do
   let(:user) { create(:user) }
   before { request.env['HTTP_REFERER'] = 'where_i_came_from' }
 
-  describe 'GET #new' do
-    sign_in_user
-
-    it 'sets question.answers.new to @answer' do
-      get :new, question_id: question
-      expect(assigns(:answer)).to be_a_new Answer
-      expect(assigns(:answer).question).to eq question
-    end
-    it 'render new view'do
-      get :new, question_id: question
-      expect(response).to render_template :new
-    end
-  end
-
   describe 'POST #create' do
     sign_in_user
 
@@ -47,7 +33,7 @@ RSpec.describe AnswersController, type: :controller do
 
       it 're-renders new view' do
         post :create, question_id: question, answer: attributes_for(:invalid_answer)
-        expect(response).to render_template :new
+        expect(response).to redirect_to question_path(question)
       end
     end
   end

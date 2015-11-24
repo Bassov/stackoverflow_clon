@@ -14,12 +14,13 @@ feature 'Answer questions', '
 
     visit questions_path
     click_on question.title
-    click_on 'Ответить'
     fill_in 'Body', with: 'Test body'
     click_on 'Ответить'
 
     expect(current_path).to eq question_path(question)
-    expect(page).to have_content 'Test body'
+    within '.answers' do
+      expect(page).to have_content 'Test body'
+    end
   end
 
   scenario 'Non-authenticated user tries to answer question' do
