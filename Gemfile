@@ -46,12 +46,14 @@ group :development, :test do
   gem 'rubocop-rspec'
   gem 'rubocop', require: false
   gem 'factory_girl_rails'
+  gem 'capybara'
+  gem 'launchy'
+  gem 'selenium-webdriver'
+  gem 'database_cleaner'
 end
 
 group :test do
   gem 'shoulda'
-  gem 'capybara'
-  gem 'launchy'
 end
 
 group :development do
