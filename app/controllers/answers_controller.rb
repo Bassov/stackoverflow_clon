@@ -9,12 +9,11 @@ class AnswersController < ApplicationController
     @answer = @question.answers.create(answer_params)
     @answer.user = current_user
     @answer.save
-    redirect_to @question
   end
 
   def destroy
     @answer.destroy
-    redirect_to @answer.question, notice: 'Ответ успешно удален'
+    redirect_to :back, notice: 'Ответ успешно удален'
   end
 
   private

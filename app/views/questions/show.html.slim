@@ -1,16 +1,14 @@
 h2 = @question.title
 p = @question.body
-
-.answers
-  - @question.answers.each do |answer|
-    p = answer.body
-    - if user_signed_in? && current_user.author_of(answer)
-      = link_to 'Удалить', answer_path(answer.id), method: :delete, data: { confirm: 'Вы уверены?' }, class: 'btn btn-default'
-
-= bootstrap_form_for [@question, @answer] do |f|
-  = f.text_area :body
-  = f.submit 'Ответить'
+br
 
 - if user_signed_in? && current_user.author_of(@question)
   = link_to 'Изменить', edit_question_path, class: 'btn btn-default'
   = link_to 'Удалить', question_path, method: :delete, data: { confirm: 'Вы уверены?' }, class: 'btn btn-default'
+
+.answers
+  = render 'answers/answers'
+
+= bootstrap_form_for [@question, @answer], remote: true do |f|
+  = f.text_area :body
+  = f.submit 'Ответить'

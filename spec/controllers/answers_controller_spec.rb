@@ -14,26 +14,26 @@ RSpec.describe AnswersController, type: :controller do
     context 'with valid attribute' do
       it 'creates new answer' do
         expect do
-          post :create, question_id: question, answer: attributes_for(:answer)
+          post :create, question_id: question, answer: attributes_for(:answer), format: :js
         end.to change(question.answers, :count).by 1
       end
 
-      it 'redirect to question/show view' do
-        post :create, question_id: question, answer: attributes_for(:answer)
-        expect(response).to redirect_to question_path(question)
+      it 'renders create template' do
+        post :create, question_id: question, answer: attributes_for(:answer), format: :js
+        expect(response).to render_template :create
       end
     end
 
     context 'don`t creates new answer`' do
       it 'does not save the question' do
         expect do
-          post :create, question_id: question, answer: attributes_for(:invalid_answer)
+          post :create, question_id: question, answer: attributes_for(:invalid_answer), format: :js
         end.to_not change(Answer, :count)
       end
 
-      it 're-renders new view' do
-        post :create, question_id: question, answer: attributes_for(:invalid_answer)
-        expect(response).to redirect_to question_path(question)
+      it 'renders create template' do
+        post :create, question_id: question, answer: attributes_for(:invalid_answer), format: :js
+        expect(response).to render_template :create
       end
     end
   end
@@ -47,9 +47,9 @@ RSpec.describe AnswersController, type: :controller do
         expect { delete :destroy, id: user_answer }.to change(Answer, :count).by(-1)
       end
 
-      it 'redirects to index view' do
+      it 'redirects to render question view' do
         delete :destroy, id: user_answer
-        expect(response).to redirect_to question_path(question)
+        expect(response).to redirect_to 'where_i_came_from'
       end
     end
 
@@ -57,11 +57,6 @@ RSpec.describe AnswersController, type: :controller do
       it 'does not delete answer' do
         answer
         expect { delete :destroy, id: answer }.to_not change(Answer, :count)
-      end
-
-      it 'redirects user back' do
-        delete :destroy, id: answer
-        expect(response).to redirect_to 'where_i_came_from'
       end
     end
   end
