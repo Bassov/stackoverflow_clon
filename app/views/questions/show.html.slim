@@ -7,7 +7,7 @@ br
   = link_to 'Удалить', question_path, method: :delete, data: { confirm: 'Вы уверены?' }, class: 'btn btn-default'
 
 .answers
-  = render 'answers/answers'
+  = render @question.answers
 
 = bootstrap_form_for [@question, @answer], remote: true do |f|
   = f.text_area :body
