@@ -7,7 +7,6 @@ feature 'Delete answer', '
   I want to be able to delete answer
 ' do
   given(:user) { create(:user) }
-  given(:another_user) { create(:user) }
   given!(:question) { create(:question) }
   given!(:answer) { create(:answer, question: question, user: user) }
 
