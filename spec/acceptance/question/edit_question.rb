@@ -1,5 +1,5 @@
 # encoding: utf-8
-require 'rails_helper'
+require_relative '../acceptance_helper'
 
 feature 'Edit question', '
   In order to edit my question
@@ -7,11 +7,10 @@ feature 'Edit question', '
   I want to be able to edit my question
 ' do
   given(:user) { create(:user) }
-  given(:another_user) { create(:user) }
+  given!(:question) { create(:question, user: user) }
 
   scenario 'Author of question edits it' do
     sign_in(user)
-    question = create(:question, user: user)
 
     visit questions_path
     click_on question.title

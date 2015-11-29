@@ -1,5 +1,5 @@
 # encoding: utf-8
-require 'rails_helper'
+require_relative '../acceptance_helper'
 
 feature 'Delete answer', '
   In order to delete answer
