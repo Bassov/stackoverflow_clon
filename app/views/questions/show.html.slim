@@ -11,4 +11,5 @@ br
 
 = bootstrap_form_for [@question, @answer], remote: true do |f|
   = f.text_area :body
+  .answer-errors
   = f.submit 'Ответить'

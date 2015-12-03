@@ -11,9 +11,7 @@ class AnswersController < ApplicationController
 
   def destroy
     @answer = Answer.find(params[:id])
-    return redirect_to :back, notice: 'Вы не являетесь автором вопроса' unless current_user.author_of(@answer)
-    @answer.destroy
-    redirect_to :back, notice: 'Ответ успешно удален'
+    @answer.destroy if current_user.author_of(@answer)
   end
 
   private

@@ -1,3 +1,5 @@
-p = answer.body
-- if user_signed_in? && current_user.author_of(answer)
-  p= link_to 'Удалить', answer_path(answer.id), method: :delete, data: { confirm: 'Вы уверены?' }, class: 'btn btn-default'
+= div_for answer do
+  p = answer.body
+  - if user_signed_in? && current_user.author_of(answer)
+    p= link_to 'Удалить', answer, method: :delete, data: { confirm: 'Вы уверены?' },
+      remote: true, class: 'btn btn-default'
