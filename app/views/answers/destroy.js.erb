@@ -1,2 +1,3 @@
 $('#answer_<%= @answer.id  %>').remove();
-$('.notice').append('<p>Ответ успешно удален</p>');
+$('.notice').html('<p>Ответ успешно удален</p>');
+$('.notice').fadeOut('slow');
