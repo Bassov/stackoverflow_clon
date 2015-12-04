@@ -22,6 +22,16 @@ feature 'Answer questions', '
     end
   end
 
+  scenario 'Authenticated user tries to answer question with invalid attributes', js: true do
+    sign_in(user)
+
+    visit question_path(question)
+    fill_in 'Body', with: nil
+    click_on 'Ответить'
+
+    expect(page).to have_content 'Ответ не может быть пустым'
+  end
+
   scenario 'Non-authenticated user tries to answer question' do
     visit question_path(question)
     fill_in 'Body', with: 'Test body'
