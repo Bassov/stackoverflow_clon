@@ -3,13 +3,16 @@ p = @question.body
 br
 
 - if user_signed_in? && current_user.author_of(@question)
-  = link_to 'Изменить', edit_question_path, class: 'btn btn-default'
-  = link_to 'Удалить', question_path, method: :delete, data: { confirm: 'Вы уверены?' }, class: 'btn btn-default'
+  .row
+    .col-md-1
+      = link_to 'Изменить', edit_question_path, class: 'btn btn-default'
+    .col-md-1
+      = link_to 'Удалить', question_path, method: :delete, data: { confirm: 'Вы уверены?' }, class: 'btn btn-default'
 
 .answers
   = render @question.answers
 
 = bootstrap_form_for [@question, @answer], remote: true do |f|
-  = f.text_area :body
+  = f.text_area :body, id: 'new-answer-body'
   .answer-errors
   = f.submit 'Ответить'

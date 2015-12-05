@@ -1,6 +1,12 @@
 # encoding: utf-8
 class AnswersController < ApplicationController
   before_action :authenticate_user!
+  before_action :set_answer, except: :create
+
+  def update
+    @question = @answer.question
+    @answer.update(answer_params) if current_user.author_of(@answer)
+  end
 
   def create
     @question = Question.find(params[:question_id])
@@ -10,11 +16,14 @@ class AnswersController < ApplicationController
   end
 
   def destroy
-    @answer = Answer.find(params[:id])
     @answer.destroy if current_user.author_of(@answer)
   end
 
   private
+
+  def set_answer
+    @answer = Answer.find(params[:id])
+  end
 
   def answer_params
     params.require(:answer).permit(:body)

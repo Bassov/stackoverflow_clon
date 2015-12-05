@@ -5,4 +5,6 @@ class Answer < ActiveRecord::Base
   belongs_to :user
 
   validates :body, :question_id, :user_id, presence: true
+
+  default_scope { self.order(:id) }
 end
