@@ -88,13 +88,12 @@ RSpec.describe AnswersController, type: :controller do
     end
 
     context 'non-author tries to update question' do
+      before { @old_body = answer.body }
       before { patch :update, id: answer, question_id: question, answer: attributes_for(:answer), format: :js }
 
       it 'does not change question attributes' do
-        old_body = answer.body
-
         answer.reload
-        expect(answer.body).to eq old_body
+        expect(answer.body).to eq @old_body
       end
 
       it 'renders update template' do
