@@ -1,10 +1,16 @@
 # encoding: utf-8
-# One day there would be comment about this model
 class Answer < ActiveRecord::Base
   belongs_to :question
   belongs_to :user
 
   validates :body, :question_id, :user_id, presence: true
 
-  default_scope { self.order(:id) }
+  default_scope { order(best: :desc).order(:created_at) }
+
+  def make_best
+    ActiveRecord::Base.transaction do
+      self.question.answers.update_all(best: false)
+      raise ActiveRecord::Rollback unless self.update(best: true)
+    end
+  end
 end

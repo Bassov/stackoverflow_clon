@@ -3,6 +3,7 @@ FactoryGirl.define do
   factory :answer do
     user
     body
+    question
   end
 
   factory :invalid_answer, class: 'Answer' do

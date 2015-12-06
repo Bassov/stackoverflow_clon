@@ -14,3 +14,8 @@
           = f.text_area :body
           .answer-errors
           = f.submit 'Сохранить'
+
+    - if user_signed_in? && current_user.author_of(answer.question)
+      .row
+       .col-md-1
+          = link_to 'Лучший ответ', make_best_answer_path(answer), method: :patch, remote: true, class: 'btn btn-default'

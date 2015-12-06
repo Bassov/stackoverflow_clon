@@ -1,5 +1,5 @@
 class AddBestAnswerToAnswers < ActiveRecord::Migration
   def change
-    add_column :answers, :best_answer, :boolean, default: :false
+    add_column :answers, :best, :boolean, default: :false
   end
 end

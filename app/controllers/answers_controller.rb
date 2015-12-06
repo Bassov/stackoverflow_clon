@@ -2,9 +2,9 @@
 class AnswersController < ApplicationController
   before_action :authenticate_user!
   before_action :set_answer, except: :create
+  before_action :set_answer_question, only: [:update, :make_best]
 
   def update
-    @question = @answer.question
     @answer.update(answer_params) if current_user.author_of(@answer)
   end
 
@@ -19,7 +19,15 @@ class AnswersController < ApplicationController
     @answer.destroy if current_user.author_of(@answer)
   end
 
+  def make_best
+    @answer.make_best if current_user.author_of(@question)
+  end
+
   private
+
+  def set_answer_question
+    @question = @answer.question
+  end
 
   def set_answer
     @answer = Answer.find(params[:id])

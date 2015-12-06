@@ -3,8 +3,9 @@ require 'rails_helper'
 
 RSpec.describe AnswersController, type: :controller do
   let(:question) { create(:question, user: user) }
-  let(:user_answer) { create(:answer, question: question, user: @user) }
   let(:answer) { create(:answer, question: question, user: user) }
+  let(:user_question) { create(:question, user: @user) }
+  let(:user_answer) { create(:answer, question: question, user: @user) }
   let(:user) { create(:user) }
 
   describe 'POST #create' do
@@ -98,6 +99,45 @@ RSpec.describe AnswersController, type: :controller do
 
       it 'renders update template' do
         expect(response).to render_template :update
+      end
+    end
+  end
+
+  describe 'PATCH #make_best' do
+    sign_in_user
+    let(:answer_user_question) { create(:answer, question: user_question, user: user) }
+
+    context 'author of question sets answer to be best' do
+      before { patch :make_best, id: answer_user_question, format: :js }
+
+      it 'assigns the requested answer to @answer' do
+        expect(assigns(:answer)).to eq answer_user_question
+      end
+
+      it 'assigns the answer question to @question' do
+        expect(assigns(:question)).to eq answer_user_question.question
+      end
+
+      it 'makes selected answer to be the best' do
+        answer_user_question.reload
+        expect(answer_user_question.best?).to be true
+      end
+    end
+
+    context 'non-author of question sets answer to be best' do
+      before { patch :make_best, id: answer, question_id: question, answer: { best: true }, format: :js }
+
+      it 'assigns the requested answer to @answer' do
+        expect(assigns(:answer)).to eq answer
+      end
+
+      it 'assigns the requested question to @question' do
+        expect(assigns(:question)).to eq question
+      end
+
+      it 'don`t changes answers best option' do
+        answer.reload
+        expect(answer.best?).to be false
       end
     end
   end
