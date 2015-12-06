@@ -44,7 +44,7 @@ class QuestionsController < ApplicationController
   private
 
   def check_authority
-    redirect_to :back, notice: 'Вы не являетесь автором вопроса' unless current_user.author_of(@question)
+    redirect_to :back, notice: 'Вы не являетесь автором вопроса' unless current_user.author_of?(@question)
   end
 
   def set_question

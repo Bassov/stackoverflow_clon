@@ -2,7 +2,7 @@ h2 = @question.title
 p = @question.body
 br
 
-- if user_signed_in? && current_user.author_of(@question)
+- if user_signed_in? && current_user.author_of?(@question)
   .row
     .col-md-1
       = link_to 'Изменить', edit_question_path, class: 'btn btn-default'
