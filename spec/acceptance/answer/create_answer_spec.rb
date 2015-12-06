@@ -9,11 +9,12 @@ feature 'Answer questions', '
   given(:user) { create(:user) }
   given!(:question) { create(:question, user: user) }
 
+
   scenario 'Authenticated user answers question', js: true do
     sign_in(user)
 
     visit question_path(question)
-    fill_in 'Body', with: 'Test body'
+    fill_in 'new-answer-body', with: 'Test body'
     click_on 'Ответить'
 
     expect(current_path).to eq question_path(question)
@@ -26,7 +27,7 @@ feature 'Answer questions', '
     sign_in(user)
 
     visit question_path(question)
-    fill_in 'Body', with: nil
+    fill_in 'new-answer-body', with: nil
     click_on 'Ответить'
 
     expect(page).to have_content 'Ответ не может быть пустым'
@@ -34,7 +35,7 @@ feature 'Answer questions', '
 
   scenario 'Non-authenticated user tries to answer question' do
     visit question_path(question)
-    fill_in 'Body', with: 'Test body'
+    fill_in 'new-answer-body', with: 'Test body'
     click_on 'Ответить'
 
     expect(page).to have_content 'You need to sign in or sign up before continuing.'
