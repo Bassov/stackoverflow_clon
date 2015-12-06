@@ -1,5 +1,5 @@
 # encoding: utf-8
-require 'rails_helper'
+require_relative '../acceptance_helper'
 
 feature 'Create question', '
   In order to get answers from community

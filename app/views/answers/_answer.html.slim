@@ -1,3 +1,21 @@
-p = answer.body
-- if user_signed_in? && current_user.author_of(answer)
-  p= link_to 'Удалить', answer_path(answer.id), method: :delete, data: { confirm: 'Вы уверены?' }, class: 'btn btn-default'
+= div_for answer do
+  - if answer.persisted?
+    p = answer.body
+    - if user_signed_in? && current_user.author_of?(answer)
+      .row
+        .col-md-1
+          = link_to 'Изменить', '', class: 'btn btn-default edit-answer', data: { answer_id: answer.id }
+        .col-md-1
+          = link_to 'Удалить', answer, method: :delete, data: { confirm: 'Вы уверены?' },
+            remote: true, class: 'btn btn-default'
+
+      p
+        = bootstrap_form_for (answer), remote: true do |f|
+          = f.text_area :body
+          .answer-errors
+          = f.submit 'Сохранить'
+
+    - if user_signed_in? && current_user.author_of?(answer.question)
+      .row
+       .col-md-1
+          = link_to 'Лучший ответ', make_best_answer_path(answer), method: :patch, remote: true, class: 'btn btn-default'

@@ -1,6 +1,5 @@
 <% if @answer.errors.present? %>
   $('.answer-errors').html('Ответ не может быть пустым');
 <% else %>
-  $('.answers').append('<%= j render @answer %>');
-  $('#new-answer-body').val('');
+  $('#<%= "answer_#{@answer.id}" %>').replaceWith('<%= j render @answer %>');
 <% end %>

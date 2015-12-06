@@ -8,7 +8,7 @@ class User < ActiveRecord::Base
   has_many :answers
   has_many :questions
 
-  def author_of(object)
+  def author_of?(object)
     id == object.user_id
   end
 end

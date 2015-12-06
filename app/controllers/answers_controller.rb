@@ -1,6 +1,12 @@
 # encoding: utf-8
 class AnswersController < ApplicationController
   before_action :authenticate_user!
+  before_action :set_answer, except: :create
+  before_action :set_answer_question, only: [:update, :make_best]
+
+  def update
+    @answer.update(answer_params) if current_user.author_of?(@answer)
+  end
 
   def create
     @question = Question.find(params[:question_id])
@@ -10,13 +16,22 @@ class AnswersController < ApplicationController
   end
 
   def destroy
-    @answer = Answer.find(params[:id])
-    return redirect_to :back, notice: 'Вы не являетесь автором вопроса' unless current_user.author_of(@answer)
-    @answer.destroy
-    redirect_to :back, notice: 'Ответ успешно удален'
+    @answer.destroy if current_user.author_of?(@answer)
+  end
+
+  def make_best
+    @answer.make_best if current_user.author_of?(@question)
   end
 
   private
+
+  def set_answer_question
+    @question = @answer.question
+  end
+
+  def set_answer
+    @answer = Answer.find(params[:id])
+  end
 
   def answer_params
     params.require(:answer).permit(:body)
