@@ -14,6 +14,7 @@ class QuestionsController < ApplicationController
 
   def new
     @question = current_user.questions.new
+    @question.attachments.build
   end
 
   def edit
@@ -22,7 +23,7 @@ class QuestionsController < ApplicationController
   def create
     @question = current_user.questions.new(questions_params)
     if @question.save
-      redirect_to questions_path
+      redirect_to @question
     else
       render :new
     end
@@ -52,6 +53,6 @@ class QuestionsController < ApplicationController
   end
 
   def questions_params
-    params.require(:question).permit(:title, :body)
+    params.require(:question).permit(:title, :body, attachments_attributes: [:file])
   end
 end

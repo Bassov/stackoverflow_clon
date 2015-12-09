@@ -14,7 +14,7 @@ feature 'Edit question', '
 
     visit questions_path
     click_on question.title
-    clic_on 'Изменить'
+    click_on 'Изменить'
     fill_in 'Title', with: 'Edited title'
     fill_in 'Body', with: 'Edited body'
     click_on 'Изменить'

@@ -40,6 +40,10 @@ RSpec.describe QuestionsController, type: :controller do
       expect(assigns(:question)).to be_a_new(Question)
     end
 
+    it 'builds new attachment for question' do
+      expect(assigns(:question).attachments.first).to be_a_new(Attachment)
+    end
+
     it 'renders new view' do
       expect(response).to render_template :new
     end
@@ -81,9 +85,9 @@ RSpec.describe QuestionsController, type: :controller do
         expect { post :create, question: attributes_for(:question) }.to change(Question, :count).by(1)
       end
 
-      it 'redirects to questions view' do
+      it 'redirects to question view' do
         post :create, question: attributes_for(:question)
-        expect(response).to redirect_to questions_path
+        expect(response).to redirect_to question_path(assigns(:question))
       end
     end
 

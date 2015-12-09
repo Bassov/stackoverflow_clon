@@ -11,7 +11,7 @@ feature 'Add file to question', '
   scenario 'Authenticated user attaches file when creates question' do
     sign_in user
 
-    visit new_question_page
+    visit new_question_path
     fill_in 'Title', with: 'Test question'
     fill_in 'Body', with: 'Test body'
     attach_file 'File', "#{Rails.root}/spec/spec_helper.rb"

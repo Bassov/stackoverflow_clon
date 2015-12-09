@@ -1,5 +1,9 @@
 h2 = @question.title
 p = @question.body
+p Файлы:
+ul
+  - @question.attachments.each do |a|
+    li = a.file.file.filename
 br
 
 - if user_signed_in? && current_user.author_of?(@question)

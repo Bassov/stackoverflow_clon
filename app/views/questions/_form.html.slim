@@ -1,6 +1,12 @@
 = bootstrap_form_for(@question) do |f|
     = f.text_field :title, placeholder: 'Тема', hide_label: true
     = f.text_area :body, placeholder: 'Вопрос', rows: 10, hide_label: true
+
+    p Прикрепленные файлы:
+    p
+      = f.fields_for :attachments do |a|
+        = a.file_field :file
+
     = f.submit @question.new_record? ? 'Сохранить' : 'Изменить'
 
     = link_to 'Назад', questions_path, class: 'btn btn-default'
