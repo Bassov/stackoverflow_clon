@@ -9,7 +9,7 @@ feature 'Add file to answer', '
   given(:user) { create :user }
   given!(:question) { create :question }
 
-  scenario 'Authenticate user answers question and uploads file' do
+  scenario 'Authenticate user answers question and uploads file', js: true do
     sign_in user
 
     visit question_path(question)

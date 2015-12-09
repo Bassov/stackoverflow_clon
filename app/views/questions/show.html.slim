@@ -18,5 +18,7 @@ br
 
 = bootstrap_form_for [@question, @answer], remote: true do |f|
   = f.text_area :body, id: 'new-answer-body'
+  = f.fields_for :attachments do |a|
+    = a.file_field :file
   .answer-errors
   = f.submit 'Ответить'
