@@ -1,9 +1,7 @@
 h2 = @question.title
 p = @question.body
-p Файлы:
-ul
-  - @question.attachments.each do |a|
-    li = link_to a.file.filename, a.file.url
+- unless @question.attachments.empty?
+  = render 'common/attachments', message: @question
 br
 
 - if user_signed_in? && current_user.author_of?(@question)
@@ -16,9 +14,8 @@ br
 .answers
   = render @question.answers
 
-= bootstrap_form_for [@question, @answer], remote: true do |f|
+= bootstrap_nested_form_for [@question, @answer], remote: true do |f|
   = f.text_area :body, id: 'new-answer-body'
-  = f.fields_for :attachments do |a|
-    = a.file_field :file
+  = render 'common/attachments_form', form: f
   .answer-errors
   = f.submit 'Ответить'

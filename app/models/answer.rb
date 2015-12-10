@@ -5,7 +5,7 @@ class Answer < ActiveRecord::Base
 
   has_many :attachments, as: :attachable
 
-  accepts_nested_attributes_for :attachments
+  accepts_nested_attributes_for :attachments, allow_destroy: true
 
   validates :body, :question_id, :user_id, presence: true
 
