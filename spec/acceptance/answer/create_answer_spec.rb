@@ -9,7 +9,6 @@ feature 'Answer questions', '
   given(:user) { create(:user) }
   given!(:question) { create(:question, user: user) }
 
-
   scenario 'Authenticated user answers question', js: true do
     sign_in(user)
 

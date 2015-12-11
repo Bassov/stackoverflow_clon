@@ -1,7 +1,7 @@
 # encoding: utf-8
 require_relative '../acceptance_helper'
 
-feature 'Set the best answer' , '
+feature 'Set the best answer', '
   In order to mark the best answer for my question
   As an author of question
   I want to be able to mark answers as the best

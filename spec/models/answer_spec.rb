@@ -24,7 +24,6 @@ RSpec.describe Answer, type: :model do
   end
 
   describe 'make_best response true' do
-
     let(:answer) { create(:answer) }
 
     it 'sets #best to true' do

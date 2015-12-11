@@ -25,7 +25,7 @@ feature 'Delete files', '
       expect(page).to_not have_content 'Удалить'
     end
   end
-  
+
   scenario 'Author of message can delete its files', js: true do
     sign_in user
     visit question_path(question)
