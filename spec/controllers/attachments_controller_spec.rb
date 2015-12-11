@@ -14,12 +14,6 @@ RSpec.describe AttachmentsController, type: :controller do
     context 'Author of message deletes attachment' do
       before { @message = user_attachment.attachable }
 
-      it 'Assigns attachment parent object to @message' do
-        delete :destroy, id: user_attachment, format: :js
-
-        expect(assigns(:message)).to eq @message
-      end
-
       it 'Assigns attachment to @attachment' do
         delete :destroy, id: user_attachment, format: :js
 
@@ -39,12 +33,6 @@ RSpec.describe AttachmentsController, type: :controller do
 
     context 'Non-author of message tries to delete it' do
       before { @message = attachment.attachable }
-
-      it 'Assigns attachment parent object to @message' do
-        delete :destroy, id: attachment, format: :js
-
-        expect(assigns(:message)).to eq @message
-      end
 
       it 'Assigns attachment to @attachment' do
         delete :destroy, id: attachment, format: :js
