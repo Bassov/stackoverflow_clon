@@ -1,6 +1,7 @@
-= bootstrap_form_for(@question) do |f|
-    = f.text_field :title, placeholder: 'Тема', hide_label: true
-    = f.text_area :body, placeholder: 'Вопрос', rows: 10, hide_label: true
-    = f.submit @question.new_record? ? 'Сохранить' : 'Изменить'
+= bootstrap_nested_form_for(@question) do |f|
+  = f.text_field :title, placeholder: 'Тема', hide_label: true
+  = f.text_area :body, placeholder: 'Вопрос', rows: 10, hide_label: true
+  = render 'common/attachments_form', form: f
+  = f.submit @question.new_record? ? 'Сохранить' : 'Изменить'
 
-    = link_to 'Назад', questions_path, class: 'btn btn-default'
+= link_to 'Назад', questions_path, class: 'btn btn-default'

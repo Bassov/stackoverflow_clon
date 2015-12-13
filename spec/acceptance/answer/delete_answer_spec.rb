@@ -13,9 +13,10 @@ feature 'Delete answer', '
   scenario 'Author of answer deletes answer', js: true do
     sign_in(user)
 
-    visit questions_path
-    click_on question.title
-    page.first(:link, 'Удалить').click
+    visit question_path(question)
+    within("#answer_#{answer.id}") do
+      click_on 'Удалить'
+    end
 
     expect(current_path).to eq question_path(question)
     expect(page).to have_content 'Ответ успешно удален'

@@ -5,6 +5,10 @@ RSpec.describe Answer, type: :model do
   it { should belong_to(:question) }
   it { should belong_to(:user) }
 
+  it { should have_many(:attachments) }
+
+  it { should accept_nested_attributes_for(:attachments) }
+
   it { should validate_presence_of(:body) }
   it { should validate_presence_of(:question_id) }
   it { should validate_presence_of(:user_id) }
@@ -20,7 +24,6 @@ RSpec.describe Answer, type: :model do
   end
 
   describe 'make_best response true' do
-
     let(:answer) { create(:answer) }
 
     it 'sets #best to true' do
