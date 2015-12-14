@@ -11,14 +11,16 @@
         .col-md-1
           = link_to 'Удалить', answer, method: :delete, data: { confirm: 'Вы уверены?' },
             remote: true, class: 'btn btn-default'
-
       p
         = bootstrap_nested_form_for (answer), remote: true do |f|
           = f.text_area :body
           = render 'common/attachments_form', form: f
           .answer-errors
           = f.submit 'Сохранить'
-
+    - if user_signed_in? && current_user.non_author_of?(answer)
+      .row
+        .col-md-1 = link_to '+'
+        .col-md-1 = link_to '-'
     - if user_signed_in? && current_user.author_of?(answer.question)
       .row
        .col-md-1

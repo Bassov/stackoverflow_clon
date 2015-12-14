@@ -14,4 +14,11 @@ RSpec.describe User, type: :model do
 
     expect(user.author_of?(object)).to eq true
   end
+
+  it 'checks the non-authority of objects' do
+    user = create(:user)
+    object = create(:question)
+
+    expect(user.non_author_of?(object)).to eq true
+  end
 end
