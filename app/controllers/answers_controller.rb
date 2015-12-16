@@ -23,6 +23,19 @@ class AnswersController < ApplicationController
     @answer.make_best if current_user.author_of?(@question)
   end
 
+  def vote_up
+    @answer.votes.create(rating: 1, user_id: current_user.id)
+    respond_to do |format|
+      if @answer.save
+        format.json { render json: @answer.rating }
+      end
+    end
+  end
+
+  def vote_down
+    @answer.votes.create(rating: -1, user_id: current_user.id)
+  end
+
   private
 
   def set_answer_question

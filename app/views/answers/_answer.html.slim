@@ -19,8 +19,8 @@
           = f.submit 'Сохранить'
     - if user_signed_in? && current_user.non_author_of?(answer)
       .row
-        .col-md-1 = link_to '+'
-        .col-md-1 = link_to '-'
+        .col-md-1.vote_up = link_to '+', vote_up_answer_path(answer), method: :patch, class: 'btn btn-default'
+        .col-md-1.vote_down = link_to '-'
     - if user_signed_in? && current_user.author_of?(answer.question)
       .row
        .col-md-1
