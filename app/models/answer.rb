@@ -1,12 +1,11 @@
 # encoding: utf-8
 class Answer < ActiveRecord::Base
+  include Attachable
+
   belongs_to :question
   belongs_to :user
 
-  has_many :attachments, as: :attachable
   has_many :votes, as: :votable
-
-  accepts_nested_attributes_for :attachments, allow_destroy: true, reject_if: :all_blank
 
   validates :body, :question_id, :user_id, presence: true
 
