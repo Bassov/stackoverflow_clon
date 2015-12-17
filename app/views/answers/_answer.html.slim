@@ -7,10 +7,12 @@
         - if user_signed_in? && current_user.non_author_of?(answer)
           p
             .col-md-1.vote_up
-            = link_to '+', vote_up_answer_path(answer), method: :patch, class: 'btn btn-default'
+            = link_to '+', vote_up_answer_path(answer), method: :patch, remote: true,
+              class: 'btn btn-default'
           p
             .col-md-1.vote_down
-            = link_to '-', '', class: 'btn btn-default'
+            = link_to '-', '',
+              class: 'btn btn-default'
 
       .col-md-11
         p = answer.body

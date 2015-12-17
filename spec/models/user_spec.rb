@@ -9,17 +9,19 @@ RSpec.describe User, type: :model do
   it { should validate_presence_of(:email) }
   it { should validate_presence_of(:password) }
 
-  it 'checks the authority of objects' do
-    user = create(:user)
-    object = create(:question, user: user)
+  let(:user) { create(:user) }
+  let(:user_question) { create(:question, user: user) }
+  let(:question) { create(:question) }
 
-    expect(user.author_of?(object)).to eq true
+  describe '#author_of?' do
+    it 'checks the authority of objects' do
+      expect(user.author_of?(user_question)).to eq true
+    end
   end
 
-  it 'checks the non-authority of objects' do
-    user = create(:user)
-    object = create(:question)
-
-    expect(user.non_author_of?(object)).to eq true
+  describe '#non_author_of?' do
+    it 'checks the non-authority of objects' do
+      expect(user.non_author_of?(question)).to eq true
+    end
   end
 end
