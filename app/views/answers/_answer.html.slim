@@ -1,27 +1,33 @@
 = div_for answer do
   - if answer.persisted?
-    p = answer.body
-    - unless answer.attachments.empty?
-      = render 'common/attachments', message: answer
+    .row
+      .col-md-1.voting
+        p
+          .rating
+        - if user_signed_in? && current_user.non_author_of?(answer)
+          p
+            .col-md-1.vote_up
+            = link_to '+', vote_up_answer_path(answer), method: :patch, class: 'btn btn-default'
+          p
+            .col-md-1.vote_down
+            = link_to '-', '', class: 'btn btn-default'
 
-    - if user_signed_in? && current_user.author_of?(answer)
-      .row
-        .col-md-1
-          = link_to 'Изменить', '', class: 'btn btn-default edit-answer', data: { answer_id: answer.id }
-        .col-md-1
-          = link_to 'Удалить', answer, method: :delete, data: { confirm: 'Вы уверены?' },
-            remote: true, class: 'btn btn-default'
-      p
-        = bootstrap_nested_form_for (answer), remote: true do |f|
-          = f.text_area :body
-          = render 'common/attachments_form', form: f
-          .answer-errors
-          = f.submit 'Сохранить'
-    - if user_signed_in? && current_user.non_author_of?(answer)
-      .row
-        .col-md-1.vote_up = link_to '+', vote_up_answer_path(answer), method: :patch, class: 'btn btn-default'
-        .col-md-1.vote_down = link_to '-'
-    - if user_signed_in? && current_user.author_of?(answer.question)
-      .row
-       .col-md-1
-          = link_to 'Лучший ответ', make_best_answer_path(answer), method: :patch, remote: true, class: 'btn btn-default'
+      .col-md-11
+        p = answer.body
+        = render 'common/attachments', message: answer
+
+        - if user_signed_in? && current_user.author_of?(answer)
+          .col-md-1
+            = link_to 'Изменить', '', data: {answer_id: answer.id},
+              class: 'btn btn-default edit-answer'
+          .col-md-1
+            = link_to 'Удалить', answer, method: :delete, data: {confirm: 'Вы уверены?'}, remote: true,
+              class: 'btn btn-default'
+          .col-md-1
+            = link_to 'Лучший ответ', make_best_answer_path(answer), method: :patch, remote: true,
+              class: 'btn btn-default'
+        p
+          = bootstrap_form_for (answer), remote: true do |f|
+            = f.text_area :body
+            .answer-errors
+            = f.submit 'Сохранить'
