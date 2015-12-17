@@ -24,16 +24,21 @@ class AnswersController < ApplicationController
   end
 
   def vote_up
-    @answer.vote_up(current_user.id)
+    @answer.vote_up(current_user)
     respond_to do |format|
       if @answer.save
-        format.json { render json: @answer.rating }
+        format.json { render json: { answer: @answer, rating: @answer.rating } }
       end
     end
   end
 
   def vote_down
-    @answer.vote_down(current_user.id)
+    @answer.vote_down(current_user)
+    respond_to do |format|
+      if @answer.save
+        format.json { render json: { answer: @answer, rating: @answer.rating } }
+      end
+    end
   end
 
   private

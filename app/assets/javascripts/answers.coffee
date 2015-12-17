@@ -12,6 +12,9 @@ ready = ->
     $('form#edit_answer_' + answer_id).show()
 
 #  Здесь могут быть другие обработчики событий и прочий код
+  $('.voting').bind 'ajax:success', (e, data, status, xhr) ->
+    response = $.parseJSON(xhr.responseText)
+    $("#answer_" + response.answer.id + " .rating").html(response.rating)
 
 $(document).ready(ready) # "вешаем" функцию ready на событие document.ready
 $(document).on('page:load', ready)  # "вешаем" функцию ready на событие page:load
