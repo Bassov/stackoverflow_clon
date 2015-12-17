@@ -24,7 +24,7 @@ class AnswersController < ApplicationController
   end
 
   def vote_up
-    @answer.votes.create(rating: 1, user_id: current_user.id)
+    @answer.vote_up(current_user.id)
     respond_to do |format|
       if @answer.save
         format.json { render json: @answer.rating }
@@ -33,7 +33,7 @@ class AnswersController < ApplicationController
   end
 
   def vote_down
-    @answer.votes.create(rating: -1, user_id: current_user.id)
+    @answer.vote_down(current_user.id)
   end
 
   private
