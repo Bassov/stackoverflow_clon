@@ -15,6 +15,7 @@ RSpec.describe Answer, type: :model do
   it { should validate_presence_of(:user_id) }
 
   let(:user) { create(:user) }
+  let(:another_user) { create(:user) }
   let(:question) { create(:question) }
   let(:answer) { create(:answer) }
   let(:answers) { create_list(:answer, 3) }
@@ -70,7 +71,7 @@ RSpec.describe Answer, type: :model do
   describe '#rating' do
     it 'calculates rating of answer' do
       answer.vote_up(user)
-      answer.vote_up(user)
+      answer.vote_up(another_user)
       expect(answer.rating).to eq 2
     end
   end
