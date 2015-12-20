@@ -11,7 +11,7 @@ feature 'Vote answer', '
   given!(:user_answer) { create(:answer, user: user, question: question) }
   given!(:answer) { create(:answer, question: question) }
 
-  describe 'Authenticated user' do
+  describe 'Authenticated user', js: true do
     before { sign_in user }
 
     scenario 'User votes up for answer' do
@@ -19,7 +19,9 @@ feature 'Vote answer', '
       within("#answer_#{answer.id}") do
         click_on '+'
 
-        expect(page).to have_content 'Рейтинг: 1'
+        within('.rating') do
+          expect(page).to have_content '1'
+        end
       end
     end
 
@@ -28,7 +30,9 @@ feature 'Vote answer', '
       within("#answer_#{answer.id}") do
         click_on '-'
 
-        expect(page).to have_content 'Рейтинг: -1'
+        within('.rating') do
+          expect(page).to have_content '-1'
+        end
       end
     end
 
@@ -38,6 +42,18 @@ feature 'Vote answer', '
 
         expect(page).to_not have_content '+'
         expect(page).to_not have_content '-'
+      end
+    end
+
+    scenario 'User can`t vote two times' do
+      visit question_path(question)
+      within("#answer_#{answer.id}") do
+        click_on '+'
+        click_on '+'
+
+        within('.rating') do
+          expect(page).to have_content '1'
+        end
       end
     end
   end
