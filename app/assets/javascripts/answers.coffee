@@ -5,7 +5,7 @@
 # Объявляем функцию ready, внутри которой можно поместить обработчики событий и другой код, который должен выполняться при загрузке страницы
 ready = ->
 # Это наш обработчик, перенесенный сюда из docuement.ready ($ ->)
-  $('.edit-answer').click (e) ->
+  $('.edit_answer_link').click (e) ->
     e.preventDefault();
     $(this).hide();
     answer_id = $(this).data('answerId')

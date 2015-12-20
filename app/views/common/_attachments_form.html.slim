@@ -1,5 +1,4 @@
 = form.fields_for :attachments do |a|
-  = a.file_field :file
-  = a.link_to_remove 'Удалить файл', class: 'btn btn-default'
-= form.link_to_add 'Добавить файл', :attachments, class: 'btn btn-default'
-
+   = a.file_field :file, class: 'attachment_form'
+   = a.link_to_remove 'Удалить файл', class: 'btn btn-default attachment_form'
+= form.link_to_add 'Добавить файл', :attachments, class: 'btn btn-default attachment_form'

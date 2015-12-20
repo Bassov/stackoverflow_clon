@@ -2,16 +2,14 @@
   - if answer.persisted?
     .row
       .col-md-1.voting
-        p
-          .rating
-            = answer.rating
+        p.rating
+          = answer.rating
         - if user_signed_in? && current_user.non_author_of?(answer)
-          p
-            .col-md-1.vote_up
+          p.vote_up
             = link_to '+', vote_up_answer_path(answer), method: :patch, remote: true,
               class: 'btn btn-default'
-          p
-            .col-md-1.vote_down
+
+          p.vote_down
             = link_to '-', vote_down_answer_path(answer), method: :patch, remote: true,
               class: 'btn btn-default'
 
@@ -20,17 +18,16 @@
         = render 'common/attachments', message: answer
 
         - if user_signed_in? && current_user.author_of?(answer)
-          .col-md-1.edit-answer
-            = link_to 'Изменить', '', data: {answer_id: answer.id},
-              class: 'btn btn-default'
-          .col-md-1
-            = link_to 'Удалить', answer, method: :delete, data: {confirm: 'Вы уверены?'}, remote: true,
-              class: 'btn btn-default'
-          .col-md-1
-            = link_to 'Лучший ответ', make_best_answer_path(answer), method: :patch, remote: true,
-              class: 'btn btn-default'
-        p
+          = link_to 'Изменить', '', data: {answer_id: answer.id},
+            class: 'btn btn-default edit_answer_link'
+
           = bootstrap_form_for (answer), remote: true do |f|
             = f.text_area :body
             .answer-errors
             = f.submit 'Сохранить'
+          span>
+          = link_to 'Удалить', answer, method: :delete, data: {confirm: 'Вы уверены?'}, remote: true,
+            class: 'btn btn-default'
+          span>
+          = link_to 'Лучший ответ', make_best_answer_path(answer), method: :patch, remote: true,
+            class: 'btn btn-default'
