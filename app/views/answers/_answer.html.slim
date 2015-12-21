@@ -2,17 +2,7 @@
   - if answer.persisted?
     .row
       .col-md-1.voting
-        p.rating
-          = answer.votes.rating
-        - if user_signed_in? && current_user.non_author_of?(answer)
-          p.vote_up
-            = link_to '+', vote_up_answer_path(answer), method: :patch, remote: true,
-              class: 'btn btn-default'
-
-          p.vote_down
-            = link_to '-', vote_down_answer_path(answer), method: :patch, remote: true,
-              class: 'btn btn-default'
-
+        = render 'common/voting', votable: answer
       .col-md-11
         p = answer.body
         = render 'common/attachments', message: answer

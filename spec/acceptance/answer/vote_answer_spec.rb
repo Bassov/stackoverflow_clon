@@ -39,7 +39,6 @@ feature 'Vote answer', '
     scenario 'Author of answer cant vote for own answer' do
       visit question_path(question)
       within("#answer_#{user_answer.id}") do
-
         expect(page).to_not have_content '+'
         expect(page).to_not have_content '-'
       end
@@ -66,16 +65,16 @@ feature 'Vote answer', '
           expect(page).to have_content '1'
         end
 
-        click_on '-'
+        click_on 'X'
 
         within('.rating') do
           expect(page).to have_content '0'
         end
 
-        click_on '+'
+        click_on '-'
 
         within('.rating') do
-          expect(page).to have_content '1'
+          expect(page).to have_content '-1'
         end
       end
     end

@@ -27,18 +27,18 @@ RSpec.describe User, type: :model do
 
   describe '#vote_for' do
     it 'vote with rating 1' do
-      expect{ user.vote_for(question, 1) }.to change(question.votes.upvotes, :count).by(1)
+      expect { user.vote_for(question, 1) }.to change(question.votes.upvotes, :count).by(1)
     end
 
     it 'vote with rating -1' do
-      expect{ user.vote_for(question, -1) }.to change(question.votes.downvotes, :count).by(1)
+      expect { user.vote_for(question, -1) }.to change(question.votes.downvotes, :count).by(1)
     end
   end
 
   describe '#unvote_for' do
     it 'removes user vote from object' do
       user.vote_for(question, 1)
-      expect{ user.unvote_for(question) }.to change(question.votes, :count).by(-1)
+      expect { user.unvote_for(question) }.to change(question.votes, :count).by(-1)
     end
   end
 end

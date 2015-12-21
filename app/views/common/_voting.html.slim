@@ -1,0 +1,12 @@
+p.rating
+  = votable.votes.rating
+- if user_signed_in? && current_user.non_author_of?(votable)
+  p.vote_up
+    = link_to '+', vote_up_path(votable), method: :patch, remote: true,
+      class: 'btn btn-default'
+  p.vote_down
+    = link_to '-', vote_down_path(votable), method: :patch, remote: true,
+      class: 'btn btn-default'
+  p.unvote
+    = link_to 'X', unvote_path(votable), method: :patch, remote: true,
+    class: 'btn btn-default'

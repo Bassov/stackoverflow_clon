@@ -18,15 +18,15 @@ class User < ActiveRecord::Base
   end
 
   def vote_for(votable, rating)
-    vote = self.votes.new(votable: votable, rating: rating)
+    vote = votes.new(votable: votable, rating: rating)
     vote.save
   end
 
   def unvote_for(votable)
-    self.votes.where(votable: votable).delete_all
+    votes.where(votable: votable).delete_all
   end
 
   def voted_for?(votable)
-    self.votes.where(votable: votable).any?
+    votes.where(votable: votable).any?
   end
 end

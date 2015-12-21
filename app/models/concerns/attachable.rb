@@ -1,3 +1,4 @@
+# encoding: utf-8
 module Attachable
   extend ActiveSupport::Concern
   included do

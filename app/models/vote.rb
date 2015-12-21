@@ -1,3 +1,4 @@
+# encoding: utf-8
 class Vote < ActiveRecord::Base
   validates :user_id, presence: true
 
