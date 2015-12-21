@@ -56,6 +56,29 @@ feature 'Vote answer', '
         end
       end
     end
+
+    scenario 'User can re-vote for answer' do
+      visit question_path(question)
+      within("#answer_#{answer.id}") do
+        click_on '+'
+
+        within('.rating') do
+          expect(page).to have_content '1'
+        end
+
+        click_on '-'
+
+        within('.rating') do
+          expect(page).to have_content '0'
+        end
+
+        click_on '+'
+
+        within('.rating') do
+          expect(page).to have_content '1'
+        end
+      end
+    end
   end
 
   scenario 'Non-authenticated user cant see vote buttons' do

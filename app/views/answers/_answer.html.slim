@@ -3,7 +3,7 @@
     .row
       .col-md-1.voting
         p.rating
-          = answer.rating
+          = answer.votes.rating
         - if user_signed_in? && current_user.non_author_of?(answer)
           p.vote_up
             = link_to '+', vote_up_answer_path(answer), method: :patch, remote: true,

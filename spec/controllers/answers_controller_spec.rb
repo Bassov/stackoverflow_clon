@@ -140,40 +140,4 @@ RSpec.describe AnswersController, type: :controller do
       end
     end
   end
-
-  describe 'PATCH #vote_up' do
-    sign_in_user
-    before { patch :vote_up, id: answer }
-
-    it 'assigns the requested answer to @answer' do
-      expect(assigns(:answer)).to eq answer
-    end
-
-    it 'it creates new +1 vote from user' do
-      expect(assigns(:answer).votes.first.rating).to eq 1
-      expect(assigns(:answer).votes.first.user_id).to eq @user.id
-    end
-
-    it 'renders :vote_up template' do
-      expect(response).to render_template :vote_up
-    end
-  end
-
-  describe 'PATCH #vote_down' do
-    sign_in_user
-    before { patch :vote_down, id: answer }
-
-    it 'assigns the requested answer to @answer' do
-      expect(assigns(:answer)).to eq answer
-    end
-
-    it 'it creates new +1 vote from user' do
-      expect(assigns(:answer).votes.first.rating).to eq -1
-      expect(assigns(:answer).votes.first.user_id).to eq @user.id
-    end
-
-    it 'renders :vote_up template' do
-      expect(response).to render_template :vote_down
-    end
-  end
 end
