@@ -43,36 +43,4 @@ RSpec.describe Answer, type: :model do
       end
     end
   end
-
-  describe '#vote_up' do
-    before { answer.vote_up(user) }
-
-    it 'creates new user vote for answer with 1 rating' do
-      expect(answer.votes.last.rating).to eq 1
-    end
-
-    it 'sets passed user to user_id' do
-      expect(answer.votes.last.user_id).to eq user.id
-    end
-  end
-
-  describe '#vote_down' do
-    before { answer.vote_down(user) }
-
-    it 'creates new user vote for answer with -1 rating' do
-      expect(answer.votes.last.rating).to eq -1
-    end
-
-    it 'sets passed user to user_id' do
-      expect(answer.votes.last.user_id).to eq user.id
-    end
-  end
-
-  describe '#rating' do
-    it 'calculates rating of answer' do
-      answer.vote_up(user)
-      answer.vote_up(another_user)
-      expect(answer.rating).to eq 2
-    end
-  end
 end

@@ -5,4 +5,8 @@ class Vote < ActiveRecord::Base
 
   belongs_to :votable, polymorphic: true
   belongs_to :user
+
+  scope :upvotes,   -> { where(rating: 1) }
+  scope :downvotes, -> { where(rating: -1) }
+  scope :rating,    -> { sum(:rating) }
 end

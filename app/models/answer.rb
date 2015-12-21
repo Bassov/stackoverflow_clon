@@ -17,16 +17,4 @@ class Answer < ActiveRecord::Base
       fail ActiveRecord::Rollback unless update(best: true)
     end
   end
-
-  def vote_up(user)
-    self.votes.create(rating: 1, user_id: user.id)
-  end
-
-  def vote_down(user)
-    self.votes.create(rating: -1, user_id: user.id)
-  end
-
-  def rating
-    self.votes.sum(:rating)
-  end
 end

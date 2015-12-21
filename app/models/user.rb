@@ -16,4 +16,17 @@ class User < ActiveRecord::Base
   def non_author_of?(object)
     !author_of?(object)
   end
+
+  def vote_for(votable, rating)
+    vote = self.votes.new(votable: votable, rating: rating)
+    vote.save
+  end
+
+  def unvote_for(votable)
+    self.votes.where(votable: votable).delete_all
+  end
+
+  def voted_for?(votable)
+    self.votes.where(votable: votable).any?
+  end
 end
