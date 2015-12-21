@@ -5,7 +5,7 @@ module VotesHelper
   end
 
   def  vote_down_path(votable)
-    {controller: "votes", action: "vote_down",
+    {controller: "votes", action: "vote",
      votable_id: votable.id, votable_type: votable.class}
   end
 

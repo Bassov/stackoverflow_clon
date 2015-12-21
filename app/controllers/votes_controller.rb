@@ -4,14 +4,17 @@ class VotesController < ApplicationController
 
   def vote_up
     current_user.vote_for(@votable, 1)
+    render :vote
   end
 
   def vote_down
     current_user.vote_for(@votable, -1)
+    render :vote
   end
 
   def unvote
     current_user.unvote_for(@votable)
+    render :vote
   end
 
   private
