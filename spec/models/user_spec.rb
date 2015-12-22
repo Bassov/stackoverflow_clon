@@ -26,12 +26,27 @@ RSpec.describe User, type: :model do
   end
 
   describe '#vote_for' do
-    it 'vote with rating 1' do
+    it 'changes votable.votes count' do
       expect { user.vote_for(question, 1) }.to change(question.votes.upvotes, :count).by(1)
     end
 
-    it 'vote with rating -1' do
-      expect { user.vote_for(question, -1) }.to change(question.votes.downvotes, :count).by(1)
+    it 'assigns passed rating(1) to new vote' do
+      user.vote_for(question, 1)
+
+      expect(question.votes.first.rating).to eq 1
+    end
+
+    it 'assigns passed rating(-1) to new vote' do
+      user.vote_for(question, -1)
+
+      expect(question.votes.first.rating).to eq -1
+    end
+
+    it 'prevents double votes' do
+      user.vote_for(question, 1)
+      user.vote_for(question, 1)
+
+      expect(question.votes.size).to eq 1
     end
   end
 
