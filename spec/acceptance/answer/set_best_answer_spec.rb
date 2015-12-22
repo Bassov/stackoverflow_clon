@@ -9,7 +9,7 @@ feature 'Set the best answer', '
   given(:user) { create(:user) }
   given(:another_user) { create(:user) }
   given!(:question) { create(:question, user: user) }
-  given!(:answers) { create_list(:answer, 5, question: question) }
+  given!(:answers) { create_list(:answer, 5, question: question, user: user) }
 
   scenario 'Author of question marks best answer', js: true do
     sign_in user

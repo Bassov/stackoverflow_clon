@@ -1,25 +1,25 @@
 = div_for answer do
   - if answer.persisted?
-    p = answer.body
-    - unless answer.attachments.empty?
-      = render 'common/attachments', message: answer
+    .row
+      .col-md-1.voting
+        = render 'common/voting', votable: answer
+      .col-md-11
+        p = answer.body
+        = render 'common/attachments', message: answer
 
-    - if user_signed_in? && current_user.author_of?(answer)
-      .row
-        .col-md-1
-          = link_to 'Изменить', '', class: 'btn btn-default edit-answer', data: { answer_id: answer.id }
-        .col-md-1
-          = link_to 'Удалить', answer, method: :delete, data: { confirm: 'Вы уверены?' },
-            remote: true, class: 'btn btn-default'
+        - if user_signed_in? && current_user.author_of?(answer)
+          = link_to 'Изменить', '', data: {answer_id: answer.id},
+            class: 'btn btn-default edit_answer_link'
 
-      p
-        = bootstrap_nested_form_for (answer), remote: true do |f|
-          = f.text_area :body
-          = render 'common/attachments_form', form: f
-          .answer-errors
-          = f.submit 'Сохранить'
+          = bootstrap_form_for (answer), remote: true do |f|
+            = f.text_area :body
+            .answer-errors
+            = f.submit 'Сохранить'
+          span>
+          = link_to 'Удалить', answer, method: :delete, data: {confirm: 'Вы уверены?'}, remote: true,
+            class: 'btn btn-default'
+          span>
 
-    - if user_signed_in? && current_user.author_of?(answer.question)
-      .row
-       .col-md-1
-          = link_to 'Лучший ответ', make_best_answer_path(answer), method: :patch, remote: true, class: 'btn btn-default'
+        - if user_signed_in? && current_user.author_of?(answer.question)
+          = link_to 'Лучший ответ', make_best_answer_path(answer), method: :patch, remote: true,
+            class: 'btn btn-default'

@@ -14,7 +14,7 @@ feature 'Edit answer', '
     sign_in(user)
 
     visit question_path(question)
-    within '.answers' do
+    within "#answer_#{answer.id}" do
       click_on 'Изменить'
       fill_in 'Body', with: 'Edited answer'
       click_on 'Сохранить'
