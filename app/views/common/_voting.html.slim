@@ -7,6 +7,3 @@ p.rating
   p.vote_down
     = link_to '-', vote_down_path(votable), method: :patch, remote: true,
       class: 'btn btn-default'
-  p.unvote
-    = link_to 'X', unvote_path(votable), method: :patch, remote: true,
-    class: 'btn btn-default'

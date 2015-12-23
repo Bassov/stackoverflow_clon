@@ -44,14 +44,15 @@ feature 'Vote answer', '
       end
     end
 
-    scenario 'User can`t vote two times' do
+    scenario 'If user votes second time it rejects previous vote' do
       visit question_path(question)
       within("#answer_#{answer.id}") do
         click_on '+'
+        sleep(1)
         click_on '+'
 
         within('.rating') do
-          expect(page).to have_content '1'
+          expect(page).to have_content '0'
         end
       end
     end
@@ -65,7 +66,7 @@ feature 'Vote answer', '
           expect(page).to have_content '1'
         end
 
-        click_on 'X'
+        click_on '+'
 
         within('.rating') do
           expect(page).to have_content '0'

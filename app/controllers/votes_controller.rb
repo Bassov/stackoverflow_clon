@@ -4,19 +4,14 @@ class VotesController < ApplicationController
   before_action :set_votable
   before_action :check_authority
 
-  def vote_up
-    current_user.vote_for(@votable, 1)
-    render :vote
-  end
+  def vote
+    rating = params[:rating]
 
-  def vote_down
-    current_user.vote_for(@votable, -1)
-    render :vote
-  end
-
-  def unvote
-    current_user.unvote_for(@votable)
-    render :vote
+    if current_user.voted_for?(@votable)
+      current_user.unvote_for(@votable)
+    else
+      current_user.vote_for(@votable, rating)
+    end
   end
 
   private
@@ -28,5 +23,9 @@ class VotesController < ApplicationController
   def set_votable
     klass = params[:votable_type].to_s.capitalize.constantize
     @votable = klass.find(params[:votable_id])
+  end
+
+  def votes_params
+    params.require(:vote).permit(:rating, :votable_id, :votable_type)
   end
 end

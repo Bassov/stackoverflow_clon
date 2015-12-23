@@ -7,7 +7,7 @@ feature 'list questions', '
   I can view questions page
 ' do
   given(:user) { create(:user) }
-  given!(:questions) { create_list(:question, 2, user: user) }
+  given!(:questions) { create_list(:question, 2) }
 
   scenario 'guest visit questions page' do
     visit questions_path
