@@ -24,8 +24,4 @@ class VotesController < ApplicationController
     klass = params[:votable_type].to_s.capitalize.constantize
     @votable = klass.find(params[:votable_id])
   end
-
-  def votes_params
-    params.require(:vote).permit(:rating, :votable_id, :votable_type)
-  end
 end
