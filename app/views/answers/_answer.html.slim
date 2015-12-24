@@ -7,6 +7,10 @@
         p = answer.body
         = render 'common/attachments', message: answer
 
+        -if user_signed_in?
+          = link_to 'Комментировать', '', data: {answer_id: answer.id},
+            class: 'btn btn-default comment_answer_link'
+
         - if user_signed_in? && current_user.author_of?(answer)
           = link_to 'Изменить', '', data: {answer_id: answer.id},
             class: 'btn btn-default edit_answer_link'
