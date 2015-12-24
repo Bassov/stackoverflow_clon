@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
   devise_for :users
-  resources :questions, shallow:true do
-    resources :answers do
+  resources :questions, shallow: true do
+    resources :comments
+    resources :answers, shallow: true do
+      resources :comments
       patch :make_best, on: :member
     end
   end
