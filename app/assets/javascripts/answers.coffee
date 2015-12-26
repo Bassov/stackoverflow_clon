@@ -11,6 +11,14 @@ ready = ->
     answer_id = $(this).data('answerId')
     $('form#edit_answer_' + answer_id).show()
 
+  questionId = $('.answers').data('questionId')
+  PrivatePub.subscribe '/questions/' + questionId + '/answers', (data, channel) ->
+    console.log(data)
+    answer = $.parseJSON(data['answer'])
+    $('.answers').append('<p>' + answer.body + '</p>')
+    $('.answers').append('<p><a href="#">Edit</a></p>')
+    $('.new_answer #answer_body').val('');
+
 #  Здесь могут быть другие обработчики событий и прочий код
   $('.voting').bind 'ajax:success', (e, data, status, xhr) ->
     response = $.parseJSON(xhr.responseText)

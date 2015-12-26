@@ -12,7 +12,15 @@ class AnswersController < ApplicationController
     @question = Question.find(params[:question_id])
     @answer = @question.answers.create(answer_params)
     @answer.user = current_user
-    @answer.save
+
+    respond_to do |format|
+      if @answer.save
+        format.js do
+          PrivatePub.publish_to "/questions/#{@question.id}/answers", answer: @answer.to_json
+          render nothing: true
+        end
+      end
+    end
   end
 
   def destroy
