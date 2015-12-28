@@ -1,12 +1,12 @@
 # encoding: utf-8
 module VotesHelper
   def  vote_up_path(votable)
-    { controller: 'votes', action: 'vote',
+    { controller: 'votes', action: 'create',
       votable_id: votable.id, votable_type: votable.class, rating: 1 }
   end
 
   def vote_down_path(votable)
-    { controller: 'votes', action: 'vote',
+    { controller: 'votes', action: 'create',
       votable_id: votable.id, votable_type: votable.class, rating: -1 }
   end
 end

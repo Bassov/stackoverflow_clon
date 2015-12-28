@@ -5,9 +5,9 @@ RSpec.describe VotesController, type: :controller do
   let(:user) { create(:user) }
   let(:votable) { create(:question) }
 
-  describe 'PATCH #vote' do
+  describe 'PATCH #create' do
     sign_in_user
-    let(:vote) { patch :vote, votable_type: votable.class, votable_id: votable.id, rating: 1, format: :json }
+    let(:vote) { patch :create, votable_type: votable.class, votable_id: votable.id, rating: 1, format: :json }
 
     context 'non-author of votable votes' do
       it 'assigns requested votable to @votable' do
@@ -16,25 +16,25 @@ RSpec.describe VotesController, type: :controller do
         expect(assigns(:votable)).to eq votable
       end
 
-      it 'creates new vote with rating 1' do
+      it 'creates new create with rating 1' do
         expect { vote }.to change(votable.votes, :count).by(1)
         expect(votable.votes.first.rating).to eq 1
       end
 
-      it 'assigns current user to new vote' do
+      it 'assigns current user to new create' do
         vote
 
         expect(votable.votes.first.user.id).to eq @user.id
       end
 
-      it 'render vote template' do
+      it 'render create template' do
         vote
 
-        expect(response).to render_template :vote
+        expect(response).to render_template :create
       end
     end
 
-    context 'author of votable tries to vote' do
+    context 'author of votable tries to create' do
       let(:votable) { create(:question, user: @user) }
 
       it 'assigns requested votable to @votable' do
@@ -55,14 +55,14 @@ RSpec.describe VotesController, type: :controller do
         expect(assigns(:votable)).to eq votable
       end
 
-      it 'unvote user vote for votable' do
+      it 'unvote user create for votable' do
         expect { vote }.to change(votable.votes, :count).by(1)
       end
 
-      it 'render vote template' do
+      it 'render create template' do
         vote
 
-        expect(response).to render_template :vote
+        expect(response).to render_template :create
       end
     end
   end

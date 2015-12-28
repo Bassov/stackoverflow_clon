@@ -10,6 +10,7 @@ class QuestionsController < ApplicationController
 
   def show
     @answer = @question.answers.build
+    gon.current_user = current_user.id || nil
   end
 
   def new

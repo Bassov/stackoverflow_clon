@@ -3,7 +3,7 @@ class VotesController < ApplicationController
   before_action :authenticate_user!
   before_action :set_votable
 
-  def vote
+  def create
     rating = params[:rating]
 
     if current_user.voted_for?(@votable)
@@ -18,6 +18,6 @@ class VotesController < ApplicationController
   def set_votable
     klass = params[:votable_type].to_s.capitalize.constantize
     @votable = klass.find(params[:votable_id])
-    render :vote if current_user.author_of?(@votable)
+    render :create if current_user.author_of?(@votable)
   end
 end

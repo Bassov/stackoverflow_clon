@@ -10,8 +10,8 @@ Rails.application.routes.draw do
 
   resources :attachments, only: :destroy
 
-  resource :vote, only: :vote do
-    patch :vote, on: :member
+  resource :vote, only: :create do
+    patch :create, on: :member
   end
 
   root 'questions#index'

@@ -7,9 +7,9 @@
         p = answer.body
         = render 'common/attachments', message: answer
 
-        -if user_signed_in?
+        - if user_signed_in?
           = link_to 'Комментировать', '', data: {answer_id: answer.id},
-            class: 'btn btn-default comment_answer_link'
+            class: 'btn btn-default comment_link'
 
         - if user_signed_in? && current_user.author_of?(answer)
           = link_to 'Изменить', '', data: {answer_id: answer.id},
@@ -23,7 +23,6 @@
           = link_to 'Удалить', answer, method: :delete, data: {confirm: 'Вы уверены?'}, remote: true,
             class: 'btn btn-default'
           span>
-
         - if user_signed_in? && current_user.author_of?(answer.question)
           = link_to 'Лучший ответ', make_best_answer_path(answer), method: :patch, remote: true,
             class: 'btn btn-default'

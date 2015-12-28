@@ -1,0 +1,20 @@
+.answer { id="answer_#{@response.answer.id}" }
+  .row
+    .col-md-1
+        .voting
+          .rating
+            p #{@response.answer.rating}
+          - if @current_user != @response.user_id
+            .vote_up
+              a class="btn btn-default" data-remote="true" data-method="patch" href="/vote?rating=1&votable_id=#{@response.answer.id}&votable_type=#{@response.answer.klass}" +
+            .vote_down
+              a class="btn btn-default" data-remote="true" data-method="patch" href="/vote?rating=-1&votable_id=#{@response.answer.id}&votable_type=#{@response.answer.klass}" -
+    .col-md-11
+      p #{@response.answer.body}
+      - if @current_user != null
+        a class="btn btn-default comment_link" data-answer-id="#{@response.answer.id}" href="" Комментировать
+      span>
+      - if @current_user == @response.user_id
+        a class="btn btn-default edit_answer_link" data-answer-id="#{@response.answer.id}" href="" Изменить
+        span>
+        a class="btn btn-default" data-remote="true" data-confirm="Вы уверены?" data-method="delete" rel="nofollow" href="/answers/#{@response.answer.id}" Удалить

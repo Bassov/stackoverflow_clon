@@ -31,13 +31,13 @@ RSpec.describe User, type: :model do
       expect { user.vote_for(question, 1) }.to change(question.votes.upvotes, :count).by(1)
     end
 
-    it 'assigns passed rating(1) to new vote' do
+    it 'assigns passed rating(1) to new create' do
       user.vote_for(question, 1)
 
       expect(question.votes.first.rating).to eq 1
     end
 
-    it 'assigns passed rating(-1) to new vote' do
+    it 'assigns passed rating(-1) to new create' do
       user.vote_for(question, -1)
 
       expect(question.votes.first.rating).to eq -1
@@ -52,7 +52,7 @@ RSpec.describe User, type: :model do
   end
 
   describe '#unvote_for' do
-    it 'removes user vote from object' do
+    it 'removes user create from object' do
       user.vote_for(question, 1)
       expect { user.unvote_for(question) }.to change(question.votes, :count).by(-1)
     end

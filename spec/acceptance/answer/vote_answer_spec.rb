@@ -4,7 +4,7 @@ require_relative '../acceptance_helper'
 feature 'Vote answer', '
   In order to mark answers
   As an authenticated user
-  I want to be able to vote for answers
+  I want to be able to create for answers
 ' do
   given(:user) { create(:user) }
   given!(:question) { create(:question) }
@@ -36,7 +36,7 @@ feature 'Vote answer', '
       end
     end
 
-    scenario 'Author of answer cant vote for own answer' do
+    scenario 'Author of answer cant create for own answer' do
       visit question_path(question)
       within("#answer_#{user_answer.id}") do
         expect(page).to_not have_content '+'
@@ -44,7 +44,7 @@ feature 'Vote answer', '
       end
     end
 
-    scenario 'If user votes second time it rejects previous vote' do
+    scenario 'If user votes second time it rejects previous create' do
       visit question_path(question)
       within("#answer_#{answer.id}") do
         click_on '+'
@@ -57,7 +57,7 @@ feature 'Vote answer', '
       end
     end
 
-    scenario 'User can re-vote for answer' do
+    scenario 'User can re-create for answer' do
       visit question_path(question)
       within("#answer_#{answer.id}") do
         click_on '+'
@@ -81,7 +81,7 @@ feature 'Vote answer', '
     end
   end
 
-  scenario 'Non-authenticated user cant see vote buttons' do
+  scenario 'Non-authenticated user cant see create buttons' do
     visit question_path(question)
 
     expect(page).to_not have_content '+'
