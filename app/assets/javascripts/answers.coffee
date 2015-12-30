@@ -7,11 +7,23 @@ ready = ->
 
   questionId = $('.answers').data('questionId')
   PrivatePub.subscribe '/questions/' + questionId + '/answers', (data, channel) ->
-    console.log(data)
-#    answer = $.parseJSON(data['answer'])
-#    $('.answers').append('<p>' + answer.body + '</p>')
-#    $('.answers').append('<p><a href="#">Edit</a></p>')
-#    $('.new_answer #answer_body').val('');
+    answer = $.parseJSON(data['answer'])
+    attachments = $.parseJSON(data['attachments'])
+    console.log(attachments)
+    rating = $.parseJSON(data['rating'])
+    answer_question = $.parseJSON(data['answer_question'])
+    answer_class = $.parseJSON(data['answer_class'])
+
+    $('.answers').append(JST["answers/create"]({
+      answer: answer,
+      attachments: attachments,
+      answer_question: answer_question,
+      rating: rating,
+      answer_class: answer_class,
+      current_user: gon.current_user
+    }));
+
+    $('.new_answer #new-answer-body').val('')
 
 #  $('form#new_answer').bind 'ajax:success', (e, data, status, xhr) ->
 #    object = $.parseJSON(xhr.responseText)

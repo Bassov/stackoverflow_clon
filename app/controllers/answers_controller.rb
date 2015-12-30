@@ -13,14 +13,22 @@ class AnswersController < ApplicationController
     @answer = @question.answers.create(answer_params)
     @answer.user = current_user
 
-    respond_to do |format|
-      if @answer.save
-        format.json do
-          PrivatePub.publish_to "/questions/#{@question.id}/answers", @answer
-        end
-      else
-        format.json { render json: @answer.errors.full_messages, status: :unprocessable_entity }
-      end
+    attachments = []
+
+    @answer.attachments.each do |attachment|
+      attachments << { attachment: attachment, file_name: attachment.file.identifier }
+    end
+
+    if @answer.save
+      PrivatePub.publish_to "/questions/#{@question.id}/answers", {
+          answer: @answer.to_json,
+          answer_question: @answer.question.to_json,
+          attachments: attachments.to_json,
+          rating: @answer.votes.rating.to_json,
+          answer_class: @answer.class.to_s.to_json
+      }
+    else
+      render :create
     end
   end
 
