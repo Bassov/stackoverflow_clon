@@ -5,6 +5,12 @@ ready = ->
     answer_id = $(this).data('answerId')
     $('form#edit_answer_' + answer_id).show()
 
+  $('.comment_answer_link').click (e) ->
+    e.preventDefault();
+    $(this).hide();
+    answer_id = $(this).data('answerId')
+    $('form#new_comment_answer_' + answer_id).show()
+
   questionId = $('.answers').data('questionId')
   PrivatePub.subscribe '/questions/' + questionId + '/answers', (data, channel) ->
     answer = $.parseJSON(data['answer'])
