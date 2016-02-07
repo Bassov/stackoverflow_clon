@@ -10,7 +10,6 @@ class QuestionsController < ApplicationController
 
   def show
     @answer = @question.answers.build
-    @comment = @answer.comments.build
     gon.current_user = user_signed_in? ? current_user.id : nil
   end
 

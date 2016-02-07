@@ -7,15 +7,15 @@ ready = ->
 
   $('.comment_answer_link').click (e) ->
     e.preventDefault();
-    $(this).hide();
     answer_id = $(this).data('answerId')
     $('form#new_comment_answer_' + answer_id).show()
 
   questionId = $('.answers').data('questionId')
+
   PrivatePub.subscribe '/questions/' + questionId + '/answers', (data, channel) ->
+
     answer = $.parseJSON(data['answer'])
     attachments = $.parseJSON(data['attachments'])
-    console.log(attachments)
     rating = $.parseJSON(data['rating'])
     answer_question = $.parseJSON(data['answer_question'])
     answer_class = $.parseJSON(data['answer_class'])
@@ -29,15 +29,14 @@ ready = ->
       current_user: gon.current_user
     }));
 
-    $('.new_answer #new-answer-body').val('')
-
-#  $('form#new_answer').bind 'ajax:success', (e, data, status, xhr) ->
-#    object = $.parseJSON(xhr.responseText)
-#    $('.answers').append(JST["answers/create"]({response: object, current_user: gon.current_user}));
+  PrivatePub.subscribe '/questions/' + questionId + '/comments', (data, channel) ->
+    comment = $.parseJSON(data['comment'])
+    klass = $.parseJSON(data['klass'])
+    $("##{klass}_comments_#{comment.commentable_id}").append("#{comment.body} <br>")
 
   $('.voting').bind 'ajax:success', (e, data, status, xhr) ->
     response = $.parseJSON(xhr.responseText)
-    $("#" + response.klass + "_" + response.id + " .rating").html(response.rating)
+    $("##{response.klass}_#{response.id} .rating").html(response.rating)
 
 $(document).ready(ready)
 $(document).on('page:load', ready)

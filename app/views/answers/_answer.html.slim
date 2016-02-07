@@ -11,9 +11,9 @@
           = link_to 'Комментировать', '', data: {answer_id: answer.id},
             class: 'btn btn-default comment_answer_link'
 
-          = bootstrap_form_for [answer, @comment], html: { id: "new_comment_answer_#{answer.id}" }, remote: true do |f|
+          = bootstrap_form_for [answer, Comment.new], html: { id: "new_comment_answer_#{answer.id}" }, remote: true do |f|
             = f.text_area :body
-            .answer-errors
+            .comment_errors
             = f.submit 'Сохранить'
 
         - if user_signed_in? && current_user.author_of?(answer)
@@ -25,9 +25,14 @@
             .answer-errors
             = f.submit 'Сохранить'
           span>
+
           = link_to 'Удалить', answer, method: :delete, data: {confirm: 'Вы уверены?'}, remote: true,
             class: 'btn btn-default'
           span>
+
         - if user_signed_in? && current_user.author_of?(answer.question)
           = link_to 'Лучший ответ', make_best_answer_path(answer), method: :patch, remote: true,
             class: 'btn btn-default'
+
+        .comments.col-md-12 { id="answer_comments_#{answer.id}" }
+          = render answer.comments

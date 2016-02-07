@@ -27,9 +27,9 @@ class AnswersController < ApplicationController
           rating: @answer.votes.rating.to_json,
           answer_class: @answer.class.to_s.to_json
       }
-    else
-      render :create
     end
+
+    render :create
   end
 
   def destroy
