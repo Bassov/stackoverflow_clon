@@ -9,22 +9,32 @@
       br
 
       - if user_signed_in? && current_user.author_of?(@question)
-        .row
-          .col-md-1
-            = link_to 'Изменить', edit_question_path,
-              class: 'btn btn-default'
-          .col-md-1
-            = link_to 'Удалить', question_path, method: :delete, data: { confirm: 'Вы уверены?' },
-              class: 'btn btn-default'
+        = link_to 'Изменить', edit_question_path,
+          class: 'btn btn-default'
+        = link_to 'Удалить', question_path, method: :delete, data: { confirm: 'Вы уверены?' },
+          class: 'btn btn-default'
 
-.answers data={question_id: "#{@question.id}"}
-  = render @question.answers
+      - if user_signed_in?
+        = link_to 'Комментировать', '', data: {question_id: @question.id},
+          class: 'btn btn-default comment_question_link'
 
-= bootstrap_nested_form_for [@question, @answer], remote: true do |f|
-  = f.text_area :body, id: 'new-answer-body'
-  = render 'common/attachments_form', form: f
-  .answer-errors
-  = f.submit 'Ответить'
+        = bootstrap_form_for [@question, Comment.new],
+          html: { id: "new_comment_question_#{@question.id}" }, remote: true do |f|
+            = f.text_area :body
+            .comment_errors
+            = f.submit 'Сохранить'
+
+      .comments { id="question_comments_#{@question.id}" }
+        = render @question.comments
+
+      .answers data={question_id: "#{@question.id}"}
+        = render @question.answers
+
+  = bootstrap_nested_form_for [@question, @answer], remote: true do |f|
+    = f.text_area :body, id: 'new-answer-body'
+    = render 'common/attachments_form', form: f
+    .answer-errors
+    = f.submit 'Ответить'
 
 = subscribe_to "/questions/#{@question.id}/answers"
 = subscribe_to "/questions/#{@question.id}/comments"

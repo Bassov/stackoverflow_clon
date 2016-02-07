@@ -10,6 +10,11 @@ ready = ->
     answer_id = $(this).data('answerId')
     $('form#new_comment_answer_' + answer_id).show()
 
+  $('.comment_question_link').click (e) ->
+    e.preventDefault();
+    question_id = $(this).data('questionId')
+    $('form#new_comment_question_' + question_id).show()
+
   questionId = $('.answers').data('questionId')
 
   PrivatePub.subscribe '/questions/' + questionId + '/answers', (data, channel) ->
