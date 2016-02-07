@@ -14,18 +14,7 @@
         = link_to 'Удалить', question_path, method: :delete, data: { confirm: 'Вы уверены?' },
           class: 'btn btn-default'
 
-      - if user_signed_in?
-        = link_to 'Комментировать', '', data: {question_id: @question.id},
-          class: 'btn btn-default comment_question_link'
-
-        = bootstrap_form_for [@question, Comment.new],
-          html: { id: "new_comment_question_#{@question.id}" }, remote: true do |f|
-            = f.text_area :body
-            .comment_errors
-            = f.submit 'Сохранить'
-
-      .comments { id="question_comments_#{@question.id}" }
-        = render @question.comments
+      = render 'common/commenting', model: @question
 
       .answers data={question_id: "#{@question.id}"}
         = render @question.answers
