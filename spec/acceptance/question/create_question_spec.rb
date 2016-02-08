@@ -17,6 +17,7 @@ feature 'Create question', '
     fill_in 'Body', with: 'Test body'
     click_on 'Сохранить'
 
+    expect(current_path).to eq questions_path
     expect(page).to have_content 'Test question'
   end
 

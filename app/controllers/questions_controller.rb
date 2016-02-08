@@ -22,8 +22,11 @@ class QuestionsController < ApplicationController
 
   def create
     @question = current_user.questions.new(questions_params)
+
     if @question.save
-      redirect_to @question
+      PrivatePub.publish_to '/questions', { question: @question.to_json }
+
+      redirect_to questions_path
     else
       render :new
     end
