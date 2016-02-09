@@ -18,20 +18,19 @@ ready = ->
     attachments = $.parseJSON(data['attachments'])
     rating = $.parseJSON(data['rating'])
     answer_question = $.parseJSON(data['answer_question'])
-    answer_class = $.parseJSON(data['answer_class'])
 
     $('.answers').append(JST["answers/create"]({
       answer: answer,
       attachments: attachments,
       answer_question: answer_question,
       rating: rating,
-      answer_class: answer_class,
+      answer_class: answer.class.toLowerCase(),
       current_user: gon.current_user
     }));
 
   PrivatePub.subscribe '/questions/' + questionId + '/comments', (data, channel) ->
     comment = $.parseJSON(data['comment'])
-    klass = $.parseJSON(data['klass'])
+    klass = comment.commentable_type.toLowerCase()
     $("##{klass}_comments_#{comment.commentable_id}").append("#{comment.body} <br>")
 
   $('.voting').bind 'ajax:success', (e, data, status, xhr) ->

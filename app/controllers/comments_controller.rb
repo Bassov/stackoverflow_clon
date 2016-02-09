@@ -14,7 +14,6 @@ class CommentsController < ApplicationController
     if @comment.save
       PrivatePub.publish_to "/questions/#{question_id}/comments", {
           comment: @comment.to_json,
-          klass: @comment.commentable_type.underscore.to_json
       }
     end
 
