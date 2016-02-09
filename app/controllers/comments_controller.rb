@@ -1,3 +1,4 @@
+# encoding: utf-8
 class CommentsController < ApplicationController
   def create
     @commentable = params[:question_id].present? ? Question.find(params[:question_id]) : Answer.find(params[:answer_id])
@@ -12,9 +13,7 @@ class CommentsController < ApplicationController
                   end
 
     if @comment.save
-      PrivatePub.publish_to "/questions/#{question_id}/comments", {
-          comment: @comment.to_json,
-      }
+      PrivatePub.publish_to "/questions/#{question_id}/comments", comment: @comment.to_json
     end
 
     render :create

@@ -1,3 +1,4 @@
+# encoding: utf-8
 class ApplicationResponder < ActionController::Responder
   include Responders::FlashResponder
   include Responders::HttpCacheResponder

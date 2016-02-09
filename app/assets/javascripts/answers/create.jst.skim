@@ -3,7 +3,7 @@
     .col-md-1
         .voting
           .rating
-            p #{@rating}
+            p 0
           - if @current_user != null and @current_user != @answer.user_id
             .vote_up
               a class="btn btn-default" data-remote="true" data-method="patch" href="/vote?rating=1&votable_id=#{@answer.id}&votable_type=Answer" +

@@ -10,20 +10,23 @@ ready = ->
     answer_id = $(this).data('answerId')
     $('form#new_comment_answer_' + answer_id).show()
 
+  $('.comment_question_link').click (e) ->
+    e.preventDefault();
+    question_id = $(this).data('questionId')
+    $('form#new_comment_question_' + question_id).show()
+
   questionId = $('.answers').data('questionId')
 
   PrivatePub.subscribe '/questions/' + questionId + '/answers', (data, channel) ->
 
     answer = $.parseJSON(data['answer'])
     attachments = $.parseJSON(data['attachments'])
-    rating = $.parseJSON(data['rating'])
     answer_question = $.parseJSON(data['answer_question'])
 
     $('.answers').append(JST["answers/create"]({
       answer: answer,
       attachments: attachments,
       answer_question: answer_question,
-      rating: rating,
       current_user: gon.current_user
     }));
 

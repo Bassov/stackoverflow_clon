@@ -20,12 +20,9 @@ class AnswersController < ApplicationController
     end
 
     if @answer.save
-      PrivatePub.publish_to "/questions/#{@question.id}/answers", {
-          answer: @answer.to_json,
-          answer_question: @answer.question.to_json,
-          attachments: attachments.to_json,
-          rating: @answer.votes.rating.to_json,
-      }
+      PrivatePub.publish_to "/questions/#{@question.id}/answers",         answer: @answer.to_json,
+                                                                          answer_question: @answer.question.to_json,
+                                                                          attachments: attachments.to_json
     end
 
     render :create
