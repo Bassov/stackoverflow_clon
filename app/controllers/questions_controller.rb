@@ -3,49 +3,42 @@ class QuestionsController < ApplicationController
   before_action :authenticate_user!, except:  [:index, :show]
   before_action :set_question, only: [:show, :edit, :update, :destroy]
   before_action :check_authority, only: [:edit, :update, :destroy]
+  after_action :publish_question, only: :create
 
   def index
-    @questions = Question.all
+    respond_with(@questions = Question.all)
   end
 
   def show
-    @answer = @question.answers.build
     gon.current_user = user_signed_in? ? current_user.id : nil
+    respond_with @question
   end
 
   def new
-    @question = current_user.questions.new
+    respond_with(@question = current_user.questions.new)
   end
 
   def edit
   end
 
   def create
-    @question = current_user.questions.new(questions_params)
-
-    if @question.save
-      PrivatePub.publish_to '/questions', question: @question.to_json
-
-      redirect_to @question
-    else
-      render :new
-    end
+    respond_with(@question = current_user.questions.create(questions_params))
   end
 
   def update
-    if @question.update(questions_params)
-      redirect_to @question, notice: 'Вопрос успешно отредактирован'
-    else
-      render :edit
-    end
+    @question.update(questions_params)
+    respond_with @question
   end
 
   def destroy
-    @question.destroy
-    redirect_to questions_path, notice: 'Успешно удалено'
+    respond_with(@question.destroy)
   end
 
   private
+
+  def publish_question
+    PrivatePub.publish_to '/questions', question: @question.to_json if @question.valid?
+  end
 
   def check_authority
     redirect_to :back, notice: 'Вы не являетесь автором вопроса' unless current_user.author_of?(@question)

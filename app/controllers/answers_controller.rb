@@ -3,6 +3,7 @@ class AnswersController < ApplicationController
   before_action :authenticate_user!
   before_action :set_answer, except: :create
   before_action :set_answer_question, only: [:update, :make_best]
+  after_action :publish_answer, only: :create
 
   def update
     @answer.update(answer_params) if current_user.author_of?(@answer)
@@ -12,20 +13,6 @@ class AnswersController < ApplicationController
     @question = Question.find(params[:question_id])
     @answer = @question.answers.create(answer_params)
     @answer.user = current_user
-
-    attachments = []
-
-    @answer.attachments.each do |attachment|
-      attachments << { attachment: attachment, file_name: attachment.file.identifier }
-    end
-
-    if @answer.save
-      PrivatePub.publish_to "/questions/#{@question.id}/answers",         answer: @answer.to_json,
-                                                                          answer_question: @answer.question.to_json,
-                                                                          attachments: attachments.to_json
-    end
-
-    render :create
   end
 
   def destroy
@@ -44,6 +31,20 @@ class AnswersController < ApplicationController
 
   def set_answer
     @answer = Answer.find(params[:id])
+  end
+
+  def publish_answer
+    if @answer.save
+      attachments = []
+
+      @answer.attachments.each do |attachment|
+        attachments << { attachment: attachment, file_name: attachment.file.identifier }
+      end
+
+      PrivatePub.publish_to "/questions/#{@question.id}/answers",         answer: @answer.to_json,
+                                                                          answer_question: @answer.question.to_json,
+                                                                          attachments: attachments.to_json
+    end
   end
 
   def answer_params

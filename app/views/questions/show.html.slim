@@ -19,7 +19,7 @@
       .answers data={question_id: "#{@question.id}"}
         = render @question.answers
 
-  = bootstrap_nested_form_for [@question, @answer], remote: true do |f|
+  = bootstrap_nested_form_for [@question, @question.answers.build], remote: true do |f|
     = f.text_area :body, id: 'new-answer-body'
     = render 'common/attachments_form', form: f
     .answer-errors
