@@ -6,9 +6,9 @@
             p #{@rating}
           - if @current_user != null and @current_user != @answer.user_id
             .vote_up
-              a class="btn btn-default" data-remote="true" data-method="patch" href="/vote?rating=1&votable_id=#{@answer.id}&votable_type=#{@answer_class}" +
+              a class="btn btn-default" data-remote="true" data-method="patch" href="/vote?rating=1&votable_id=#{@answer.id}&votable_type=Answer" +
             .vote_down
-              a class="btn btn-default" data-remote="true" data-method="patch" href="/vote?rating=-1&votable_id=#{@answer.id}&votable_type=#{@answer_class}" -
+              a class="btn btn-default" data-remote="true" data-method="patch" href="/vote?rating=-1&votable_id=#{@answer.id}&votable_type=Answer" -
 
     .col-md-11
       p #{@answer.body}

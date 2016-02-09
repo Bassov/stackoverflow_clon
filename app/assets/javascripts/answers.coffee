@@ -24,7 +24,6 @@ ready = ->
       attachments: attachments,
       answer_question: answer_question,
       rating: rating,
-      answer_class: answer.class.toLowerCase(),
       current_user: gon.current_user
     }));
 

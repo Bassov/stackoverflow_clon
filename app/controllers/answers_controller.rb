@@ -24,7 +24,7 @@ class AnswersController < ApplicationController
           answer: @answer.to_json,
           answer_question: @answer.question.to_json,
           attachments: attachments.to_json,
-          rating: @answer.votes.rating.to_json
+          rating: @answer.votes.rating.to_json,
       }
     end
 
