@@ -26,7 +26,7 @@ class QuestionsController < ApplicationController
     if @question.save
       PrivatePub.publish_to '/questions', { question: @question.to_json }
 
-      redirect_to questions_path
+      redirect_to @question
     else
       render :new
     end

@@ -10,11 +10,6 @@ ready = ->
     answer_id = $(this).data('answerId')
     $('form#new_comment_answer_' + answer_id).show()
 
-  $('.comment_question_link').click (e) ->
-    e.preventDefault();
-    question_id = $(this).data('questionId')
-    $('form#new_comment_question_' + question_id).show()
-
   questionId = $('.answers').data('questionId')
 
   PrivatePub.subscribe '/questions/' + questionId + '/answers', (data, channel) ->
@@ -38,10 +33,6 @@ ready = ->
     comment = $.parseJSON(data['comment'])
     klass = $.parseJSON(data['klass'])
     $("##{klass}_comments_#{comment.commentable_id}").append("#{comment.body} <br>")
-
-  PrivatePub.subscribe '/questions', (data, channel) ->
-    question = $.parseJSON(data['question'])
-    $('.questions tbody').append("<tr><td><a href=/questions/#{question.id}>#{question.title}</a></td></tr>")
 
   $('.voting').bind 'ajax:success', (e, data, status, xhr) ->
     response = $.parseJSON(xhr.responseText)

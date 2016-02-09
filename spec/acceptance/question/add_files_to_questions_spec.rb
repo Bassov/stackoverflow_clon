@@ -8,10 +8,12 @@ feature 'Add file to question', '
 ' do
   given(:user) { create :user }
 
-  scenario 'Authenticated user attaches file when creates question', js: true do
+  background do
     sign_in user
-
     visit new_question_path
+  end
+
+  scenario 'Authenticated user attaches file when creates question', js: true do
     fill_in 'Title', with: 'Test question'
     fill_in 'Body', with: 'Test body'
     click_on 'Добавить файл'
