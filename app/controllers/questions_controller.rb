@@ -10,7 +10,7 @@ class QuestionsController < ApplicationController
   end
 
   def show
-    gon.current_user = user_signed_in? ? current_user.id : nil
+    gon.current_user = current_user.try(:id)
     respond_with @question
   end
 
