@@ -3,20 +3,21 @@ class AnswersController < ApplicationController
   before_action :authenticate_user!
   before_action :set_answer, except: :create
   before_action :set_answer_question, only: [:update, :make_best]
+  before_action :set_question, only: :create
   after_action :publish_answer, only: :create
 
+  respond_to :js
+
   def update
-    @answer.update(answer_params) if current_user.author_of?(@answer)
+    respond_with(@answer.update(answer_params)) if current_user.author_of?(@answer)
   end
 
   def create
-    @question = Question.find(params[:question_id])
-    @answer = @question.answers.create(answer_params)
-    @answer.user = current_user
+    respond_with(@answer = @question.answers.create(answer_params.merge(user: current_user)))
   end
 
   def destroy
-    @answer.destroy if current_user.author_of?(@answer)
+    respond_with(@answer.destroy) if current_user.author_of?(@answer)
   end
 
   def make_best
@@ -33,8 +34,12 @@ class AnswersController < ApplicationController
     @answer = Answer.find(params[:id])
   end
 
+  def set_question
+    @question = Question.find(params[:question_id])
+  end
+
   def publish_answer
-    if @answer.save
+    if @answer.valid?
       attachments = []
 
       @answer.attachments.each do |attachment|
@@ -42,8 +47,8 @@ class AnswersController < ApplicationController
       end
 
       PrivatePub.publish_to "/questions/#{@question.id}/answers",         answer: @answer.to_json,
-                                                                          answer_question: @answer.question.to_json,
-                                                                          attachments: attachments.to_json
+                            answer_question: @answer.question.to_json,
+                            attachments: attachments.to_json
     end
   end
 

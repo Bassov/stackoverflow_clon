@@ -3,9 +3,10 @@ class CommentsController < ApplicationController
   before_action :set_commentable, only: :create
   after_action :publish_comment, only: :create
 
+  respond_to :js
+
   def create
-    @comment = @commentable.comments.build(comments_params)
-    @comment.user = current_user
+    respond_with(@comment = @commentable.comments.create(comments_params.merge(user: current_user)))
   end
 
   private
@@ -16,13 +17,13 @@ class CommentsController < ApplicationController
   end
 
   def publish_comment
-    question_id = if @commentable.is_a?(Answer)
-                    @commentable.question.id
-                  else
-                    @commentable.id
-                  end
+    if @comment.valid?
+      question_id = if @commentable.is_a?(Answer)
+                      @commentable.question.id
+                    else
+                      @commentable.id
+                    end
 
-    if @comment.save
       PrivatePub.publish_to "/questions/#{question_id}/comments", comment: @comment.to_json
     end
   end
