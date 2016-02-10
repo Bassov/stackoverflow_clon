@@ -4,13 +4,10 @@ class VotesController < ApplicationController
   before_action :set_votable
 
   def create
-    rating = params[:rating]
+    return current_user.unvote_for(@votable) if current_user.voted_for?(@votable)
 
-    if current_user.voted_for?(@votable)
-      current_user.unvote_for(@votable)
-    else
-      current_user.vote_for(@votable, rating)
-    end
+    rating = params[:rating]
+    current_user.vote_for(@votable, rating)
   end
 
   private
