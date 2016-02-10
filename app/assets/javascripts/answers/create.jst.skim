@@ -1,0 +1,45 @@
+.answer { id="answer_#{@answer.id}" }
+  .row
+    .col-md-1
+        .voting
+          .rating
+            p 0
+          - if @current_user != null and @current_user != @answer.user_id
+            .vote_up
+              a class="btn btn-default" data-remote="true" data-method="patch" href="/vote?rating=1&votable_id=#{@answer.id}&votable_type=Answer" +
+            .vote_down
+              a class="btn btn-default" data-remote="true" data-method="patch" href="/vote?rating=-1&votable_id=#{@answer.id}&votable_type=Answer" -
+
+    .col-md-11
+      p #{@answer.body}
+      - if @attachments
+        p Файлы:
+        ul
+          - for index in @attachments
+            li { id="attachment_#{index.attachment.id}" }
+              a href="#{index.attachment.file.url}" #{index.file_name}
+              span>
+              - if @current_user == @answer.user_id
+                a class="btn btn-default" data-remote="true" rel="nofollow" data-method="delete" href="/attachments/#{index.attachment.id}" Удалить
+
+      - if @current_user != null
+        a class="btn btn-default comment_link" data-answer-id="#{@answer.id}" href="" Комментировать
+      span>
+
+      - if @current_user == @answer.user_id
+        a class="btn btn-default edit_answer_link" data-answer-id="#{@answer.id}" href="" Изменить
+        span>
+        a class="btn btn-default" data-remote="true" data-confirm="Вы уверены?" data-method="delete" rel="nofollow" href="/answers/#{@answer.id}" Удалить
+        span>
+
+        form role="form" class="edit_answer" id="edit_answer_#{@answer.id}" action="/answers/#{@answer.id}" accept-charset="UTF-8" data-remote="true" method="post"
+          input name="utf8" type="hidden" value="✓"
+          input type="hidden" name="_method" value="patch"
+          div class="form-group"
+            label class="control-label required" for="answer_body" Body
+            textarea class="form-control" name="answer[body]" id="answer_body" #{@answer.body}
+          div class="answer-errors"
+          input type="submit" name="commit" value="Сохранить" class="btn btn-default"
+
+      - if @current_user == @answer_question.user_id
+        a class="btn btn-default" data-remote="true" rel="nofollow" data-method="patch" href="/answers/#{@answer.id}/make_best" Лучший ответ

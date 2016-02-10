@@ -7,6 +7,7 @@ RSpec.describe Answer, type: :model do
 
   it { should have_many(:attachments) }
   it { should have_many(:votes) }
+  it { should have_many :comments }
 
   it { should accept_nested_attributes_for(:attachments) }
 

@@ -1,21 +1,29 @@
-# Place all the behaviors and hooks related to the matching controller here.
-# All this logic will automatically be available in application.js.
-# You can use CoffeeScript in this file: http://coffeescript.org/
+readyAnswers = ->
+  questionId = $('.answers').data('questionId')
 
-# Объявляем функцию ready, внутри которой можно поместить обработчики событий и другой код, который должен выполняться при загрузке страницы
-ready = ->
-# Это наш обработчик, перенесенный сюда из docuement.ready ($ ->)
   $('.edit_answer_link').click (e) ->
     e.preventDefault();
     $(this).hide();
     answer_id = $(this).data('answerId')
     $('form#edit_answer_' + answer_id).show()
 
-#  Здесь могут быть другие обработчики событий и прочий код
-  $('.voting').bind 'ajax:success', (e, data, status, xhr) ->
-    response = $.parseJSON(xhr.responseText)
-    $("#" + response.klass + "_" + response.id + " .rating").html(response.rating)
+  $('.comment_answer_link').click (e) ->
+    e.preventDefault();
+    answer_id = $(this).data('answerId')
+    $('form#new_comment_answer_' + answer_id).show()
 
-$(document).ready(ready) # "вешаем" функцию ready на событие document.ready
-$(document).on('page:load', ready)  # "вешаем" функцию ready на событие page:load
-$(document).on('page:update', ready) # "вешаем" функцию ready на событие page:update
+  PrivatePub.subscribe '/questions/' + questionId + '/answers', (data, channel) ->
+    answer = $.parseJSON(data['answer'])
+    attachments = $.parseJSON(data['attachments'])
+    answer_question = $.parseJSON(data['answer_question'])
+
+    $('.answers').append(JST["answers/create"]({
+      answer: answer,
+      attachments: attachments,
+      answer_question: answer_question,
+      current_user: gon.current_user
+    }));
+
+$(document).ready(readyAnswers)
+$(document).on('page:load', readyAnswers)
+$(document).on('page:update', readyAnswers)

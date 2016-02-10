@@ -7,8 +7,8 @@ feature 'View question', '
   I want to be able to view existing questions
 ' do
   given(:user) { create(:user) }
-  given!(:question) { create(:question, user: user) }
-  given!(:answers) { create_list(:answer, 2, question: question, user: user) }
+  given!(:question) { create(:question) }
+  given!(:answers) { create_list(:answer, 2, question: question) }
 
   scenario 'guest views question' do
     visit questions_path

@@ -1,0 +1,9 @@
+<% klass = @comment.commentable_type.underscore %>
+<% id = @comment.commentable_id %>
+
+<% if @comment.errors.present? %>
+  $("form#<%= "new_comment_#{klass}_#{id}" %> .comment_errors").html("Комментарий не может быть пустым")
+<% else %>
+  $("form#<%= "new_comment_#{klass}_#{id}" %> #comment_body").val('')
+  $("form#<%= "new_comment_#{klass}_#{id}" %>").hide()
+<% end %>

@@ -20,7 +20,7 @@ feature 'Edit question', '
     click_on 'Изменить'
 
     expect(current_path).to eq question_path(question)
-    expect(page).to have_content 'Вопрос успешно отредактирован'
+    expect(page).to have_content 'Question was successfully updated'
     expect(page).to have_content 'Edited title'
     expect(page).to have_content 'Edited body'
   end

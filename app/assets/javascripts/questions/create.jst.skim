@@ -1,0 +1,3 @@
+tr
+  td
+    a href="/questions/#{@question.id}" #{@question.title}

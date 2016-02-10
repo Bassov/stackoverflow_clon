@@ -8,6 +8,7 @@ class User < ActiveRecord::Base
   has_many :answers
   has_many :questions
   has_many :votes
+  has_many :comments
 
   def author_of?(object)
     id == object.user_id

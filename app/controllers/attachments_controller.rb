@@ -1,9 +1,17 @@
 # encoding: utf-8
 class AttachmentsController < ApplicationController
   before_action :authenticate_user!
+  before_action :set_attachment
+
+  respond_to :js
 
   def destroy
+    respond_with(@attachment.destroy) if current_user.author_of?(@attachment.attachable)
+  end
+
+  private
+
+  def set_attachment
     @attachment = Attachment.find(params[:id])
-    @attachment.destroy if current_user.author_of?(@attachment.attachable)
   end
 end

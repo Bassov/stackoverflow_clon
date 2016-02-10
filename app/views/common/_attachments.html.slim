@@ -4,5 +4,6 @@
     - message.attachments.each do |a|
       = div_for a do
         = link_to a.file.identifier, a.file.url
+        span>
         - if user_signed_in? && current_user.author_of?(a.attachable)
           = link_to 'Удалить', attachment_path(a), method: :delete, remote: true, class: 'btn btn-default'

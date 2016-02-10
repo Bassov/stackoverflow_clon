@@ -1,0 +1,14 @@
+- klass = model.class.to_s.underscore
+
+- if user_signed_in?
+  = link_to 'Комментировать', '', data: {"#{klass}_id" => model.id},
+    class: "btn btn-default comment_#{klass}_link"
+
+  = bootstrap_form_for [model, Comment.new],
+    html: { id: "new_comment_#{klass}_#{model.id}" }, remote: true do |f|
+      = f.text_area :body
+      .comment_errors
+      = f.submit 'Сохранить'
+
+.comments { id="#{klass}_comments_#{model.id}" }
+  = render model.comments

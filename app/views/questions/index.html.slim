@@ -1,7 +1,9 @@
 h2 Вопросы
-table.table-striped.col-md-12
+table.questions.table-striped.col-md-12
   tr
     td Тема
     = render @questions
 
 = link_to 'Задать вопрос', new_question_path, class: 'btn btn-default'
+
+= subscribe_to '/questions'
