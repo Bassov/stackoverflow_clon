@@ -47,8 +47,8 @@ class AnswersController < ApplicationController
       end
 
       PrivatePub.publish_to "/questions/#{@question.id}/answers",         answer: @answer.to_json,
-                            answer_question: @answer.question.to_json,
-                            attachments: attachments.to_json
+                                                                          answer_question: @answer.question.to_json,
+                                                                          attachments: attachments.to_json
     end
   end
 

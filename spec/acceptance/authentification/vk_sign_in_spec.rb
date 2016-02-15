@@ -6,7 +6,6 @@ feature 'User sign in with vk', '
   As a guest
   I want to be able to sign in with vk
 ' do
-
   scenario 'user signs in with valid account' do
     visit 'users/sign_in'
     vk_oauth
@@ -20,7 +19,6 @@ feature 'User sign in with vk', '
     visit 'users/sign_in'
     OmniAuth.config.mock_auth[:vk] = :invalid_credentials
     click_on 'Sign in with Vk'
-
 
     expect(page).to have_content('Could not authenticate you from Vk')
   end

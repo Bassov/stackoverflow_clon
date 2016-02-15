@@ -9,7 +9,7 @@ RSpec.configure do |config|
   config.include AcceptanceHelper, type: :feature
   config.include OmniauthHelper, type: :feature
 
-  config.order = "random"
+  config.order = 'random'
 
   config.use_transactional_fixtures = false
 
