@@ -4,9 +4,10 @@ require 'rails_helper'
 RSpec.configure do |config|
   Capybara.javascript_driver = :webkit
 
-  config.order = "random"
-
   config.include AcceptanceHelper, type: :feature
+  config.include OmniauthHelper, type: :feature
+
+  config.order = "random"
 
   config.use_transactional_fixtures = false
 
