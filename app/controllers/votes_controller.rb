@@ -5,9 +5,7 @@ class VotesController < ApplicationController
 
   def create
     return current_user.unvote_for(@votable) if current_user.voted_for?(@votable)
-
-    rating = params[:rating]
-    current_user.vote_for(@votable, rating)
+    current_user.vote_for(@votable, params[:rating])
   end
 
   private
