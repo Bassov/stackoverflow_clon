@@ -1,6 +1,8 @@
 # encoding: utf-8
 require 'rails_helper'
 
+OmniAuth.config.test_mode = true
+
 RSpec.configure do |config|
   Capybara.javascript_driver = :webkit
 

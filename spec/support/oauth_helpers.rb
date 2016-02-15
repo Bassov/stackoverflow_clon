@@ -5,18 +5,18 @@ module OmniauthHelper
                                   'provider' => 'facebook',
                                   'uid' => '123545',
                                   'info' => {
-                                    'email' => 'mockuser',
+                                    'email' => 'facebook@test.com',
                                   },
                                 })
   end
 
   def vk_oauth
-    OmniAuth.config.mock_auth[:facebook] =
+    OmniAuth.config.mock_auth[:vk] =
         OmniAuth::AuthHash.new({
                                    'provider' => 'vk',
                                    'uid' => '123545',
                                    'info' => {
-                                       'email' => 'mockuser',
+                                       'email' => 'vk@test.com',
                                    },
                                })
   end
