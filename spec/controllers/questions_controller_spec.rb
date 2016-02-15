@@ -44,10 +44,6 @@ RSpec.describe QuestionsController, type: :controller do
     it 'renders new view' do
       expect(response).to render_template :new
     end
-
-    it 'assigns current user to question' do
-      expect(assigns(:question).user_id).to eq @user.id
-    end
   end
 
   describe 'GET #edit' do
