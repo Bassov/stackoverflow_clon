@@ -1,13 +1,12 @@
 # encoding: utf-8
 class OmniauthCallbacksController < Devise::OmniauthCallbacksController
+  before_action :set_user
 
   def facebook
-    set_user
     sign_in_user('Facebook')
   end
 
   def vk
-    set_user
     sign_in_user('vk')
   end
 
@@ -18,9 +17,11 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
   end
 
   def sign_in_user(provider)
-    if @user.persisted?
+    if !@user.nil? && @user.persisted?
       sign_in_and_redirect @user, event: :authentication
       set_flash_message(:notice, :success, kind: provider) if is_navigational_format?
+    else
+      redirect_to :back, notice: "Could not authenticate you from #{provider}"
     end
   end
 end

@@ -34,13 +34,18 @@ class User < ActiveRecord::Base
   end
 
   def self.find_for_oauth(auth)
+    return nil if auth == nil || auth.empty?
+    return nil if auth.provider == nil || auth.uid == nil
+    return nil if auth.provider.empty? || auth.uid.empty?
+
     authorization = Authorization.find_by(provider: auth.provider, uid: auth.uid.to_s)
     return authorization.user if authorization
 
     email = auth.info[:email] if auth.info
     user = User.find_by(email: email)
 
-    unless user
+    if user
+    else
       password = Devise.friendly_token[0, 20]
 
       if email

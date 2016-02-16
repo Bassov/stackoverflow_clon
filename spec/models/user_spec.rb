@@ -70,6 +70,32 @@ RSpec.describe User, type: :model do
       end
     end
 
+    context 'provider gives invalid hash' do
+      context 'no uid' do
+        let(:auth) { OmniAuth::AuthHash.new(provider: 'facebook', uid: '') }
+
+        it 'does not creates user' do
+          expect { described_class.find_for_oauth(auth) }.to_not change(described_class, :count)
+        end
+
+        it 'returns nil' do
+          expect(described_class.find_for_oauth(auth)).to be_nil
+        end
+      end
+
+      context 'no provider' do
+        let(:auth) { OmniAuth::AuthHash.new(provider: '', uid: '123456') }
+
+        it 'does not creates user' do
+          expect { described_class.find_for_oauth(auth) }.to_not change(described_class, :count)
+        end
+
+        it 'returns nil' do
+          expect(described_class.find_for_oauth(auth)).to be_nil
+        end
+      end
+    end
+
     context 'user has not authorization' do
       context 'user already exists' do
         let(:auth) { OmniAuth::AuthHash.new(provider: 'facebook', uid: '123456', info: { email: user.email }) }

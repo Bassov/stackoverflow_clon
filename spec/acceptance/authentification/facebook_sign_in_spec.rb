@@ -22,4 +22,29 @@ feature 'User sign in with facebook', '
 
     expect(page).to have_content('Could not authenticate you from Facebook')
   end
+
+  scenario 'provider gives hash without provider field' do
+    visit 'users/sign_in'
+    facebook_oauth_no_provider
+    click_on 'Sign in with Facebook'
+
+    expect(page).to have_content('Could not authenticate you from Facebook')
+  end
+
+  scenario 'provider gives hash without uid field' do
+    visit 'users/sign_in'
+    facebook_oauth_no_uid
+    click_on 'Sign in with Facebook'
+
+    expect(page).to have_content('Could not authenticate you from Facebook')
+  end
+
+  scenario 'provider gives hash without email field' do
+    visit 'users/sign_in'
+    facebook_oauth_no_email
+    click_on 'Sign in with Facebook'
+
+    expect(page).to have_content('Successfully authenticated from Facebook account.')
+    expect(page).to have_link('Выйти')
+  end
 end
