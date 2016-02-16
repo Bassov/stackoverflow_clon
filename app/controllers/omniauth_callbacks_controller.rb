@@ -1,16 +1,13 @@
 # encoding: utf-8
 class OmniauthCallbacksController < Devise::OmniauthCallbacksController
-  # before_action :set_user
 
   def facebook
-    @user = User.find_for_oauth(request.env['omniauth.auth'])
-
+    set_user
     sign_in_user('Facebook')
   end
 
   def vk
-    @user = User.find_for_oauth(request.env['omniauth.auth'])
-
+    set_user
     sign_in_user('vk')
   end
 
