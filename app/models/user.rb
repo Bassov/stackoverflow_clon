@@ -53,6 +53,7 @@ class User < ActiveRecord::Base
         user = User.create!(email: 'email@temporary.com', password: password, password_confirmation: password)
         email = "#{user.id}@stackoverflow_clon.com"
         user.email = email
+        user.save
       end
     end
 
