@@ -2,6 +2,7 @@
 require 'rails_helper'
 
 OmniAuth.config.test_mode = true
+Capybara.default_max_wait_time = 10
 
 RSpec.configure do |config|
   Capybara.javascript_driver = :webkit
