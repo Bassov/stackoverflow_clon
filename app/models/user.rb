@@ -37,12 +37,19 @@ class User < ActiveRecord::Base
     authorization = Authorization.find_by(provider: auth.provider, uid: auth.uid.to_s)
     return authorization.user if authorization
 
-    email = auth.info[:email]
+    email = auth.info[:email] if auth.info
     user = User.find_by(email: email)
 
-    until user
+    unless user
       password = Devise.friendly_token[0, 20]
-      user = User.create!(email: email, password: password, password_confirmation: password)
+
+      if email
+        user = User.create!(email: email, password: password, password_confirmation: password)
+      else
+        user = User.create!(email: 'email@temporary.com', password: password, password_confirmation: password)
+        email = "#{user.id}@stackoverflow_clon.com"
+        user.email = email
+      end
     end
 
     user.create_authorization(auth)
