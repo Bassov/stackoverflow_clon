@@ -1,0 +1,9 @@
+h1 Добро пожаловать #{@user.email}
+p = link_to 'Редактировать профиль', edit_user_registration_path
+
+h2 Мои вопросы
+
+table.questions.table-striped.col-md-12
+  tr
+    td Тема
+    = render @user.questions
