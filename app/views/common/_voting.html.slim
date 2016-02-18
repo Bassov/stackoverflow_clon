@@ -1,6 +1,6 @@
 p.rating
   = votable.votes.rating
-- if user_signed_in? && current_user.non_author_of?(votable)
+- if can? :create_vote, votable
   p.vote_up
     = link_to '+', vote_up_path(votable), method: :patch, remote: true,
       class: 'btn btn-default'
