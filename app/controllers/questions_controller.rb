@@ -5,6 +5,8 @@ class QuestionsController < ApplicationController
   before_action :check_authority, only: [:edit, :update, :destroy]
   after_action :publish_question, only: :create
 
+  authorize_resource
+
   def index
     respond_with(@questions = Question.all)
   end

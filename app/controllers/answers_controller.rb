@@ -8,6 +8,8 @@ class AnswersController < ApplicationController
 
   respond_to :js
 
+  authorize_resource
+
   def update
     respond_with(@answer.update(answer_params)) if current_user.author_of?(@answer)
   end
