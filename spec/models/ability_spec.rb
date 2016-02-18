@@ -70,6 +70,9 @@ describe Ability do
       it { should be_able_to :create, Comment }
     end
 
-    
+    context 'Votes controller' do
+      it { should be_able_to :create, create(:vote, votable: other_question), votable: { user: user } }
+      it { should_not be_able_to :create, create(:vote, votable: own_question), votable: { user: user } }
+    end
   end
 end

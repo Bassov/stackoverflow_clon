@@ -15,6 +15,5 @@ class VotesController < ApplicationController
   def set_votable
     klass = params[:votable_type].to_s.capitalize.constantize
     @votable = klass.find(params[:votable_id])
-    render :create if current_user.author_of?(@votable)
   end
 end
