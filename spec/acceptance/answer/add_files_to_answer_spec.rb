@@ -20,6 +20,7 @@ feature 'Add files to answer', '
     all('input[type="File"]')[1].set("#{Rails.root}/spec/rails_helper.rb")
     click_on 'Ответить'
 
+    sleep(2)
     within '.answers' do
       expect(page).to have_link 'spec_helper.rb', href: '/uploads/attachment/file/1/spec_helper.rb'
       expect(page).to have_link 'rails_helper.rb', href: '/uploads/attachment/file/2/rails_helper.rb'
