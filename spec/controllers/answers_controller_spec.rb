@@ -92,7 +92,7 @@ RSpec.describe AnswersController, type: :controller do
       end
 
       it 'renders update template' do
-        expect(response).to render_template :update
+        expect(response).to redirect_to root_url
       end
     end
   end

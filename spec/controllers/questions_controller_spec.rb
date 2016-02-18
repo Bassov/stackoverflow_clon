@@ -6,7 +6,6 @@ RSpec.describe QuestionsController, type: :controller do
   let(:question) { create(:question, user: user) }
   let(:user_question) { create(:question, user: @user) }
   let(:user) { create(:user) }
-  before { request.env['HTTP_REFERER'] = 'where_i_came_from' }
 
   describe 'GET #index' do
     before { get :index }
@@ -65,7 +64,7 @@ RSpec.describe QuestionsController, type: :controller do
       before { get :edit, id: question }
 
       it 're-renders question view' do
-        expect(response).to redirect_to 'where_i_came_from'
+        expect(response).to redirect_to root_url
       end
     end
   end
@@ -150,7 +149,7 @@ RSpec.describe QuestionsController, type: :controller do
       end
 
       it 're-renders question view' do
-        expect(response).to redirect_to 'where_i_came_from'
+        expect(response).to redirect_to root_url
       end
     end
   end
@@ -178,7 +177,7 @@ RSpec.describe QuestionsController, type: :controller do
 
       it 'redirects back' do
         delete :destroy, id: question
-        expect(response).to redirect_to 'where_i_came_from'
+        expect(response).to redirect_to root_url
       end
     end
   end

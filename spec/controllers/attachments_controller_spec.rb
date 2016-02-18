@@ -47,7 +47,7 @@ RSpec.describe AttachmentsController, type: :controller do
       it 'Renders destroy template' do
         delete :destroy, id: attachment, format: :js
 
-        expect(response).to render_template :destroy
+        expect(response).to redirect_to root_url
       end
     end
   end
