@@ -25,6 +25,7 @@ describe Ability do
 
     let(:own_question) { create :question, user: user }
     let(:other_question) { create :question, user: other_user }
+
     let(:own_answer) { create :answer, user: user }
     let(:other_answer) { create :answer, user: other_user }
 
