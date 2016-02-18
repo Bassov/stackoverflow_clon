@@ -2,7 +2,6 @@
 class AnswersController < ApplicationController
   before_action :authenticate_user!
   before_action :set_answer, except: :create
-  before_action :set_answer_question, only: [:update, :make_best]
   before_action :set_question, only: :create
   after_action :publish_answer, only: :create
 
@@ -27,10 +26,6 @@ class AnswersController < ApplicationController
   end
 
   private
-
-  def set_answer_question
-    @question = @answer.question
-  end
 
   def set_answer
     @answer = Answer.find(params[:id])
