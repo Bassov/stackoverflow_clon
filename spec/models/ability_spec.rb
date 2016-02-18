@@ -23,17 +23,17 @@ describe Ability do
     let(:user) { create :user }
     let(:other_user) { create :user }
 
+    let(:own_question) { create :question, user: user }
+    let(:other_question) { create :question, user: other_user }
+    let(:own_answer) { create :answer, user: user }
+    let(:other_answer) { create :answer, user: other_user }
+
 
     it { should_not be_able_to :manage, :all }
     it { should be_able_to :read, :all }
 
 
     context 'Answer controller' do
-      let(:own_question) { create :question, user: user }
-      let(:other_question) { create :question, user: other_user }
-      let(:own_answer) { create :answer, user: user }
-      let(:other_answer) { create :answer, user: other_user }
-
       it { should be_able_to :create, Answer }
 
       it { should be_able_to :update, own_answer, user: user }
@@ -41,14 +41,21 @@ describe Ability do
 
       it { should be_able_to :destroy, own_answer, user: user }
       it { should_not be_able_to :destroy, other_answer, user: user }
+
+      it { should be_able_to :make_best, create(:answer, question: own_question), question: { user: user } }
+      it { should_not be_able_to :make_best, create(:answer, question: other_question), question: { user: user } }
     end
 
 
-    # Question controller
-    it { should be_able_to :create, Question }
+    context 'Question controller' do
+      it { should be_able_to :create, Question }
 
-    it { should be_able_to :update, create(:question, user: user), user: user }
-    it { should_not be_able_to :update, create(:question, user: other_user), user: user }
+      it { should be_able_to :update, own_question, user: user }
+      it { should_not be_able_to :update, other_question, user: user }
+
+      it { should be_able_to :destroy, own_question, user: user }
+      it { should_not be_able_to :destroy, other_question, user: user }
+    end
 
     # Comment controller
     it { should be_able_to :create, Comment }

@@ -124,7 +124,7 @@ RSpec.describe AnswersController, type: :controller do
     end
 
     context 'non-author of question sets answer to be best' do
-      before { patch :make_best, id: answer, question_id: question, answer: { best: true }, format: :js }
+      before { patch :make_best, id: answer, format: :js }
 
       it 'assigns the requested answer to @answer' do
         expect(assigns(:answer)).to eq answer
