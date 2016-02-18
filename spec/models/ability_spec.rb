@@ -58,6 +58,14 @@ describe Ability do
       it { should_not be_able_to :destroy, other_question, user: user }
     end
 
+    context 'Attachments controller' do
+      let(:own_attachment) { create :attachment, attachable: own_question }
+      let(:other_attachment) { create :attachment, attachable: other_question }
+
+      it { should be_able_to :destroy, own_attachment, attachable: { user: user } }
+      it { should_not be_able_to :destroy, other_attachment, attachable: { user: user } }
+    end
+
     # Comment controller
     it { should be_able_to :create, Comment }
   end

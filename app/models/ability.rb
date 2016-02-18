@@ -28,5 +28,7 @@ class Ability
     can :destroy, [Answer, Question], user: user
 
     can :make_best, Answer, question: { user: user }
+
+    can :destroy, Attachment, attachable: { user: user }
   end
 end
