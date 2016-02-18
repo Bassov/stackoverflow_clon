@@ -71,8 +71,10 @@ describe Ability do
     end
 
     context 'Votes controller' do
-      it { should be_able_to :create, create(:vote, votable: other_question), votable: { user: user } }
-      it { should_not be_able_to :create, create(:vote, votable: own_question), votable: { user: user } }
+      it { should be_able_to :create_vote, other_answer, user: user }
+      it { should be_able_to :create_vote, other_question, user: user }
+      it { should_not be_able_to :create_vote, own_question, user: user }
+      it { should_not be_able_to :create_vote, own_answer, user: user }
     end
   end
 end
