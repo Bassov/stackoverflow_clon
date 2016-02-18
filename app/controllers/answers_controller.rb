@@ -11,7 +11,7 @@ class AnswersController < ApplicationController
   authorize_resource
 
   def update
-    respond_with(@answer.update(answer_params)) if current_user.author_of?(@answer)
+    respond_with(@answer.update(answer_params))
   end
 
   def create
@@ -19,7 +19,7 @@ class AnswersController < ApplicationController
   end
 
   def destroy
-    respond_with(@answer.destroy) if current_user.author_of?(@answer)
+    respond_with(@answer.destroy)
   end
 
   def make_best

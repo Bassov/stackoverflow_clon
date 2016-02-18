@@ -21,20 +21,36 @@ describe Ability do
 
   describe 'for user' do
     let(:user) { create :user }
-    let(:other) { create :user }
+    let(:other_user) { create :user }
 
 
     it { should_not be_able_to :manage, :all }
     it { should be_able_to :read, :all }
 
+
+    context 'Answer controller' do
+      let(:own_question) { create :question, user: user }
+      let(:other_question) { create :question, user: other_user }
+      let(:own_answer) { create :answer, user: user }
+      let(:other_answer) { create :answer, user: other_user }
+
+      it { should be_able_to :create, Answer }
+
+      it { should be_able_to :update, own_answer, user: user }
+      it { should_not be_able_to :update, other_answer, user: user }
+
+      it { should be_able_to :destroy, own_answer, user: user }
+      it { should_not be_able_to :destroy, other_answer, user: user }
+    end
+
+
+    # Question controller
     it { should be_able_to :create, Question }
-    it { should be_able_to :create, Answer }
-    it { should be_able_to :create, Comment }
 
     it { should be_able_to :update, create(:question, user: user), user: user }
-    it { should_not be_able_to :update, create(:question, user: other), user: user }
+    it { should_not be_able_to :update, create(:question, user: other_user), user: user }
 
-    it { should be_able_to :update, create(:answer, user: user), user: user }
-    it { should_not be_able_to :update, create(:answer, user: other), user: user }
+    # Comment controller
+    it { should be_able_to :create, Comment }
   end
 end
