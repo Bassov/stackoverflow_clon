@@ -22,8 +22,7 @@ feature 'Add file to question', '
     all('input[type="File"]')[1].set("#{Rails.root}/spec/rails_helper.rb")
     click_on 'Сохранить'
 
-    sleep(2)
-    expect(page).to have_link 'spec_helper.rb', href: '/uploads/attachment/file/1/spec_helper.rb'
-    expect(page).to have_link 'rails_helper.rb', href: '/uploads/attachment/file/2/rails_helper.rb'
+    expect(page).to have_link 'spec_helper.rb'
+    expect(page).to have_link 'rails_helper.rb'
   end
 end
