@@ -12,14 +12,6 @@ class User < ActiveRecord::Base
   has_many :comments
   has_many :authorizations
 
-  def author_of?(object)
-    id == object.user_id
-  end
-
-  def non_author_of?(object)
-    !author_of?(object)
-  end
-
   def vote_for(votable, rating)
     vote = votes.new(votable: votable, rating: rating)
     vote.save
