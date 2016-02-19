@@ -44,10 +44,10 @@ RSpec.describe AttachmentsController, type: :controller do
         expect { delete :destroy, id: attachment, format: :js }.to_not change(@message.attachments, :count)
       end
 
-      it 'Renders destroy template' do
+      it 'Returns 403 (forbidden) status' do
         delete :destroy, id: attachment, format: :js
 
-        expect(response).to redirect_to root_url
+        expect(response).to have_http_status(:forbidden)
       end
     end
   end

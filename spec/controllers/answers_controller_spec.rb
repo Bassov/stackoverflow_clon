@@ -91,8 +91,8 @@ RSpec.describe AnswersController, type: :controller do
         expect(answer.body).to eq @old_body
       end
 
-      it 'renders update template' do
-        expect(response).to redirect_to root_url
+      it 'returns 403 (forbidden) status' do
+        expect(response).to have_http_status(:forbidden)
       end
     end
   end
