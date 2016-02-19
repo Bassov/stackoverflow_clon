@@ -1,6 +1,6 @@
 - klass = model.class.to_s.underscore
 
-- if user_signed_in?
+- if can? :create, Comment
   = link_to 'Комментировать', '', data: {"#{klass}_id" => model.id},
     class: "btn btn-default comment_#{klass}_link"
 

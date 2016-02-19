@@ -2,14 +2,15 @@
 class AnswersController < ApplicationController
   before_action :authenticate_user!
   before_action :set_answer, except: :create
-  before_action :set_answer_question, only: [:update, :make_best]
   before_action :set_question, only: :create
   after_action :publish_answer, only: :create
 
   respond_to :js
 
+  authorize_resource
+
   def update
-    respond_with(@answer.update(answer_params)) if current_user.author_of?(@answer)
+    respond_with(@answer.update(answer_params))
   end
 
   def create
@@ -17,18 +18,14 @@ class AnswersController < ApplicationController
   end
 
   def destroy
-    respond_with(@answer.destroy) if current_user.author_of?(@answer)
+    respond_with(@answer.destroy)
   end
 
   def make_best
-    respond_with(@answer.make_best) if current_user.author_of?(@question)
+    respond_with(@answer.make_best)
   end
 
   private
-
-  def set_answer_question
-    @question = @answer.question
-  end
 
   def set_answer
     @answer = Answer.find(params[:id])

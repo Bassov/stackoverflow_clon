@@ -37,7 +37,13 @@ gem 'less-rails'
 gem 'twitter-bootstrap-rails'
 gem 'bootstrap_form'
 
+# Authorization and authentication gems
 gem 'devise'
+gem 'cancancan'
+gem 'omniauth'
+gem 'omniauth-facebook'
+gem 'omniauth-vk'
+
 gem 'carrierwave'
 gem 'remotipart'
 gem 'nested_form'
@@ -46,10 +52,6 @@ gem 'thin'
 gem 'skim'
 gem 'gon'
 gem 'responders'
-
-gem 'omniauth'
-gem 'omniauth-facebook'
-gem 'omniauth-vk'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

@@ -66,38 +66,33 @@ RSpec.describe AnswersController, type: :controller do
 
     context 'author of answer updates answer' do
       it 'assigns the requested answer to @answer' do
-        patch :update, id: user_answer, question_id: question, answer: attributes_for(:answer), format: :js
+        patch :update, id: user_answer, answer: attributes_for(:answer), format: :js
         expect(assigns(:answer)).to eq user_answer
       end
 
-      it 'assigns the question' do
-        patch :update, id: user_answer, question_id: question, answer: attributes_for(:answer), format: :js
-        expect(assigns(:question)).to eq question
-      end
-
       it 'change answer attributes' do
-        patch :update, id: user_answer, question_id: question, answer: { body: 'New body' }, format: :js
+        patch :update, id: user_answer, answer: { body: 'New body' }, format: :js
         user_answer.reload
         expect(user_answer.body).to eq 'New body'
       end
 
       it 'renders update template' do
-        patch :update, id: user_answer, question_id: question, answer: attributes_for(:answer), format: :js
+        patch :update, id: user_answer, answer: attributes_for(:answer), format: :js
         expect(response).to render_template :update
       end
     end
 
     context 'non-author tries to update question' do
       before { @old_body = answer.body }
-      before { patch :update, id: answer, question_id: question, answer: attributes_for(:answer), format: :js }
+      before { patch :update, id: answer, answer: attributes_for(:answer), format: :js }
 
       it 'does not change question attributes' do
         answer.reload
         expect(answer.body).to eq @old_body
       end
 
-      it 'renders update template' do
-        expect(response).to render_template :update
+      it 'returns 403 (forbidden) status' do
+        expect(response).to have_http_status(:forbidden)
       end
     end
   end
@@ -113,10 +108,6 @@ RSpec.describe AnswersController, type: :controller do
         expect(assigns(:answer)).to eq answer_user_question
       end
 
-      it 'assigns the answer question to @question' do
-        expect(assigns(:question)).to eq answer_user_question.question
-      end
-
       it 'makes selected answer to be the best' do
         answer_user_question.reload
         expect(answer_user_question.best?).to be true
@@ -124,14 +115,10 @@ RSpec.describe AnswersController, type: :controller do
     end
 
     context 'non-author of question sets answer to be best' do
-      before { patch :make_best, id: answer, question_id: question, answer: { best: true }, format: :js }
+      before { patch :make_best, id: answer, format: :js }
 
       it 'assigns the requested answer to @answer' do
         expect(assigns(:answer)).to eq answer
-      end
-
-      it 'assigns the requested question to @question' do
-        expect(assigns(:question)).to eq question
       end
 
       it 'don`t changes answers best option' do

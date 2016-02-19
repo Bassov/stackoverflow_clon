@@ -15,18 +15,6 @@ RSpec.describe User, type: :model do
   let(:user_question) { create :question, user: user }
   let(:question) { create :question }
 
-  describe '#author_of?' do
-    it 'checks the authority of objects' do
-      expect(user.author_of?(user_question)).to eq true
-    end
-  end
-
-  describe '#non_author_of?' do
-    it 'checks the non-authority of objects' do
-      expect(user.non_author_of?(question)).to eq true
-    end
-  end
-
   describe '#vote_for' do
     it 'changes votable.votes count' do
       expect { user.vote_for(question, 1) }.to change(question.votes.upvotes, :count).by(1)

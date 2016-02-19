@@ -2,8 +2,9 @@
 class QuestionsController < ApplicationController
   before_action :authenticate_user!, except:  [:index, :show]
   before_action :set_question, only: [:show, :edit, :update, :destroy]
-  before_action :check_authority, only: [:edit, :update, :destroy]
   after_action :publish_question, only: :create
+
+  authorize_resource
 
   def index
     respond_with(@questions = Question.all)
@@ -38,10 +39,6 @@ class QuestionsController < ApplicationController
 
   def publish_question
     PrivatePub.publish_to '/questions', question: @question.to_json if @question.valid?
-  end
-
-  def check_authority
-    redirect_to :back, notice: 'Вы не являетесь автором вопроса' unless current_user.author_of?(@question)
   end
 
   def set_question

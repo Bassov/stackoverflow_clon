@@ -1,9 +1,9 @@
 - unless message.attachments.empty?
   p Файлы:
   ul
-    - message.attachments.each do |a|
-      = div_for a do
-        = link_to a.file.identifier, a.file.url
+    - message.attachments.each do |attachment|
+      = div_for attachment do
+        = link_to attachment.file.identifier, attachment.file.url
         span>
-        - if user_signed_in? && current_user.author_of?(a.attachable)
-          = link_to 'Удалить', attachment_path(a), method: :delete, remote: true, class: 'btn btn-default'
+        - if can? :destroy, attachment
+          = link_to 'Удалить', attachment_path(attachment), method: :delete, remote: true, class: 'btn btn-default'

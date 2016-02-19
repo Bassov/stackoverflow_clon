@@ -4,6 +4,7 @@ table.questions.table-striped.col-md-12
     td Тема
     = render @questions
 
-= link_to 'Задать вопрос', new_question_path, class: 'btn btn-default'
+- if can? :create, Question
+  = link_to 'Задать вопрос', new_question_path, class: 'btn btn-default'
 
 = subscribe_to '/questions'
