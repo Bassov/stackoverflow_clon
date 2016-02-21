@@ -36,7 +36,7 @@ describe 'Profile API' do
     end
   end
 
-  describe 'GET /all' do
+  describe 'GET /profiles' do
     let!(:users) { create_list(:user, 3) }
 
     before { get '/api/v1/profiles', format: :json, access_token: access_token.token }
