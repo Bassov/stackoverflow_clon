@@ -44,6 +44,9 @@ gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'omniauth-vk'
 
+# REST API gems
+gem 'doorkeeper'
+
 gem 'carrierwave'
 gem 'remotipart'
 gem 'nested_form'
@@ -70,6 +73,7 @@ end
 
 group :test do
   gem 'shoulda'
+  gem 'json_spec'
 end
 
 group :development do
