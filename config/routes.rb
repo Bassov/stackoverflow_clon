@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   resources :questions, shallow: true do
     resources :comments, only: :create
 
-    resources :answers do
+    resources :answers, except: [:new, :show] do
       resources :comments, only: :create
       patch :make_best, on: :member
     end
@@ -14,7 +14,7 @@ Rails.application.routes.draw do
 
   resources :attachments, only: :destroy
 
-  resource :vote, only: :create do
+  resource :vote do
     patch :create_vote, on: :member
   end
 
@@ -24,7 +24,11 @@ Rails.application.routes.draw do
         get :me, on: :collection
       end
 
-      resources :questions, only: [:index, :show]
+      resources :questions, only: [:index, :show] do
+        resources :answers, only: [:create, :index]
+      end
+
+      resources :answers, only: :show
     end
   end
 
