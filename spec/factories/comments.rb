@@ -1,6 +1,7 @@
 # encoding: utf-8
 FactoryGirl.define do
   factory :comment do
-    body
+    body 'test1'
+    user
   end
 end
