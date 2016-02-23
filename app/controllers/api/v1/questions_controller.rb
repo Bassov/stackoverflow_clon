@@ -6,4 +6,14 @@ class Api::V1::QuestionsController < Api::V1::BaseController
   def show
     respond_with Question.find(params[:id])
   end
+
+  def create
+    respond_with current_resource_owner.questions.create(questions_params)
+  end
+
+  private
+
+  def questions_params
+    params.require(:question).permit(:title, :body)
+  end
 end
