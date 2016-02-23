@@ -103,6 +103,9 @@ describe 'Questions API' do
   end
 
   describe 'POST /create' do
+    let(:user) { create :user }
+    let(:access_token) { create :access_token, resource_owner_id: user.id }
+
     context 'unauthorized' do
       it 'returns 401 status if there no access_token' do
         post '/api/v1/questions', format: :json
@@ -135,7 +138,7 @@ describe 'Questions API' do
                              format: :json, access_token: access_token.token }
 
         it 'create new question' do
-          expect { request }.to change(Question, :count).by(1)
+          expect { request }.to change(user.questions, :count).by(1)
         end
 
         it 'should be success status' do

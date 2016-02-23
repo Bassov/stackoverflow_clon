@@ -92,7 +92,9 @@ describe 'Answers API' do
   end
 
   describe 'POST /create' do
-    let!(:question) { create :question }
+    let(:user) { create :user }
+    let(:access_token) { create :access_token, resource_owner_id: user.id }
+    let(:question) { create :question }
 
     context 'unauthorized' do
       it 'returns 401 status if there no access_token' do
@@ -125,8 +127,12 @@ describe 'Answers API' do
         let(:request) { post "/api/v1/questions/#{question.id}/answers", question_id: question,
                              answer: attributes_for(:answer), format: :json, access_token: access_token.token }
 
-        it 'creates new answer' do
-          expect { request }.to change(Answer, :count).by(1)
+        it 'creates new answer for defined question' do
+          expect { request }.to change(question.answers, :count).by(1)
+        end
+
+        it 'assigns resource_owner_id to user_id of answer' do
+          expect { request }.to change(user.answers, :count).by(1)
         end
 
         it 'should be success status' do
