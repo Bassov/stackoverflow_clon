@@ -31,5 +31,7 @@ class Ability
 
     can :create_vote, [Answer, Question]
     cannot :create_vote, [Answer, Question], user_id: user.id
+
+    can :me, User, id: user.id
   end
 end
