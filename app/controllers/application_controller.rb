@@ -18,4 +18,11 @@ class ApplicationController < ActionController::Base
       format.html { redirect_to root_url, alert: exception.message }
     end
   end
+
+  private
+
+  def current_ability
+    @current_ability = Ability.new(User.find(doorkeeper_token.resource_owner_id)) if doorkeeper_token
+    @current_ability ||= Ability.new(current_user)
+  end
 end
