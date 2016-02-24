@@ -76,5 +76,10 @@ describe Ability do
       it { should_not be_able_to :create_vote, own_question, user: user }
       it { should_not be_able_to :create_vote, own_answer, user: user }
     end
+
+    context 'api/v1/profiles controller' do
+      it { should be_able_to :me, user, user: user}
+      it { should_not be_able_to :me, other_user, user: user }
+    end
   end
 end

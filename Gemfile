@@ -46,6 +46,9 @@ gem 'omniauth-vk'
 
 # REST API gems
 gem 'doorkeeper'
+gem 'active_model_serializers'
+gem 'oj'
+gem 'oj_mimic_json'
 
 gem 'carrierwave'
 gem 'remotipart'
