@@ -7,22 +7,17 @@ feature 'Add file to question', '
   I want to be able to attach files to questions
 ' do
   given(:user) { create :user }
+  given(:save_button) { 'Сохранить' }
 
   background do
     sign_in user
     visit new_question_path
   end
 
-  scenario 'Authenticated user attaches file when creates question', js: true do
+  it_behaves_like 'Acceptance attachable'
+
+  def fill_form
     fill_in 'Title', with: 'Test question'
     fill_in 'Body', with: 'Test body'
-    click_on 'Добавить файл'
-    all('input[type="File"]')[0].set("#{Rails.root}/spec/spec_helper.rb")
-    click_on 'Добавить файл'
-    all('input[type="File"]')[1].set("#{Rails.root}/spec/rails_helper.rb")
-    click_on 'Сохранить'
-
-    expect(page).to have_link 'spec_helper.rb'
-    expect(page).to have_link 'rails_helper.rb'
   end
 end

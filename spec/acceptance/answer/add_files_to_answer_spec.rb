@@ -8,23 +8,16 @@ feature 'Add files to answer', '
 ' do
   given(:user) { create :user }
   given!(:question) { create :question }
+  given(:save_button) { 'Ответить' }
 
   background do
     sign_in user
     visit question_path(question)
   end
 
-  scenario 'Authenticate user answers question and uploads files', js: true do
-    fill_in 'new-answer-body', with: 'Test body'
-    click_on 'Добавить файл'
-    all('input[type="File"]')[0].set("#{Rails.root}/spec/spec_helper.rb")
-    click_on 'Добавить файл'
-    all('input[type="File"]')[1].set("#{Rails.root}/spec/rails_helper.rb")
-    click_on 'Ответить'
+  it_behaves_like 'Acceptance attachable'
 
-    within '.answers' do
-      expect(page).to have_link 'spec_helper.rb'
-      expect(page).to have_link 'rails_helper.rb'
-    end
+  def fill_form
+    fill_in 'new-answer-body', with: 'Test body'
   end
 end
