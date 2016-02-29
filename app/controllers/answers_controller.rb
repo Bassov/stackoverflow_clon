@@ -36,17 +36,16 @@ class AnswersController < ApplicationController
   end
 
   def publish_answer
-    if @answer.valid?
-      attachments = []
+    return unless @answer.valid?
+    attachments = []
 
-      @answer.attachments.each do |attachment|
-        attachments << { attachment: attachment, file_name: attachment.file.identifier }
-      end
-
-      PrivatePub.publish_to "/questions/#{@question.id}/answers",         answer: @answer.to_json,
-                                                                          answer_question: @answer.question.to_json,
-                                                                          attachments: attachments.to_json
+    @answer.attachments.each do |attachment|
+      attachments << { attachment: attachment, file_name: attachment.file.identifier }
     end
+
+    PrivatePub.publish_to "/questions/#{@question.id}/answers", answer: @answer.to_json,
+                                                                answer_question: @answer.question.to_json,
+                                                                attachments: attachments.to_json
   end
 
   def answer_params
