@@ -9,10 +9,12 @@ feature 'Add files to answer', '
   given(:user) { create :user }
   given!(:question) { create :question }
 
-  scenario 'Authenticate user answers question and uploads files', js: true do
+  background do
     sign_in user
-
     visit question_path(question)
+  end
+
+  scenario 'Authenticate user answers question and uploads files', js: true do
     fill_in 'new-answer-body', with: 'Test body'
     click_on 'Добавить файл'
     all('input[type="File"]')[0].set("#{Rails.root}/spec/spec_helper.rb")
