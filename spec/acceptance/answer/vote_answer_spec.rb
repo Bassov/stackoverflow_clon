@@ -18,7 +18,7 @@ feature 'Vote answer', '
     sign_in user
     visit question_path(question)
 
-    within selector do
+    within "#answer_#{user_answer.id}" do
       expect(page).to_not have_content '+'
       expect(page).to_not have_content '-'
     end
