@@ -13,9 +13,7 @@ describe 'Questions API' do
 
       before { get '/api/v1/questions', format: :json, access_token: access_token.token }
 
-      it 'returns status 200' do
-        expect(response).to be_success
-      end
+      it_behaves_like 'API #get response 200'
 
       it 'returns list of questions' do
         expect(response.body).to have_json_size(2).at_path('questions')
@@ -57,9 +55,7 @@ describe 'Questions API' do
 
       before { get "/api/v1/questions/#{question.id}", format: :json, access_token: access_token.token }
 
-      it 'returns status 200' do
-        expect(response).to be_success
-      end
+      it_behaves_like 'API #get response 200'
 
       it 'returns required question' do
         expect(response.body).to be_json_eql(question.id.to_json).at_path('question/id')
