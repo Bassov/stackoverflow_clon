@@ -9,18 +9,7 @@ feature 'Add comments', '
   given(:user) { create :user }
   given!(:question) { create :question }
   given!(:answer) { create :answer, question: question }
+  given(:selector) { '.answer' }
 
-  scenario 'Authenticated user adds comment to answer', js: true do
-    sign_in user
-
-    visit question_path(question)
-    within "#answer_#{answer.id}" do
-      click_on 'Комментировать'
-      fill_in 'Body', with: 'new comment'
-      click_on 'Сохранить'
-
-      expect(page).to_not have_selector 'textarea'
-      expect(page).to have_content 'new comment'
-    end
-  end
+  it_behaves_like 'Acceptance commentable'
 end
