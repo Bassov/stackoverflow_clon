@@ -9,7 +9,8 @@ feature 'Add comments', '
   given(:user) { create :user }
   given!(:question) { create :question }
   given!(:answer) { create :answer, question: question }
-  given(:selector) { '.question' }
 
-  it_behaves_like 'Acceptance commentable'
+  it_behaves_like 'Acceptance commentable' do
+    given(:selector) { '.question' }
+  end
 end

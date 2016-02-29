@@ -7,17 +7,18 @@ feature 'Add file to question', '
   I want to be able to attach files to questions
 ' do
   given(:user) { create :user }
-  given(:save_button) { 'Сохранить' }
 
   background do
     sign_in user
     visit new_question_path
   end
 
-  it_behaves_like 'Acceptance attachable'
+  it_behaves_like 'Acceptance attachable' do
+    given(:save_button) { 'Сохранить' }
 
-  def fill_form
-    fill_in 'Title', with: 'Test question'
-    fill_in 'Body', with: 'Test body'
+    def fill_form
+      fill_in 'Title', with: 'Test question'
+      fill_in 'Body', with: 'Test body'
+    end
   end
 end

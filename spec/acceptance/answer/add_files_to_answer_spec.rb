@@ -8,16 +8,17 @@ feature 'Add files to answer', '
 ' do
   given(:user) { create :user }
   given!(:question) { create :question }
-  given(:save_button) { 'Ответить' }
 
   background do
     sign_in user
     visit question_path(question)
   end
 
-  it_behaves_like 'Acceptance attachable'
+  it_behaves_like 'Acceptance attachable' do
+    given(:save_button) { 'Ответить' }
 
-  def fill_form
-    fill_in 'new-answer-body', with: 'Test body'
+    def fill_form
+      fill_in 'new-answer-body', with: 'Test body'
+    end
   end
 end

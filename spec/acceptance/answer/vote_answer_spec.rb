@@ -10,9 +10,10 @@ feature 'Vote answer', '
   given!(:question) { create(:question) }
   given!(:user_answer) { create(:answer, user: user, question: question) }
   given!(:answer) { create(:answer, question: question) }
-  given(:selector) { "#answer_#{answer.id}" }
 
-  it_behaves_like 'Acceptance votable'
+  it_behaves_like 'Acceptance votable' do
+    given(:selector) { "#answer_#{answer.id}" }
+  end
 
   scenario 'Author of votable cant vote for it' do
     sign_in user
