@@ -13,16 +13,12 @@ feature 'Add file to question', '
     visit new_question_path
   end
 
-  scenario 'Authenticated user attaches file when creates question', js: true do
-    fill_in 'Title', with: 'Test question'
-    fill_in 'Body', with: 'Test body'
-    click_on 'Добавить файл'
-    all('input[type="File"]')[0].set("#{Rails.root}/spec/spec_helper.rb")
-    click_on 'Добавить файл'
-    all('input[type="File"]')[1].set("#{Rails.root}/spec/rails_helper.rb")
-    click_on 'Сохранить'
+  it_behaves_like 'Acceptance attachable' do
+    given(:save_button) { 'Сохранить' }
 
-    expect(page).to have_link 'spec_helper.rb'
-    expect(page).to have_link 'rails_helper.rb'
+    def fill_form
+      fill_in 'Title', with: 'Test question'
+      fill_in 'Body', with: 'Test body'
+    end
   end
 end

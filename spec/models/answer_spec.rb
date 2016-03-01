@@ -2,26 +2,20 @@
 require 'rails_helper'
 
 RSpec.describe Answer, type: :model do
+  it_behaves_like 'Attachable'
+
   it { should belong_to(:question) }
   it { should belong_to(:user) }
 
-  it { should have_many(:attachments) }
   it { should have_many(:votes) }
-  it { should have_many :comments }
-
-  it { should accept_nested_attributes_for(:attachments) }
+  it { should have_many(:comments).dependent(:destroy) }
 
   it { should validate_presence_of(:body) }
   it { should validate_presence_of(:question_id) }
   it { should validate_presence_of(:user_id) }
 
-  let(:user) { create(:user) }
-  let(:another_user) { create(:user) }
-  let(:question) { create(:question) }
-  let(:answer) { create(:answer) }
-  let(:answers) { create_list(:answer, 3) }
-
   describe 'default_scope' do
+    let(:question) { create(:question) }
     let(:best_answer) { create(:answer, question: question) }
 
     it 'shows best answer first' do
@@ -31,9 +25,12 @@ RSpec.describe Answer, type: :model do
   end
 
   describe 'make_best response true' do
+    subject { create :answer }
+    let(:answers) { create_list(:answer, 3) }
+
     it 'sets #best to true' do
-      answer.make_best
-      expect(answer.best?).to be true
+      subject.make_best
+      expect(subject.best?).to be true
     end
 
     it 'sets #best to all other answers to false' do

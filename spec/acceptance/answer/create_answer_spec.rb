@@ -32,11 +32,9 @@ feature 'Answer questions', '
     expect(page).to have_content 'Ответ не может быть пустым'
   end
 
-  scenario 'Non-authenticated user tries to answer question' do
+  scenario 'Non-authenticated cant see form' do
     visit question_path(question)
-    fill_in 'new-answer-body', with: 'Test body'
-    click_on 'Ответить'
 
-    expect(page).to have_content 'You need to sign in or sign up before continuing.'
+    expect(page).to_not have_selector 'form'
   end
 end

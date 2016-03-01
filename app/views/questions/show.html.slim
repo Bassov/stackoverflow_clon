@@ -16,9 +16,10 @@
 
       = render 'common/commenting', model: @question
 
-      .answers data={question_id: "#{@question.id}"}
-        = render @question.answers
+.answers data={question_id: "#{@question.id}"}
+  = render @question.answers
 
+- if can? :create, Answer
   = bootstrap_nested_form_for [@question, @question.answers.build], remote: true do |f|
     = f.text_area :body, id: 'new-answer-body'
     = render 'common/attachments_form', form: f

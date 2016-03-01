@@ -11,80 +11,17 @@ feature 'Vote answer', '
   given!(:user_answer) { create(:answer, user: user, question: question) }
   given!(:answer) { create(:answer, question: question) }
 
-  describe 'Authenticated user', js: true do
-    before { sign_in user }
-
-    scenario 'User votes up for answer' do
-      visit question_path(question)
-      within("#answer_#{answer.id}") do
-        click_on '+'
-
-        within('.rating') do
-          expect(page).to have_content '1'
-        end
-      end
-    end
-
-    scenario 'User votes down for answer' do
-      visit question_path(question)
-      within("#answer_#{answer.id}") do
-        click_on '-'
-
-        within('.rating') do
-          expect(page).to have_content '-1'
-        end
-      end
-    end
-
-    scenario 'Author of answer cant create for own answer' do
-      visit question_path(question)
-      within("#answer_#{user_answer.id}") do
-        expect(page).to_not have_content '+'
-        expect(page).to_not have_content '-'
-      end
-    end
-
-    scenario 'If user votes second time it rejects previous create' do
-      visit question_path(question)
-      within("#answer_#{answer.id}") do
-        click_on '+'
-        sleep(1)
-        click_on '+'
-
-        within('.rating') do
-          expect(page).to have_content '0'
-        end
-      end
-    end
-
-    scenario 'User can re-create for answer' do
-      visit question_path(question)
-      within("#answer_#{answer.id}") do
-        click_on '+'
-
-        within('.rating') do
-          expect(page).to have_content '1'
-        end
-
-        click_on '+'
-
-        within('.rating') do
-          expect(page).to have_content '0'
-        end
-
-        click_on '-'
-
-        within('.rating') do
-          expect(page).to have_content '-1'
-        end
-      end
-    end
+  it_behaves_like 'Acceptance votable' do
+    given(:selector) { "#answer_#{answer.id}" }
   end
 
-  scenario 'Non-authenticated user cant see create buttons' do
+  scenario 'Author of votable cant vote for it' do
+    sign_in user
     visit question_path(question)
 
-    expect(page).to_not have_content '+'
-    expect(page).to_not have_content '-'
+    within "#answer_#{user_answer.id}" do
+      expect(page).to_not have_content '+'
+      expect(page).to_not have_content '-'
+    end
   end
 end

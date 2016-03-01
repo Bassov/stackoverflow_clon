@@ -12,27 +12,31 @@ RSpec.describe AnswersController, type: :controller do
     sign_in_user
 
     context 'with valid attribute' do
+      subject { post :create, question_id: question, answer: attributes_for(:answer), format: :js }
+
       it 'creates new answer' do
-        expect do
-          post :create, question_id: question, answer: attributes_for(:answer), format: :js
-        end.to change(question.answers, :count).by 1
+        expect { subject }.to change(question.answers, :count).by 1
       end
 
       it 'renders create template' do
-        post :create, question_id: question, answer: attributes_for(:answer), format: :js
+        subject
         expect(response).to render_template :create
+      end
+
+      it_behaves_like 'Publishable' do
+        let(:channel) { "/questions/#{question.id}/answers" }
       end
     end
 
     context 'with invalid attributes' do
+      subject { post :create, question_id: question, answer: attributes_for(:invalid_answer), format: :js }
+
       it 'does not save the question' do
-        expect do
-          post :create, question_id: question, answer: attributes_for(:invalid_answer), format: :js
-        end.to_not change(Answer, :count)
+        expect { subject }.to_not change(Answer, :count)
       end
 
       it 'renders create template' do
-        post :create, question_id: question, answer: attributes_for(:invalid_answer), format: :js
+        subject
         expect(response).to render_template :create
       end
     end

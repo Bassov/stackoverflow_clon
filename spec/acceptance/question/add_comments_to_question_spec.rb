@@ -2,7 +2,7 @@
 require_relative '../acceptance_helper'
 
 feature 'Add comments', '
-  In order to discus answer
+  In order to discus question
   As an authenticated user
   I want to be able to add comments
 ' do
@@ -11,6 +11,6 @@ feature 'Add comments', '
   given!(:answer) { create :answer, question: question }
 
   it_behaves_like 'Acceptance commentable' do
-    given(:selector) { '.answer' }
+    given(:selector) { '.question' }
   end
 end
