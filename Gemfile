@@ -50,6 +50,9 @@ gem 'active_model_serializers'
 gem 'oj'
 gem 'oj_mimic_json'
 
+# repeatable tasks and background jobs
+gem 'whenever'
+
 gem 'carrierwave'
 gem 'remotipart'
 gem 'nested_form'
