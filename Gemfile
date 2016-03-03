@@ -1,6 +1,4 @@
 source 'https://rubygems.org'
-
-
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.4'
 # Use postgresql as the database for Active Record
@@ -52,6 +50,9 @@ gem 'oj_mimic_json'
 
 # repeatable tasks and background jobs
 gem 'whenever'
+gem 'sidekiq'
+gem 'sinatra', require: false #for sidekiq web UI
+gem 'slim'
 
 gem 'carrierwave'
 gem 'remotipart'
