@@ -32,6 +32,8 @@ class Ability
     can :create_vote, [Answer, Question]
     cannot :create_vote, [Answer, Question], user_id: user.id
 
+    cannot :create, Subscription, question: { subscriptions: { user_id: user.id } }
+
     #API
     can :me, User, id: user.id
   end
