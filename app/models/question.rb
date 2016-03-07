@@ -20,7 +20,7 @@ class Question < ActiveRecord::Base
   end
 
   def unsubscribe(user)
-    subscribers.find_by(id: user.id).destroy if subscribers.include? user
+    subscriptions.find_by(user_id: user.id).destroy if subscribers.include? user
   end
 
   private

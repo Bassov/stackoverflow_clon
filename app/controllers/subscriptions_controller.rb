@@ -5,11 +5,11 @@ class SubscriptionsController < ApplicationController
   authorize_resource
 
   def create
-    respond_with(@question.subscribe(current_user))
+    @question.subscribe(current_user)
   end
 
   def destroy
-    respond_with(@question.unsubscribe(current_user))
+    @question.unsubscribe(current_user)
   end
 
   private
