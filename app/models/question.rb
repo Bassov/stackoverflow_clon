@@ -12,4 +12,12 @@ class Question < ActiveRecord::Base
   belongs_to :user
 
   validates :title, :body, :user_id, presence: true
+
+  def subscribe(user)
+    subscribers << user unless subscribers.include? user
+  end
+
+  def unsubscribe(user)
+    subscribers.find_by(id: user.id).destroy if subscribers.include? user
+  end
 end

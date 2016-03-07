@@ -16,4 +16,42 @@ RSpec.describe Question, type: :model do
   it { should validate_presence_of :title }
   it { should validate_presence_of :body }
   it { should validate_presence_of :user_id }
+
+  describe '#subscribe' do
+    let(:user) { create(:user) }
+    let!(:question) { create(:question) }
+
+    context 'not subscribed user' do
+      it 'should create subscription' do
+        expect { question.subscribe(user) }.to change(question.subscribers, :count).by(1)
+      end
+    end
+
+    context 'already subscribed user' do
+      it 'should not create Subscription' do
+        question.subscribers << user
+
+        expect { question.subscribe(user) }.to_not change(Subscription, :count)
+      end
+    end
+  end
+
+  describe '#unsubscribe' do
+    let(:user) { create(:user) }
+    let!(:question) { create(:question) }
+
+    context 'already subscribed user' do
+      it 'should destroy subscription' do
+        question.subscribers << user
+
+        expect { question.unsubscribe(user) }.to change(question.subscribers, :count).by(-1)
+      end
+    end
+
+    context 'non subscribed user' do
+      it 'should not change subscription count' do
+        expect { question.unsubscribe(user) }.to_not change(Subscription, :count)
+      end
+    end
+  end
 end
