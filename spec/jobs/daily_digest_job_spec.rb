@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe DailyDigestJob, type: :job do
-  # let!(:question) { create :question }
+  let!(:question) { create :question, user: users.first }
   let!(:users) { create_list :user, 2 }
 
   it 'sends 2 emails' do
