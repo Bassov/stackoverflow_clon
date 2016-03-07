@@ -54,4 +54,19 @@ RSpec.describe Question, type: :model do
       end
     end
   end
+
+  describe 'after_create#subscribe_author' do
+    let(:user) { create :user }
+    subject { build(:question, user: user) }
+
+    it 'sends method to question after create' do
+      expect(subject).to receive(:subscribe_author)
+      subject.save!
+    end
+
+    it 'subscribes author of question to question' do
+      expect { subject.save! }.to change(user.subscribes, :count).by(1)
+    end
+
+  end
 end

@@ -13,11 +13,19 @@ class Question < ActiveRecord::Base
 
   validates :title, :body, :user_id, presence: true
 
+  after_create :subscribe_author
+
   def subscribe(user)
     subscribers << user unless subscribers.include? user
   end
 
   def unsubscribe(user)
     subscribers.find_by(id: user.id).destroy if subscribers.include? user
+  end
+
+  private
+
+  def subscribe_author
+    subscribe(self.user)
   end
 end
