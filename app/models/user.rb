@@ -12,6 +12,9 @@ class User < ActiveRecord::Base
   has_many :comments
   has_many :authorizations
 
+  has_many :subscriptions, dependent: :destroy
+  has_many :subscribes, through: :subscriptions, source: :question
+
   def vote_for(votable, rating)
     vote = votes.new(votable: votable, rating: rating)
     vote.save
