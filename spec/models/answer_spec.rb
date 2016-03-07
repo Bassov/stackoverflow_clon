@@ -41,4 +41,18 @@ RSpec.describe Answer, type: :model do
       end
     end
   end
+
+  describe 'after_create#send_notification' do
+    subject { build(:answer) }
+
+    it 'sends method to answer after create' do
+      expect(subject).to receive(:send_notification)
+      subject.save!
+    end
+
+    it 'peforms job' do
+      expect(NewAnswerJob).to receive(:perform_later).with(subject)
+      subject.save!
+    end
+  end
 end
