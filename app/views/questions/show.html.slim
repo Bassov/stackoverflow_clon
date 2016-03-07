@@ -4,7 +4,7 @@
       = render 'common/voting', votable: @question
     .col-md-11
       .subscription
-        - if can? :create, Subscription
+        - if can? :create, @question.subscriptions.new
           - if @question.subscribers.include?(current_user)
             p = link_to 'Отписаться', unsubscribe_path(@question), method: :delete, remote: true
           - else
