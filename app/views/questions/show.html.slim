@@ -3,6 +3,13 @@
     .col-md-1.voting
       = render 'common/voting', votable: @question
     .col-md-11
+      .subscription
+        - if can? :create, Subscription
+          - if @question.subscribers.include?(current_user)
+            p = link_to 'Отписаться', unsubscribe_path(@question), method: :delete, remote: true
+          - else
+            p = link_to 'Подписаться', subscribe_path(@question), method: :post, remote: true
+
       h2 = @question.title
       p = @question.body
       = render 'common/attachments', message: @question

@@ -1,0 +1,2 @@
+$('.notice').html('<p>Вы успешно подписались на вопрос</p>')
+$('.subscription').html('<p><%= link_to 'Отписаться', unsubscribe_path(@question), method: :delete, remote: true %> </p>')

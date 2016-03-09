@@ -77,6 +77,17 @@ describe Ability do
       it { should_not be_able_to :create_vote, own_answer, user: user }
     end
 
+    context 'Subscriptions controller' do
+      let(:question) { create :question }
+      let(:own_subscription) { create :subscription, user: user, question: question }
+      let(:other_subscription) { create :subscription, user: other_user, question: question }
+
+      it { should be_able_to :create, Subscription }
+
+      it { should be_able_to :destroy, own_subscription, user: user }
+      it { should_not be_able_to :destroy, other_subscription, user: user }
+    end
+
     context 'api/v1/profiles controller' do
       it { should be_able_to :me, user, user: user}
       it { should_not be_able_to :me, other_user, user: user }

@@ -12,10 +12,18 @@ class Answer < ActiveRecord::Base
 
   default_scope { order(best: :desc).order(:created_at) }
 
+  after_create :send_notification
+
   def make_best
     ActiveRecord::Base.transaction do
       question.answers.update_all(best: false)
       fail ActiveRecord::Rollback unless update(best: true)
     end
+  end
+
+  private
+
+  def send_notification
+    NewAnswerJob.perform_later(self)
   end
 end
