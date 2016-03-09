@@ -2,13 +2,13 @@ class SubscriptionsController < ApplicationController
   before_action :set_question
   respond_to :js
 
-  authorize_resource
-
   def create
+    authorize! :create, @question
     @question.subscribe(current_user)
   end
 
   def destroy
+    authorize! :create, @question
     @question.unsubscribe(current_user)
   end
 
