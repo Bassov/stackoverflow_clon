@@ -54,6 +54,10 @@ gem 'sidekiq'
 gem 'sinatra', require: false #for sidekiq web UI
 gem 'slim'
 
+#sphinx search-engine
+gem 'mysql2'
+gem 'thinking-sphinx'
+
 gem 'carrierwave'
 gem 'remotipart'
 gem 'nested_form'
