@@ -1,0 +1,24 @@
+version: '3'
+services:
+  web:
+    build: .
+    volumes:
+      - .:/web
+    ports:
+      - 3000:3000
+      - 9292:9292
+    depends_on:
+      - db
+      - redis
+    restart: always
+
+  db:
+    image: postgres
+    volumes:
+      - db:/var/lib/postgresql/data
+
+  redis:
+    image: redis
+
+volumes:
+  db:

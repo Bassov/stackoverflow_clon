@@ -1,4 +1,6 @@
 # encoding: utf-8
+# frozen_string_literal: true
+
 class AnswersController < ApplicationController
   before_action :authenticate_user!
   before_action :set_answer, except: :create
@@ -27,28 +29,28 @@ class AnswersController < ApplicationController
 
   private
 
-  def set_answer
-    @answer = Answer.find(params[:id])
-  end
-
-  def set_question
-    @question = Question.find(params[:question_id])
-  end
-
-  def publish_answer
-    return unless @answer.valid?
-    attachments = []
-
-    @answer.attachments.each do |attachment|
-      attachments << { attachment: attachment, file_name: attachment.file.identifier }
+    def set_answer
+      @answer = Answer.find(params[:id])
     end
 
-    PrivatePub.publish_to "/questions/#{@question.id}/answers", answer: @answer.to_json,
-                                                                answer_question: @answer.question.to_json,
-                                                                attachments: attachments.to_json
-  end
+    def set_question
+      @question = Question.find(params[:question_id])
+    end
 
-  def answer_params
-    params.require(:answer).permit(:body, attachments_attributes: [:file, :id, :_destroy])
-  end
+    def publish_answer
+      return unless @answer.valid?
+      attachments = []
+
+      @answer.attachments.each do |attachment|
+        attachments << { attachment: attachment, file_name: attachment.file.identifier }
+      end
+
+      PrivatePub.publish_to "/questions/#{@question.id}/answers", answer: @answer.to_json,
+                                                                  answer_question: @answer.question.to_json,
+                                                                  attachments: attachments.to_json
+    end
+
+    def answer_params
+      params.require(:answer).permit(:body, attachments_attributes: [:file, :id, :_destroy])
+    end
 end

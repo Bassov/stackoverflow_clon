@@ -1,28 +1,30 @@
 # encoding: utf-8
-require_relative '../acceptance_helper'
+# frozen_string_literal: true
 
-feature 'Create question', '
+require_relative "../acceptance_helper"
+
+feature "Create question", '
   In order to get answers from community
   As an authenticated user
   I want to be able to ask questions
 ' do
   given(:user) { create(:user) }
 
-  scenario 'Authenticated user creates question' do
+  scenario "Authenticated user creates question" do
     sign_in(user)
 
     visit questions_path
-    click_on 'Задать вопрос'
-    fill_in 'Title', with: 'Test question'
-    fill_in 'Body', with: 'Test body'
-    click_on 'Сохранить'
+    click_on "Задать вопрос"
+    fill_in "Title", with: "Test question"
+    fill_in "Body", with: "Test body"
+    click_on "Сохранить"
 
-    expect(page).to have_content 'Test question'
+    expect(page).to have_content "Test question"
   end
 
-  scenario 'Non-authenticated user tries to create question' do
+  scenario "Non-authenticated user tries to create question" do
     visit questions_path
 
-    expect(page).to_not have_content 'Задать вопрос'
+    expect(page).to_not have_content "Задать вопрос"
   end
 end

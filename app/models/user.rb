@@ -1,4 +1,6 @@
 # encoding: utf-8
+# frozen_string_literal: true
+
 class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
@@ -45,7 +47,7 @@ class User < ActiveRecord::Base
       if email
         user = User.create!(email: email, password: password, password_confirmation: password)
       else
-        user = User.create!(email: 'email@temporary.com', password: password, password_confirmation: password)
+        user = User.create!(email: "email@temporary.com", password: password, password_confirmation: password)
         email = "#{user.id}@stackoverflow_clon.com"
         user.email = email
         user.save

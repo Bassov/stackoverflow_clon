@@ -1,7 +1,9 @@
 # encoding: utf-8
-require_relative '../acceptance_helper'
+# frozen_string_literal: true
 
-feature 'Add comments', '
+require_relative "../acceptance_helper"
+
+feature "Add comments", '
   In order to discus question
   As an authenticated user
   I want to be able to add comments
@@ -10,7 +12,7 @@ feature 'Add comments', '
   given!(:question) { create :question }
   given!(:answer) { create :answer, question: question }
 
-  it_behaves_like 'Acceptance commentable' do
-    given(:selector) { '.question' }
+  it_behaves_like "Acceptance commentable" do
+    given(:selector) { ".question" }
   end
 end

@@ -1,7 +1,9 @@
 # encoding: utf-8
-require_relative '../acceptance_helper'
+# frozen_string_literal: true
 
-feature 'Vote answer', '
+require_relative "../acceptance_helper"
+
+feature "Vote answer", '
   In order to mark answers
   As an authenticated user
   I want to be able to create for answers
@@ -11,17 +13,17 @@ feature 'Vote answer', '
   given!(:user_answer) { create(:answer, user: user, question: question) }
   given!(:answer) { create(:answer, question: question) }
 
-  it_behaves_like 'Acceptance votable' do
+  it_behaves_like "Acceptance votable" do
     given(:selector) { "#answer_#{answer.id}" }
   end
 
-  scenario 'Author of votable cant vote for it' do
+  scenario "Author of votable cant vote for it" do
     sign_in user
     visit question_path(question)
 
     within "#answer_#{user_answer.id}" do
-      expect(page).to_not have_content '+'
-      expect(page).to_not have_content '-'
+      expect(page).to_not have_content "+"
+      expect(page).to_not have_content "-"
     end
   end
 end

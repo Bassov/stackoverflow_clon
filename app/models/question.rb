@@ -1,4 +1,6 @@
 # encoding: utf-8
+# frozen_string_literal: true
+
 class Question < ActiveRecord::Base
   include Attachable
 
@@ -25,7 +27,7 @@ class Question < ActiveRecord::Base
 
   private
 
-  def subscribe_author
-    subscribe(self.user)
-  end
+    def subscribe_author
+      subscribe(self.user)
+    end
 end

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Ability
   include CanCan::Ability
 
@@ -34,7 +36,7 @@ class Ability
 
     cannot :create, Subscription, question: { subscriptions: { user_id: user.id } }
 
-    #API
+    # API
     can :me, User, id: user.id
   end
 end

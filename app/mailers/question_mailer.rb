@@ -1,8 +1,9 @@
-class QuestionMailer < ApplicationMailer
+# frozen_string_literal: true
 
+class QuestionMailer < ApplicationMailer
   def daily_digest(user)
-    @questions = Question.find_by 'created_at > ?', Time.now.midnight
-    mail(to: user.email, subject: 'Список вопросов за день') if @questions
+    @questions = Question.find_by "created_at > ?", Time.now.midnight
+    mail(to: user.email, subject: "Список вопросов за день") if @questions
   end
 
   def new_answer(user, answer, question)

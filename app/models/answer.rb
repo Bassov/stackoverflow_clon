@@ -1,4 +1,6 @@
 # encoding: utf-8
+# frozen_string_literal: true
+
 class Answer < ActiveRecord::Base
   include Attachable
 
@@ -23,7 +25,7 @@ class Answer < ActiveRecord::Base
 
   private
 
-  def send_notification
-    NewAnswerJob.perform_later(self)
-  end
+    def send_notification
+      NewAnswerJob.perform_later(self)
+    end
 end

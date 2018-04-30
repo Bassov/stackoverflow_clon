@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class AddBestAnswerToAnswers < ActiveRecord::Migration
   def change
     add_column :answers, :best, :boolean, default: :false

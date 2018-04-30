@@ -1,4 +1,6 @@
 # encoding: utf-8
+# frozen_string_literal: true
+
 class AttachmentsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_attachment
@@ -13,7 +15,7 @@ class AttachmentsController < ApplicationController
 
   private
 
-  def set_attachment
-    @attachment = Attachment.find(params[:id])
-  end
+    def set_attachment
+      @attachment = Attachment.find(params[:id])
+    end
 end

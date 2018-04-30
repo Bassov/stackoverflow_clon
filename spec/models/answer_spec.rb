@@ -1,8 +1,10 @@
 # encoding: utf-8
-require 'rails_helper'
+# frozen_string_literal: true
+
+require "rails_helper"
 
 RSpec.describe Answer, type: :model do
-  it_behaves_like 'Attachable'
+  it_behaves_like "Attachable"
 
   it { should belong_to(:question) }
   it { should belong_to(:user) }
@@ -14,26 +16,26 @@ RSpec.describe Answer, type: :model do
   it { should validate_presence_of(:question_id) }
   it { should validate_presence_of(:user_id) }
 
-  describe 'default_scope' do
+  describe "default_scope" do
     let(:question) { create(:question) }
     let(:best_answer) { create(:answer, question: question) }
 
-    it 'shows best answer first' do
+    it "shows best answer first" do
       best_answer.make_best
       expect(question.answers.first).to eq best_answer
     end
   end
 
-  describe 'make_best response true' do
+  describe "make_best response true" do
     subject { create :answer }
     let(:answers) { create_list(:answer, 3) }
 
-    it 'sets #best to true' do
+    it "sets #best to true" do
       subject.make_best
       expect(subject.best?).to be true
     end
 
-    it 'sets #best to all other answers to false' do
+    it "sets #best to all other answers to false" do
       answers.first.make_best
       answers.shift
       answers.each do |answer|
@@ -42,15 +44,15 @@ RSpec.describe Answer, type: :model do
     end
   end
 
-  describe 'after_create#send_notification' do
+  describe "after_create#send_notification" do
     subject { build(:answer) }
 
-    it 'sends method to answer after create' do
+    it "sends method to answer after create" do
       expect(subject).to receive(:send_notification)
       subject.save!
     end
 
-    it 'peforms job' do
+    it "peforms job" do
       expect(NewAnswerJob).to receive(:perform_later).with(subject)
       subject.save!
     end

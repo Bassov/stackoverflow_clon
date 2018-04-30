@@ -17,9 +17,6 @@
 
 .idea/
 
-/doc/examples
-config/database.yml
-config/private_pub.yml
 
 # Ignore uploaded files
 /public/system
@@ -32,6 +29,7 @@ config/private_pub.yml
 
 # coverage files
 /coverage
+/gen
 
 .powrc
 

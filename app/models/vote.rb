@@ -1,4 +1,6 @@
 # encoding: utf-8
+# frozen_string_literal: true
+
 class Vote < ActiveRecord::Base
   validates :user_id, presence: true, uniqueness: { scope: [:votable_type, :votable_id] }
 

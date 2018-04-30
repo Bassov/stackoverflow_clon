@@ -1,6 +1,21 @@
+GIT
+  remote: https://github.com/macrocoders/omniauth-vk.git
+  revision: 2f0a4262b1d85b362bfc94587c34e6cf16312568
+  specs:
+    omniauth-vk (1.0.9)
+      omniauth-oauth2 (~> 1.0)
+
+GIT
+  remote: https://github.com/mhfs/sidekiq-failures.git
+  revision: ade3c0035e8b7df0821a71328fe31dc706226aeb
+  specs:
+    sidekiq-failures (1.0.0)
+      sidekiq (>= 4.0.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
+    abstract_type (0.0.7)
     actionmailer (4.2.4)
       actionpack (= 4.2.4)
       actionview (= 4.2.4)
@@ -38,11 +53,29 @@ GEM
       minitest (~> 5.1)
       thread_safe (~> 0.3, >= 0.3.4)
       tzinfo (~> 1.1)
+    adamantium (0.2.0)
+      ice_nine (~> 0.11.0)
+      memoizable (~> 0.4.0)
     addressable (2.3.8)
+    allure-rspec (0.7.7)
+      allure-ruby-adaptor-api (= 0.6.10)
+      rspec (~> 3.2)
+    allure-ruby-adaptor-api (0.6.10)
+      mimemagic
+      nokogiri (~> 1.6.0)
+      uuid
+    analyst (1.2.4)
+      haml
+      parser
+      thor
     arel (6.0.3)
     ast (2.1.0)
     astrolabe (1.3.1)
       parser (~> 2.2)
+    axiom-types (0.1.1)
+      descendants_tracker (~> 0.0.4)
+      ice_nine (~> 0.11.0)
+      thread_safe (~> 0.3, >= 0.3.1)
     bcrypt (3.1.10)
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
@@ -56,7 +89,7 @@ GEM
       rack (>= 1.0.0)
       rack-test (>= 0.5.4)
       xpath (~> 2.0)
-    capybara-webkit (1.7.1)
+    capybara-webkit (1.15.0)
       capybara (>= 2.3.0, < 2.6.0)
       json
     carrierwave (0.10.0)
@@ -65,7 +98,11 @@ GEM
       json (>= 1.7)
       mime-types (>= 1.16)
     chronic (0.10.2)
+    codeclimate-engine-rb (0.1.0)
+      virtus (~> 1.0)
     coderay (1.1.0)
+    coercible (1.0.0)
+      descendants_tracker (~> 0.0.1)
     coffee-rails (4.1.0)
       coffee-script (>= 2.2.0)
       railties (>= 4.0.0, < 5.0)
@@ -73,13 +110,19 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.9.1.1)
+    colorize (0.8.1)
     commonjs (0.2.7)
+    concord (0.1.5)
+      adamantium (~> 0.2.0)
+      equalizer (~> 0.0.9)
     concurrent-ruby (1.0.1)
     connection_pool (2.2.0)
     cookiejar (0.3.0)
     daemons (1.2.3)
     database_cleaner (1.5.1)
     debug_inspector (0.0.2)
+    descendants_tracker (0.0.4)
+      thread_safe (~> 0.3, >= 0.3.1)
     devise (3.5.2)
       bcrypt (~> 3.0)
       orm_adapter (~> 0.1)
@@ -88,6 +131,7 @@ GEM
       thread_safe (~> 0.1)
       warden (~> 1.2.3)
     diff-lcs (1.2.5)
+    docile (1.3.0)
     doorkeeper (3.1.0)
       railties (>= 3.2)
     em-http-request (1.1.3)
@@ -98,6 +142,7 @@ GEM
       http_parser.rb (>= 0.6.0)
     em-socksify (0.3.1)
       eventmachine (>= 1.0.0.beta.4)
+    equalizer (0.0.11)
     erubis (2.7.0)
     eventmachine (1.0.8)
     execjs (2.6.0)
@@ -119,6 +164,22 @@ GEM
     faye-websocket (0.10.2)
       eventmachine (>= 0.12.0)
       websocket-driver (>= 0.5.1)
+    flay (2.6.1)
+      ruby_parser (~> 3.0)
+      sexp_processor (~> 4.0)
+    flog (4.3.2)
+      ruby_parser (~> 3.1, > 3.1.0)
+      sexp_processor (~> 4.4)
+    foreman (0.84.0)
+      thor (~> 0.19.1)
+    fukuzatsu (2.3.1)
+      analyst (>= 0.16.0)
+      haml
+      parser
+      rainbow
+      rouge
+      terminal-table
+      thor
     globalid (0.3.6)
       activesupport (>= 4.1.0)
     gon (6.0.1)
@@ -126,9 +187,12 @@ GEM
       json
       multi_json
       request_store (>= 1.0)
+    haml (4.0.7)
+      tilt
     hashie (3.4.3)
     http_parser.rb (0.6.0)
     i18n (0.7.0)
+    ice_nine (0.11.2)
     jbuilder (2.3.2)
       activesupport (>= 3.0.0, < 5)
       multi_json (~> 1.2)
@@ -155,10 +219,15 @@ GEM
     libv8 (3.16.14.13)
     loofah (2.0.3)
       nokogiri (>= 1.5.9)
+    macaddr (1.7.1)
+      systemu (~> 2.6.2)
     mail (2.6.3)
       mime-types (>= 1.16, < 3)
+    memoizable (0.4.2)
+      thread_safe (~> 0.3, >= 0.3.1)
     method_source (0.8.2)
     mime-types (2.6.2)
+    mimemagic (0.3.2)
     mini_portile (0.6.2)
     minitest (5.8.2)
     multi_json (1.11.2)
@@ -183,15 +252,15 @@ GEM
     omniauth-oauth2 (1.4.0)
       oauth2 (~> 1.0)
       omniauth (~> 1.2)
-    omniauth-vk (1.0.8)
-      omniauth-oauth2 (~> 1.0)
     orm_adapter (0.5.0)
     parser (2.2.3.0)
       ast (>= 1.1, < 3.0)
     pg (0.18.3)
     powerpack (0.1.1)
+    private_attr (1.1.0)
     private_pub (1.0.3)
       faye
+    procto (0.0.3)
     pry (0.10.3)
       coderay (~> 1.1.0)
       method_source (~> 0.8.1)
@@ -229,11 +298,18 @@ GEM
     rake (10.4.2)
     rdoc (4.2.0)
     redis (3.2.2)
+    reek (3.8.1)
+      codeclimate-engine-rb (~> 0.1.0)
+      parser (~> 2.2, >= 2.2.2.5)
+      private_attr (~> 1.1)
+      rainbow (~> 2.0)
+      unparser (~> 0.2.2)
     ref (2.0.0)
     remotipart (1.2.1)
     request_store (1.2.1)
     responders (2.1.0)
       railties (>= 4.2.0, < 5)
+    rouge (3.1.1)
     rspec (3.3.0)
       rspec-core (~> 3.3.0)
       rspec-expectations (~> 3.3.0)
@@ -263,6 +339,15 @@ GEM
       ruby-progressbar (~> 1.7)
     rubocop-rspec (1.3.1)
     ruby-progressbar (1.7.5)
+    ruby_parser (3.11.0)
+      sexp_processor (~> 4.9)
+    rubycritic (2.6.0)
+      colorize
+      flay (= 2.6.1)
+      flog (= 4.3.2)
+      parser (>= 2.2.0, < 3.0)
+      reek (= 3.8.1)
+      virtus (~> 1.0)
     sass (3.4.19)
     sass-rails (5.0.4)
       railties (>= 4.0.0, < 5.0)
@@ -273,6 +358,7 @@ GEM
     sdoc (0.4.1)
       json (~> 1.7, >= 1.7.7)
       rdoc (~> 4.0)
+    sexp_processor (4.11.0)
     shoulda (3.5.0)
       shoulda-context (~> 1.0, >= 1.0.1)
       shoulda-matchers (>= 1.4.1, < 3.0)
@@ -283,6 +369,11 @@ GEM
       concurrent-ruby (~> 1.0)
       connection_pool (~> 2.2, >= 2.2.0)
       redis (~> 3.2, >= 3.2.1)
+    simplecov (0.16.1)
+      docile (~> 1.1)
+      json (>= 1.8, < 3)
+      simplecov-html (~> 0.10.0)
+    simplecov-html (0.10.2)
     sinatra (1.4.7)
       rack (~> 1.5)
       rack-protection (~> 1.4)
@@ -309,7 +400,10 @@ GEM
       actionpack (>= 3.0)
       activesupport (>= 3.0)
       sprockets (>= 2.8, < 4.0)
+    systemu (2.6.5)
     temple (0.7.6)
+    terminal-table (1.8.0)
+      unicode-display_width (~> 1.1, >= 1.1.1)
     therubyracer (0.12.2)
       libv8 (~> 3.16.14.0)
       ref
@@ -332,6 +426,22 @@ GEM
     uglifier (2.7.2)
       execjs (>= 0.3.0)
       json (>= 1.8.0)
+    unicode-display_width (1.3.2)
+    unparser (0.2.4)
+      abstract_type (~> 0.0.7)
+      adamantium (~> 0.2.0)
+      concord (~> 0.1.5)
+      diff-lcs (~> 1.2.5)
+      equalizer (~> 0.0.9)
+      parser (~> 2.2.2)
+      procto (~> 0.0.2)
+    uuid (2.3.8)
+      macaddr (~> 1.0)
+    virtus (1.0.5)
+      axiom-types (~> 0.1)
+      coercible (~> 1.0)
+      descendants_tracker (~> 0.0, >= 0.0.3)
+      equalizer (~> 0.0, >= 0.0.9)
     warden (1.2.3)
       rack (>= 1.0)
     web-console (2.2.1)
@@ -352,6 +462,7 @@ PLATFORMS
 
 DEPENDENCIES
   active_model_serializers
+  allure-rspec
   bootstrap_form
   byebug
   cancancan
@@ -363,6 +474,8 @@ DEPENDENCIES
   devise
   doorkeeper
   factory_girl_rails
+  foreman
+  fukuzatsu
   gon
   jbuilder (~> 2.0)
   jquery-rails
@@ -375,8 +488,8 @@ DEPENDENCIES
   oj_mimic_json
   omniauth
   omniauth-facebook
-  omniauth-vk
-  pg
+  omniauth-vk!
+  pg (= 0.18.3)
   private_pub
   pry
   rails (= 4.2.4)
@@ -385,10 +498,13 @@ DEPENDENCIES
   rspec-rails
   rubocop
   rubocop-rspec
+  rubycritic
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)
   shoulda
   sidekiq
+  sidekiq-failures!
+  simplecov
   sinatra
   skim
   slim

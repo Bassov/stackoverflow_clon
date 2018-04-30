@@ -1,7 +1,9 @@
 # encoding: utf-8
-require_relative '../acceptance_helper'
+# frozen_string_literal: true
 
-feature 'View question', '
+require_relative "../acceptance_helper"
+
+feature "View question", '
   In order to solve problem
   As a guest
   I want to be able to view existing questions
@@ -10,7 +12,7 @@ feature 'View question', '
   given!(:question) { create(:question) }
   given!(:answers) { create_list(:answer, 2, question: question) }
 
-  scenario 'guest views question' do
+  scenario "guest views question" do
     visit questions_path
     click_on question.title
 

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Api::V1::AnswersController < Api::V1::BaseController
   authorize_resource
 
@@ -17,11 +19,11 @@ class Api::V1::AnswersController < Api::V1::BaseController
 
   private
 
-  def set_question
-    @question = Question.find(params[:question_id])
-  end
+    def set_question
+      @question = Question.find(params[:question_id])
+    end
 
-  def answer_params
-    params.require(:answer).permit(:body)
-  end
+    def answer_params
+      params.require(:answer).permit(:body)
+    end
 end

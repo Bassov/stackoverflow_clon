@@ -1,12 +1,14 @@
-require 'sidekiq/web'
+# frozen_string_literal: true
+
+require "sidekiq/web"
 
 Rails.application.routes.draw do
   authenticate :user, lambda { |u| u.admin? } do
-    mount Sidekiq::Web => '/sidekiq'
+    mount Sidekiq::Web => "/sidekiq"
   end
 
   use_doorkeeper
-  devise_for :users, controllers: { omniauth_callbacks: 'omniauth_callbacks' }
+  devise_for :users, controllers: { omniauth_callbacks: "omniauth_callbacks" }
   resources :users, only: :show
 
   resources :questions, shallow: true do
@@ -40,5 +42,5 @@ Rails.application.routes.draw do
     end
   end
 
-  root 'questions#index'
+  root "questions#index"
 end

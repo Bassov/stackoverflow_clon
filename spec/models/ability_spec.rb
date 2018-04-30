@@ -1,9 +1,11 @@
-require 'rails_helper'
+# frozen_string_literal: true
+
+require "rails_helper"
 
 describe Ability do
   subject(:ability) { Ability.new(user) }
 
-  describe 'for guest' do
+  describe "for guest" do
     let(:user) { nil }
 
     it { should be_able_to :read, Question }
@@ -13,13 +15,13 @@ describe Ability do
     it { should_not be_able_to :manage, :all }
   end
 
-  describe 'for admin' do
+  describe "for admin" do
     let(:user) { create :user, admin: true }
 
     it { should be_able_to :manage, :all }
   end
 
-  describe 'for user' do
+  describe "for user" do
     let(:user) { create :user }
     let(:other_user) { create :user }
 
@@ -34,7 +36,7 @@ describe Ability do
     it { should be_able_to :read, :all }
 
 
-    context 'Answer controller' do
+    context "Answer controller" do
       it { should be_able_to :create, Answer }
 
       it { should be_able_to :update, own_answer, user: user }
@@ -48,7 +50,7 @@ describe Ability do
     end
 
 
-    context 'Question controller' do
+    context "Question controller" do
       it { should be_able_to :create, Question }
 
       it { should be_able_to :update, own_question, user: user }
@@ -58,7 +60,7 @@ describe Ability do
       it { should_not be_able_to :destroy, other_question, user: user }
     end
 
-    context 'Attachments controller' do
+    context "Attachments controller" do
       let(:own_attachment) { create :attachment, attachable: own_question }
       let(:other_attachment) { create :attachment, attachable: other_question }
 
@@ -66,18 +68,18 @@ describe Ability do
       it { should_not be_able_to :destroy, other_attachment, attachable: { user: user } }
     end
 
-    context 'Comments controller' do
+    context "Comments controller" do
       it { should be_able_to :create, Comment }
     end
 
-    context 'Votes controller' do
+    context "Votes controller" do
       it { should be_able_to :create_vote, other_answer, user: user }
       it { should be_able_to :create_vote, other_question, user: user }
       it { should_not be_able_to :create_vote, own_question, user: user }
       it { should_not be_able_to :create_vote, own_answer, user: user }
     end
 
-    context 'Subscriptions controller' do
+    context "Subscriptions controller" do
       let(:question) { create :question }
       let(:own_subscription) { create :subscription, user: user, question: question }
       let(:other_subscription) { create :subscription, user: other_user, question: question }
@@ -88,8 +90,8 @@ describe Ability do
       it { should_not be_able_to :destroy, other_subscription, user: user }
     end
 
-    context 'api/v1/profiles controller' do
-      it { should be_able_to :me, user, user: user}
+    context "api/v1/profiles controller" do
+      it { should be_able_to :me, user, user: user }
       it { should_not be_able_to :me, other_user, user: user }
     end
   end

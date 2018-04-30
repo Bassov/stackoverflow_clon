@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class DailyDigestJob < ActiveJob::Base
   queue_as :default
 

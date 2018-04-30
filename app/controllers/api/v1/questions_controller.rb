@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Api::V1::QuestionsController < Api::V1::BaseController
   authorize_resource
 
@@ -15,7 +17,7 @@ class Api::V1::QuestionsController < Api::V1::BaseController
 
   private
 
-  def questions_params
-    params.require(:question).permit(:title, :body)
-  end
+    def questions_params
+      params.require(:question).permit(:title, :body)
+    end
 end

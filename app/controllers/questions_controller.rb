@@ -1,4 +1,6 @@
 # encoding: utf-8
+# frozen_string_literal: true
+
 class QuestionsController < ApplicationController
   before_action :authenticate_user!, except:  [:index, :show]
   before_action :set_question, only: [:show, :edit, :update, :destroy]
@@ -37,15 +39,15 @@ class QuestionsController < ApplicationController
 
   private
 
-  def publish_question
-    PrivatePub.publish_to '/questions', question: @question.to_json if @question.valid?
-  end
+    def publish_question
+      PrivatePub.publish_to "/questions", question: @question.to_json if @question.valid?
+    end
 
-  def set_question
-    @question = Question.find(params[:id])
-  end
+    def set_question
+      @question = Question.find(params[:id])
+    end
 
-  def questions_params
-    params.require(:question).permit(:title, :body, attachments_attributes: [:file, :id, :_destroy])
-  end
+    def questions_params
+      params.require(:question).permit(:title, :body, attachments_attributes: [:file, :id, :_destroy])
+    end
 end

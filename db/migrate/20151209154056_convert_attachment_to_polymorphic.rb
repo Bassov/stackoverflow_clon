@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class ConvertAttachmentToPolymorphic < ActiveRecord::Migration
   def change
     remove_reference :attachments, :question, index: true
