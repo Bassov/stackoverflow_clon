@@ -7,12 +7,12 @@ feature "Delete question", '
   In order to delete question
   As an author of question
   I want to be able to delete question
-' do
+', integration: true, ui: true do
   given(:user) { create(:user) }
   given(:another_user) { create(:user) }
   given!(:question) { create(:question, user: user) }
 
-  scenario "Author of question deletes question" do
+  scenario "Author of question deletes question", positive: true do
     sign_in(user)
 
     visit questions_path

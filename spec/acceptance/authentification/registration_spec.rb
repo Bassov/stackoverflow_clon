@@ -7,8 +7,8 @@ feature "registration", '
   In oreder to become user
   As a guest
   I want to be able to sign up
-' do
-  scenario "guest signs up with correct data" do
+', integration: true, ui: true do
+  scenario "guest signs up with correct data", positive: true do
     visit root_path
     click_on "Зарегистрироваться"
     fill_in "Email", with: "user@user.com"
@@ -20,7 +20,7 @@ feature "registration", '
     expect(current_path).to eq root_path
   end
 
-  scenario "guest tries to sign up with wrong data" do
+  scenario "guest tries to sign up with wrong data", negative: true do
     visit root_path
     click_on "Зарегистрироваться"
     fill_in "Email", with: "1"

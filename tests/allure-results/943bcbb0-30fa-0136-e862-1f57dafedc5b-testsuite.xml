@@ -1,0 +1,66 @@
+<?xml version="1.0"?>
+<ns2:test-suite xmlns="" xmlns:ns2="urn:model.allure.qatools.yandex.ru" start="1525349898265" stop="1525349917307">
+  <name>Answers API GET /index authorized</name>
+  <title>Answers API GET /index authorized</title>
+  <test-cases>
+    <test-case start="1525349898266" stop="1525349901523" status="passed">
+      <name>Answers API GET /index authorized answer contains body</name>
+      <title>Answers API GET /index authorized answer contains body</title>
+      <steps/>
+      <attachments/>
+      <labels>
+        <label name="thread" value="47221494962580"/>
+        <label name="host" value="120013e358d9"/>
+      </labels>
+      <parameters/>
+    </test-case>
+    <test-case start="1525349901525" stop="1525349904747" status="passed">
+      <name>Answers API GET /index authorized returns list of answers</name>
+      <title>Answers API GET /index authorized returns list of answers</title>
+      <steps/>
+      <attachments/>
+      <labels>
+        <label name="thread" value="47221494962580"/>
+        <label name="host" value="120013e358d9"/>
+      </labels>
+      <parameters/>
+    </test-case>
+    <test-case start="1525349904749" stop="1525349907960" status="passed">
+      <name>Answers API GET /index authorized answer contains updated_at</name>
+      <title>Answers API GET /index authorized answer contains updated_at</title>
+      <steps/>
+      <attachments/>
+      <labels>
+        <label name="thread" value="47221494962580"/>
+        <label name="host" value="120013e358d9"/>
+      </labels>
+      <parameters/>
+    </test-case>
+    <test-case start="1525349907961" stop="1525349911098" status="passed">
+      <name>Answers API GET /index authorized answer contains id</name>
+      <title>Answers API GET /index authorized answer contains id</title>
+      <steps/>
+      <attachments/>
+      <labels>
+        <label name="thread" value="47221494962580"/>
+        <label name="host" value="120013e358d9"/>
+      </labels>
+      <parameters/>
+    </test-case>
+    <test-case start="1525349911100" stop="1525349914175" status="passed">
+      <name>Answers API GET /index authorized answer contains created_at</name>
+      <title>Answers API GET /index authorized answer contains created_at</title>
+      <steps/>
+      <attachments/>
+      <labels>
+        <label name="thread" value="47221494962580"/>
+        <label name="host" value="120013e358d9"/>
+      </labels>
+      <parameters/>
+    </test-case>
+  </test-cases>
+  <labels>
+    <label name="thread" value="47221494962580"/>
+    <label name="host" value="120013e358d9"/>
+  </labels>
+</ns2:test-suite>

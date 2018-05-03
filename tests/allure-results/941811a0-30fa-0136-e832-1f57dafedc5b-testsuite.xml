@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<ns2:test-suite xmlns="" xmlns:ns2="urn:model.allure.qatools.yandex.ru" start="1525349732796" stop="1525349732877">
+  <name>Ability for user api/v1/profiles controller able</name>
+  <title>Ability for user api/v1/profiles controller able</title>
+  <test-cases>
+    <test-case start="1525349732796" stop="1525349732875" status="passed">
+      <name>Ability for user api/v1/profiles controller able</name>
+      <title>Ability for user api/v1/profiles controller able</title>
+      <steps/>
+      <attachments/>
+      <labels>
+        <label name="thread" value="47221494962580"/>
+        <label name="host" value="120013e358d9"/>
+      </labels>
+      <parameters/>
+    </test-case>
+  </test-cases>
+  <labels>
+    <label name="thread" value="47221494962580"/>
+    <label name="host" value="120013e358d9"/>
+  </labels>
+</ns2:test-suite>

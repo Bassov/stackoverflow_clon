@@ -7,7 +7,7 @@ feature "Add files to answer", '
   In order to specify my answer
   As an authenticated user
   I want to be able to attach files to answer
-' do
+', integration: true, ui: true do
   given(:user) { create :user }
   given!(:question) { create :question }
 

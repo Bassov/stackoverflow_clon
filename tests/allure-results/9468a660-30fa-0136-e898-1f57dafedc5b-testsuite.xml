@@ -1,0 +1,55 @@
+<?xml version="1.0"?>
+<ns2:test-suite xmlns="" xmlns:ns2="urn:model.allure.qatools.yandex.ru" start="1525350108141" stop="1525350134019">
+  <name>Set the best answer 
+  In order to mark the best answer for my question
+  As an author of question
+  I want to be able to mark answers as the best</name>
+  <title>Set the best answer 
+  In order to mark the best answer for my question
+  As an author of question
+  I want to be able to mark answers as the best</title>
+  <test-cases>
+    <test-case start="1525350108141" stop="1525350123268" status="passed">
+      <name>Set the best answer 
+  In order to mark the best answer for my question
+  As an author of question
+  I want to be able to mark answers as the best
+ Author of question marks best answer</name>
+      <title>Set the best answer 
+  In order to mark the best answer for my question
+  As an author of question
+  I want to be able to mark answers as the best
+ Author of question marks best answer</title>
+      <steps/>
+      <attachments/>
+      <labels>
+        <label name="thread" value="47221494962580"/>
+        <label name="host" value="120013e358d9"/>
+      </labels>
+      <parameters/>
+    </test-case>
+    <test-case start="1525350123272" stop="1525350134017" status="passed">
+      <name>Set the best answer 
+  In order to mark the best answer for my question
+  As an author of question
+  I want to be able to mark answers as the best
+ Non-author of question can`t see button</name>
+      <title>Set the best answer 
+  In order to mark the best answer for my question
+  As an author of question
+  I want to be able to mark answers as the best
+ Non-author of question can`t see button</title>
+      <steps/>
+      <attachments/>
+      <labels>
+        <label name="thread" value="47221494962580"/>
+        <label name="host" value="120013e358d9"/>
+      </labels>
+      <parameters/>
+    </test-case>
+  </test-cases>
+  <labels>
+    <label name="thread" value="47221494962580"/>
+    <label name="host" value="120013e358d9"/>
+  </labels>
+</ns2:test-suite>

@@ -1,0 +1,55 @@
+<?xml version="1.0"?>
+<ns2:test-suite xmlns="" xmlns:ns2="urn:model.allure.qatools.yandex.ru" start="1525349805877" stop="1525349811699">
+  <name>Enter profile 
+  In order to view information about my profile
+  As an authenticated user
+  I want to be able to enter my profile</name>
+  <title>Enter profile 
+  In order to view information about my profile
+  As an authenticated user
+  I want to be able to enter my profile</title>
+  <test-cases>
+    <test-case start="1525349805878" stop="1525349810199" status="passed">
+      <name>Enter profile 
+  In order to view information about my profile
+  As an authenticated user
+  I want to be able to enter my profile
+ authenticated user enters his profile</name>
+      <title>Enter profile 
+  In order to view information about my profile
+  As an authenticated user
+  I want to be able to enter my profile
+ authenticated user enters his profile</title>
+      <steps/>
+      <attachments/>
+      <labels>
+        <label name="thread" value="47221494962580"/>
+        <label name="host" value="120013e358d9"/>
+      </labels>
+      <parameters/>
+    </test-case>
+    <test-case start="1525349810201" stop="1525349811698" status="passed">
+      <name>Enter profile 
+  In order to view information about my profile
+  As an authenticated user
+  I want to be able to enter my profile
+ guest tries to enter his profile</name>
+      <title>Enter profile 
+  In order to view information about my profile
+  As an authenticated user
+  I want to be able to enter my profile
+ guest tries to enter his profile</title>
+      <steps/>
+      <attachments/>
+      <labels>
+        <label name="thread" value="47221494962580"/>
+        <label name="host" value="120013e358d9"/>
+      </labels>
+      <parameters/>
+    </test-case>
+  </test-cases>
+  <labels>
+    <label name="thread" value="47221494962580"/>
+    <label name="host" value="120013e358d9"/>
+  </labels>
+</ns2:test-suite>

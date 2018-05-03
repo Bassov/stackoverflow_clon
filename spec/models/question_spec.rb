@@ -3,33 +3,35 @@
 
 require "rails_helper"
 
-RSpec.describe Question, type: :model do
+RSpec.describe Question, type: :model, unit: true do
   it_behaves_like "Attachable"
 
-  it { should have_many(:answers).dependent(:destroy) }
-  it { should have_many :votes }
-  it { should have_many(:comments).dependent(:destroy) }
+  context "associations", positive: true do
+    it { should have_many(:answers).dependent(:destroy) }
+    it { should have_many :votes }
+    it { should have_many(:comments).dependent(:destroy) }
 
-  it { should have_many(:subscriptions).dependent(:destroy) }
-  it { should have_many(:subscribers).through(:subscriptions).source(:user) }
+    it { should have_many(:subscriptions).dependent(:destroy) }
+    it { should have_many(:subscribers).through(:subscriptions).source(:user) }
 
-  it { should belong_to :user }
+    it { should belong_to :user }
 
-  it { should validate_presence_of :title }
-  it { should validate_presence_of :body }
-  it { should validate_presence_of :user_id }
+    it { should validate_presence_of :title }
+    it { should validate_presence_of :body }
+    it { should validate_presence_of :user_id }
+  end
 
   describe "#subscribe" do
     let(:user) { create(:user) }
     let!(:question) { create(:question) }
 
-    context "not subscribed user" do
+    context "not subscribed user", negative: true do
       it "should create subscription" do
         expect { question.subscribe(user) }.to change(question.subscribers, :count).by(1)
       end
     end
 
-    context "already subscribed user" do
+    context "already subscribed user", negative: true do
       it "should not create Subscription" do
         question.subscribers << user
 
@@ -42,7 +44,7 @@ RSpec.describe Question, type: :model do
     let(:user) { create(:user) }
     let!(:question) { create(:question) }
 
-    context "already subscribed user" do
+    context "already subscribed user", negative: true do
       it "should destroy subscription" do
         question.subscribers << user
 
@@ -50,7 +52,7 @@ RSpec.describe Question, type: :model do
       end
     end
 
-    context "non subscribed user" do
+    context "non subscribed user", positive: true do
       it "should not change subscription count" do
         expect { question.unsubscribe(user) }.to_not change(Subscription, :count)
       end
@@ -61,12 +63,12 @@ RSpec.describe Question, type: :model do
     let(:user) { create :user }
     subject { build(:question, user: user) }
 
-    it "sends method to question after create" do
+    it "sends method to question after create", positive: true do
       expect(subject).to receive(:subscribe_author)
       subject.save!
     end
 
-    it "subscribes author of question to question" do
+    it "subscribes author of question to question", positive: true do
       expect { subject.save! }.to change(user.subscribes, :count).by(1)
     end
 

@@ -1,0 +1,55 @@
+<?xml version="1.0"?>
+<ns2:test-suite xmlns="" xmlns:ns2="urn:model.allure.qatools.yandex.ru" start="1525349997188" stop="1525350003529">
+  <name>subscribe to question 
+  In order to receive notification about new answers
+  As user
+  I want to be able to subscribe to question</name>
+  <title>subscribe to question 
+  In order to receive notification about new answers
+  As user
+  I want to be able to subscribe to question</title>
+  <test-cases>
+    <test-case start="1525349997188" stop="1525350002168" status="passed">
+      <name>subscribe to question 
+  In order to receive notification about new answers
+  As user
+  I want to be able to subscribe to question
+ user subscribes to question</name>
+      <title>subscribe to question 
+  In order to receive notification about new answers
+  As user
+  I want to be able to subscribe to question
+ user subscribes to question</title>
+      <steps/>
+      <attachments/>
+      <labels>
+        <label name="thread" value="47221494962580"/>
+        <label name="host" value="120013e358d9"/>
+      </labels>
+      <parameters/>
+    </test-case>
+    <test-case start="1525350002170" stop="1525350003527" status="passed">
+      <name>subscribe to question 
+  In order to receive notification about new answers
+  As user
+  I want to be able to subscribe to question
+ guest cant see button</name>
+      <title>subscribe to question 
+  In order to receive notification about new answers
+  As user
+  I want to be able to subscribe to question
+ guest cant see button</title>
+      <steps/>
+      <attachments/>
+      <labels>
+        <label name="thread" value="47221494962580"/>
+        <label name="host" value="120013e358d9"/>
+      </labels>
+      <parameters/>
+    </test-case>
+  </test-cases>
+  <labels>
+    <label name="thread" value="47221494962580"/>
+    <label name="host" value="120013e358d9"/>
+  </labels>
+</ns2:test-suite>

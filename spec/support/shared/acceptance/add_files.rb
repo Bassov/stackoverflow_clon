@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 shared_examples_for "Acceptance attachable" do
-  scenario "Authenticated user attaches file when creates attachable", js: true do
+  scenario "Authenticated user attaches file when creates attachable", js: true, positive: true do
     fill_form
 
     click_on "Добавить файл"

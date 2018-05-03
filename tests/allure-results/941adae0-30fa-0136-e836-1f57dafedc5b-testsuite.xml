@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<ns2:test-suite xmlns="" xmlns:ns2="urn:model.allure.qatools.yandex.ru" start="1525349743046" stop="1525349743631">
+  <name>SubscriptionsController DELETE #destroy subscriber deletes own subscription</name>
+  <title>SubscriptionsController DELETE #destroy subscriber deletes own subscription</title>
+  <test-cases>
+    <test-case start="1525349743046" stop="1525349743350" status="passed">
+      <name>SubscriptionsController DELETE #destroy subscriber deletes own subscription deletes subscription</name>
+      <title>SubscriptionsController DELETE #destroy subscriber deletes own subscription deletes subscription</title>
+      <steps/>
+      <attachments/>
+      <labels>
+        <label name="thread" value="47221494962580"/>
+        <label name="host" value="120013e358d9"/>
+      </labels>
+      <parameters/>
+    </test-case>
+    <test-case start="1525349743352" stop="1525349743627" status="passed">
+      <name>SubscriptionsController DELETE #destroy subscriber deletes own subscription renders create template</name>
+      <title>SubscriptionsController DELETE #destroy subscriber deletes own subscription renders create template</title>
+      <steps/>
+      <attachments/>
+      <labels>
+        <label name="thread" value="47221494962580"/>
+        <label name="host" value="120013e358d9"/>
+      </labels>
+      <parameters/>
+    </test-case>
+  </test-cases>
+  <labels>
+    <label name="thread" value="47221494962580"/>
+    <label name="host" value="120013e358d9"/>
+  </labels>
+</ns2:test-suite>

@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<ns2:test-suite xmlns="" xmlns:ns2="urn:model.allure.qatools.yandex.ru" start="1525350010104" stop="1525350010277">
+  <name>Question#unsubscribe non subscribed user</name>
+  <title>Question#unsubscribe non subscribed user</title>
+  <test-cases>
+    <test-case start="1525350010104" stop="1525350010275" status="passed">
+      <name>Question#unsubscribe non subscribed user should not change subscription count</name>
+      <title>Question#unsubscribe non subscribed user should not change subscription count</title>
+      <steps/>
+      <attachments/>
+      <labels>
+        <label name="thread" value="47221494962580"/>
+        <label name="host" value="120013e358d9"/>
+      </labels>
+      <parameters/>
+    </test-case>
+  </test-cases>
+  <labels>
+    <label name="thread" value="47221494962580"/>
+    <label name="host" value="120013e358d9"/>
+  </labels>
+</ns2:test-suite>

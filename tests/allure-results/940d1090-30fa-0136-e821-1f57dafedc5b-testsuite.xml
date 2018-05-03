@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<ns2:test-suite xmlns="" xmlns:ns2="urn:model.allure.qatools.yandex.ru" start="1525349691996" stop="1525349708427">
+  <name>Add file to question 
+  In order to specify my trouble
+  As an authenticated user
+  I want to be able to attach files to questions
+ behaves like Acceptance attachable</name>
+  <title>Add file to question 
+  In order to specify my trouble
+  As an authenticated user
+  I want to be able to attach files to questions
+ behaves like Acceptance attachable</title>
+  <test-cases>
+    <test-case start="1525349691996" stop="1525349708424" status="passed">
+      <name>Add file to question 
+  In order to specify my trouble
+  As an authenticated user
+  I want to be able to attach files to questions
+ behaves like Acceptance attachable Authenticated user attaches file when creates attachable</name>
+      <title>Add file to question 
+  In order to specify my trouble
+  As an authenticated user
+  I want to be able to attach files to questions
+ behaves like Acceptance attachable Authenticated user attaches file when creates attachable</title>
+      <steps/>
+      <attachments/>
+      <labels>
+        <label name="thread" value="47221494962580"/>
+        <label name="host" value="120013e358d9"/>
+      </labels>
+      <parameters/>
+    </test-case>
+  </test-cases>
+  <labels>
+    <label name="thread" value="47221494962580"/>
+    <label name="host" value="120013e358d9"/>
+  </labels>
+</ns2:test-suite>

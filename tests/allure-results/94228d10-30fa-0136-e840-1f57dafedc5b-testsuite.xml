@@ -1,0 +1,55 @@
+<?xml version="1.0"?>
+<ns2:test-suite xmlns="" xmlns:ns2="urn:model.allure.qatools.yandex.ru" start="1525349770824" stop="1525349781174">
+  <name>Create question 
+  In order to get answers from community
+  As an authenticated user
+  I want to be able to ask questions</name>
+  <title>Create question 
+  In order to get answers from community
+  As an authenticated user
+  I want to be able to ask questions</title>
+  <test-cases>
+    <test-case start="1525349770824" stop="1525349772257" status="passed">
+      <name>Create question 
+  In order to get answers from community
+  As an authenticated user
+  I want to be able to ask questions
+ Non-authenticated user tries to create question</name>
+      <title>Create question 
+  In order to get answers from community
+  As an authenticated user
+  I want to be able to ask questions
+ Non-authenticated user tries to create question</title>
+      <steps/>
+      <attachments/>
+      <labels>
+        <label name="thread" value="47221494962580"/>
+        <label name="host" value="120013e358d9"/>
+      </labels>
+      <parameters/>
+    </test-case>
+    <test-case start="1525349772259" stop="1525349781172" status="passed">
+      <name>Create question 
+  In order to get answers from community
+  As an authenticated user
+  I want to be able to ask questions
+ Authenticated user creates question</name>
+      <title>Create question 
+  In order to get answers from community
+  As an authenticated user
+  I want to be able to ask questions
+ Authenticated user creates question</title>
+      <steps/>
+      <attachments/>
+      <labels>
+        <label name="thread" value="47221494962580"/>
+        <label name="host" value="120013e358d9"/>
+      </labels>
+      <parameters/>
+    </test-case>
+  </test-cases>
+  <labels>
+    <label name="thread" value="47221494962580"/>
+    <label name="host" value="120013e358d9"/>
+  </labels>
+</ns2:test-suite>

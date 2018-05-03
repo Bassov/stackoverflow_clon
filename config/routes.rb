@@ -3,6 +3,9 @@
 require "sidekiq/web"
 
 Rails.application.routes.draw do
+  mount LetterOpenerWeb::Engine, at: "/letter_opener" if Rails.env.development?
+  mount GrapeSwaggerRails::Engine => "/swagger"
+
   authenticate :user, lambda { |u| u.admin? } do
     mount Sidekiq::Web => "/sidekiq"
   end
@@ -28,7 +31,7 @@ Rails.application.routes.draw do
 
   resource :subscriptions, only: [:create, :destroy]
 
-  namespace :api do
+  namespace :api, defaults: { format: "json" } do
     namespace :v1 do
       resources :profiles, only: :index do
         get :me, on: :collection

@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<ns2:test-suite xmlns="" xmlns:ns2="urn:model.allure.qatools.yandex.ru" start="1525349786228" stop="1525349789221">
+  <name>AnswersController DELETE #destroy author of answer deletes answer</name>
+  <title>AnswersController DELETE #destroy author of answer deletes answer</title>
+  <test-cases>
+    <test-case start="1525349786228" stop="1525349787670" status="passed">
+      <name>AnswersController DELETE #destroy author of answer deletes answer deletes answer</name>
+      <title>AnswersController DELETE #destroy author of answer deletes answer deletes answer</title>
+      <steps/>
+      <attachments/>
+      <labels>
+        <label name="thread" value="47221494962580"/>
+        <label name="host" value="120013e358d9"/>
+      </labels>
+      <parameters/>
+    </test-case>
+    <test-case start="1525349787672" stop="1525349789219" status="passed">
+      <name>AnswersController DELETE #destroy author of answer deletes answer redirects to render render template destroy</name>
+      <title>AnswersController DELETE #destroy author of answer deletes answer redirects to render render template destroy</title>
+      <steps/>
+      <attachments/>
+      <labels>
+        <label name="thread" value="47221494962580"/>
+        <label name="host" value="120013e358d9"/>
+      </labels>
+      <parameters/>
+    </test-case>
+  </test-cases>
+  <labels>
+    <label name="thread" value="47221494962580"/>
+    <label name="host" value="120013e358d9"/>
+  </labels>
+</ns2:test-suite>

@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<ns2:test-suite xmlns="" xmlns:ns2="urn:model.allure.qatools.yandex.ru" start="1525349790846" stop="1525349793925">
+  <name>AnswersController PATCH #update non-author tries to update question</name>
+  <title>AnswersController PATCH #update non-author tries to update question</title>
+  <test-cases>
+    <test-case start="1525349790847" stop="1525349792317" status="passed">
+      <name>AnswersController PATCH #update non-author tries to update question does not change question attributes</name>
+      <title>AnswersController PATCH #update non-author tries to update question does not change question attributes</title>
+      <steps/>
+      <attachments/>
+      <labels>
+        <label name="thread" value="47221494962580"/>
+        <label name="host" value="120013e358d9"/>
+      </labels>
+      <parameters/>
+    </test-case>
+    <test-case start="1525349792319" stop="1525349793923" status="passed">
+      <name>AnswersController PATCH #update non-author tries to update question returns 403 (forbidden) status</name>
+      <title>AnswersController PATCH #update non-author tries to update question returns 403 (forbidden) status</title>
+      <steps/>
+      <attachments/>
+      <labels>
+        <label name="thread" value="47221494962580"/>
+        <label name="host" value="120013e358d9"/>
+      </labels>
+      <parameters/>
+    </test-case>
+  </test-cases>
+  <labels>
+    <label name="thread" value="47221494962580"/>
+    <label name="host" value="120013e358d9"/>
+  </labels>
+</ns2:test-suite>

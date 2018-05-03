@@ -1,0 +1,112 @@
+<?xml version="1.0"?>
+<ns2:test-suite xmlns="" xmlns:ns2="urn:model.allure.qatools.yandex.ru" start="1525349744150" stop="1525349758173">
+  <name>User sign in with facebook 
+  In order to simplify authentication
+  As a guest
+  I want to be able to sign in with Facebook</name>
+  <title>User sign in with facebook 
+  In order to simplify authentication
+  As a guest
+  I want to be able to sign in with Facebook</title>
+  <test-cases>
+    <test-case start="1525349744150" stop="1525349747021" status="passed">
+      <name>User sign in with facebook 
+  In order to simplify authentication
+  As a guest
+  I want to be able to sign in with Facebook
+ provider gives hash without email field</name>
+      <title>User sign in with facebook 
+  In order to simplify authentication
+  As a guest
+  I want to be able to sign in with Facebook
+ provider gives hash without email field</title>
+      <steps/>
+      <attachments/>
+      <labels>
+        <label name="thread" value="47221494962580"/>
+        <label name="host" value="120013e358d9"/>
+      </labels>
+      <parameters/>
+    </test-case>
+    <test-case start="1525349747023" stop="1525349749636" status="passed">
+      <name>User sign in with facebook 
+  In order to simplify authentication
+  As a guest
+  I want to be able to sign in with Facebook
+ user signs in with invalid account</name>
+      <title>User sign in with facebook 
+  In order to simplify authentication
+  As a guest
+  I want to be able to sign in with Facebook
+ user signs in with invalid account</title>
+      <steps/>
+      <attachments/>
+      <labels>
+        <label name="thread" value="47221494962580"/>
+        <label name="host" value="120013e358d9"/>
+      </labels>
+      <parameters/>
+    </test-case>
+    <test-case start="1525349749637" stop="1525349752191" status="passed">
+      <name>User sign in with facebook 
+  In order to simplify authentication
+  As a guest
+  I want to be able to sign in with Facebook
+ provider gives hash without provider field</name>
+      <title>User sign in with facebook 
+  In order to simplify authentication
+  As a guest
+  I want to be able to sign in with Facebook
+ provider gives hash without provider field</title>
+      <steps/>
+      <attachments/>
+      <labels>
+        <label name="thread" value="47221494962580"/>
+        <label name="host" value="120013e358d9"/>
+      </labels>
+      <parameters/>
+    </test-case>
+    <test-case start="1525349752193" stop="1525349754807" status="passed">
+      <name>User sign in with facebook 
+  In order to simplify authentication
+  As a guest
+  I want to be able to sign in with Facebook
+ provider gives hash without uid field</name>
+      <title>User sign in with facebook 
+  In order to simplify authentication
+  As a guest
+  I want to be able to sign in with Facebook
+ provider gives hash without uid field</title>
+      <steps/>
+      <attachments/>
+      <labels>
+        <label name="thread" value="47221494962580"/>
+        <label name="host" value="120013e358d9"/>
+      </labels>
+      <parameters/>
+    </test-case>
+    <test-case start="1525349754809" stop="1525349758171" status="passed">
+      <name>User sign in with facebook 
+  In order to simplify authentication
+  As a guest
+  I want to be able to sign in with Facebook
+ user signs in with valid account</name>
+      <title>User sign in with facebook 
+  In order to simplify authentication
+  As a guest
+  I want to be able to sign in with Facebook
+ user signs in with valid account</title>
+      <steps/>
+      <attachments/>
+      <labels>
+        <label name="thread" value="47221494962580"/>
+        <label name="host" value="120013e358d9"/>
+      </labels>
+      <parameters/>
+    </test-case>
+  </test-cases>
+  <labels>
+    <label name="thread" value="47221494962580"/>
+    <label name="host" value="120013e358d9"/>
+  </labels>
+</ns2:test-suite>

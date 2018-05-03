@@ -3,13 +3,13 @@
 
 require "rails_helper"
 
-RSpec.describe QuestionsController, type: :controller do
+RSpec.describe QuestionsController, type: :controller, integration: true do
   let(:questions) { create_list(:question, 2, user: user) }
   let(:question) { create(:question, user: user) }
   let(:user_question) { create(:question, user: @user) }
   let(:user) { create(:user) }
 
-  describe "GET #index" do
+  describe "GET #index", positive: true do
     before { get :index }
 
     it "represents an array of all questions" do
@@ -21,7 +21,7 @@ RSpec.describe QuestionsController, type: :controller do
     end
   end
 
-  describe "GET #show" do
+  describe "GET #show", positive: true do
     before { get :show, id: question }
 
     it "assigns the requested question to @question" do
@@ -33,7 +33,7 @@ RSpec.describe QuestionsController, type: :controller do
     end
   end
 
-  describe "GET #new" do
+  describe "GET #new", positive: true do
     sign_in_user
 
     before { get :new }
@@ -50,7 +50,7 @@ RSpec.describe QuestionsController, type: :controller do
   describe "GET #edit" do
     sign_in_user
 
-    context "author of question edits it" do
+    context "author of question edits it", positive: true do
       before { get :edit, id: user_question }
 
       it "assigns the requested question to @question" do
@@ -62,7 +62,7 @@ RSpec.describe QuestionsController, type: :controller do
       end
     end
 
-    context "non-author tries to edit question" do
+    context "non-author tries to edit question", negative: true do
       before { get :edit, id: question }
 
       it "re-renders question view" do
@@ -74,7 +74,7 @@ RSpec.describe QuestionsController, type: :controller do
   describe "POST #create" do
     sign_in_user
 
-    context "with valid attributes" do
+    context "with valid attributes", positive: true do
       subject { post :create, question: attributes_for(:question)  }
 
       it "saves the new question in the database" do
@@ -91,7 +91,7 @@ RSpec.describe QuestionsController, type: :controller do
       end
     end
 
-    context "with invalid attributes" do
+    context "with invalid attributes", negative: true do
       it "does not save the question" do
         expect { post :create, question: attributes_for(:invalid_question) }.to_not change(Question, :count)
       end
@@ -107,7 +107,7 @@ RSpec.describe QuestionsController, type: :controller do
     sign_in_user
 
     context "author of question updates question" do
-      context "valid attributes" do
+      context "valid attributes", positive: true do
         it "assigns the requested question to @question" do
           patch :update, id: user_question, question: attributes_for(:question)
           expect(assigns(:question)).to eq user_question
@@ -126,7 +126,7 @@ RSpec.describe QuestionsController, type: :controller do
         end
       end
 
-      context "invalid attributes" do
+      context "invalid attributes", negative: true do
         before { patch :update, id: user_question, question: { title: "new title", body: nil } }
 
         it "does not change question attributes" do
@@ -144,7 +144,7 @@ RSpec.describe QuestionsController, type: :controller do
       end
     end
 
-    context "non-author tries to update question" do
+    context "non-author tries to update question", negative: true do
       before { patch :update, id: question, question: { title: "new title", body: "new body" } }
 
       it "does not change question attributes" do
@@ -165,7 +165,7 @@ RSpec.describe QuestionsController, type: :controller do
   describe "DELETE #destroy" do
     sign_in_user
 
-    context "author of question deletes question" do
+    context "author of question deletes question", positive: true do
       it "deletes question" do
         user_question
         expect { delete :destroy, id: user_question }.to change(Question, :count).by(-1)
@@ -177,7 +177,7 @@ RSpec.describe QuestionsController, type: :controller do
       end
     end
 
-    context "non-author tries to delete question" do
+    context "non-author tries to delete question", negative: true do
       it "don`t deletes question" do
         question
         expect { delete :destroy, id: question }.to_not change(Question, :count)

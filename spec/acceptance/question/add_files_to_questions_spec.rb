@@ -7,7 +7,7 @@ feature "Add file to question", '
   In order to specify my trouble
   As an authenticated user
   I want to be able to attach files to questions
-' do
+', integration: true, ui: true do
   given(:user) { create :user }
 
   background do

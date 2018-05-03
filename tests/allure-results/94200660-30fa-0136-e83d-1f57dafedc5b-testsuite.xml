@@ -1,0 +1,88 @@
+<?xml version="1.0"?>
+<ns2:test-suite xmlns="" xmlns:ns2="urn:model.allure.qatools.yandex.ru" start="1525349768395" stop="1525349770567">
+  <name>Profile API GET /me authorized</name>
+  <title>Profile API GET /me authorized</title>
+  <test-cases>
+    <test-case start="1525349768395" stop="1525349768673" status="passed">
+      <name>Profile API GET /me authorized contains updated_at</name>
+      <title>Profile API GET /me authorized contains updated_at</title>
+      <steps/>
+      <attachments/>
+      <labels>
+        <label name="thread" value="47221494962580"/>
+        <label name="host" value="120013e358d9"/>
+      </labels>
+      <parameters/>
+    </test-case>
+    <test-case start="1525349768675" stop="1525349768923" status="passed">
+      <name>Profile API GET /me authorized does not contain password</name>
+      <title>Profile API GET /me authorized does not contain password</title>
+      <steps/>
+      <attachments/>
+      <labels>
+        <label name="thread" value="47221494962580"/>
+        <label name="host" value="120013e358d9"/>
+      </labels>
+      <parameters/>
+    </test-case>
+    <test-case start="1525349768925" stop="1525349769192" status="passed">
+      <name>Profile API GET /me authorized contains created_at</name>
+      <title>Profile API GET /me authorized contains created_at</title>
+      <steps/>
+      <attachments/>
+      <labels>
+        <label name="thread" value="47221494962580"/>
+        <label name="host" value="120013e358d9"/>
+      </labels>
+      <parameters/>
+    </test-case>
+    <test-case start="1525349769194" stop="1525349769466" status="passed">
+      <name>Profile API GET /me authorized does not contain encrypted_password</name>
+      <title>Profile API GET /me authorized does not contain encrypted_password</title>
+      <steps/>
+      <attachments/>
+      <labels>
+        <label name="thread" value="47221494962580"/>
+        <label name="host" value="120013e358d9"/>
+      </labels>
+      <parameters/>
+    </test-case>
+    <test-case start="1525349769468" stop="1525349769733" status="passed">
+      <name>Profile API GET /me authorized contains admin</name>
+      <title>Profile API GET /me authorized contains admin</title>
+      <steps/>
+      <attachments/>
+      <labels>
+        <label name="thread" value="47221494962580"/>
+        <label name="host" value="120013e358d9"/>
+      </labels>
+      <parameters/>
+    </test-case>
+    <test-case start="1525349769735" stop="1525349769994" status="passed">
+      <name>Profile API GET /me authorized contains email</name>
+      <title>Profile API GET /me authorized contains email</title>
+      <steps/>
+      <attachments/>
+      <labels>
+        <label name="thread" value="47221494962580"/>
+        <label name="host" value="120013e358d9"/>
+      </labels>
+      <parameters/>
+    </test-case>
+    <test-case start="1525349769996" stop="1525349770264" status="passed">
+      <name>Profile API GET /me authorized contains id</name>
+      <title>Profile API GET /me authorized contains id</title>
+      <steps/>
+      <attachments/>
+      <labels>
+        <label name="thread" value="47221494962580"/>
+        <label name="host" value="120013e358d9"/>
+      </labels>
+      <parameters/>
+    </test-case>
+  </test-cases>
+  <labels>
+    <label name="thread" value="47221494962580"/>
+    <label name="host" value="120013e358d9"/>
+  </labels>
+</ns2:test-suite>

@@ -7,10 +7,10 @@ feature "Sign out", '
   In order to leave session
   As an authenticated user
   I want to be able to sign out
-' do
+', integration: true, ui: true do
   given(:user) { create(:user) }
 
-  scenario "authenticated user signs out" do
+  scenario "authenticated user signs out", positive: true do
     sign_in(user)
 
     click_on "Выйти"

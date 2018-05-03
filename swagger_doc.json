@@ -1,0 +1,1475 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0",
+    "title": "stackoverflow",
+    "description": "TODO: Add Description"
+  },
+  "host": "0.0.0.0:3000",
+  "basePath": "/",
+  "securityDefinitions": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "implicit",
+      "authorizationUrl": "http://0.0.0.0:3000",
+      "scopes": {},
+      "x-skip-client-authentication": false
+    }
+  },
+  "schemes": [
+    "http"
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/oauth/token/": {
+      "post": {
+        "description": "TODO: Add Description",
+        "summary": "Get token",
+        "tags": [
+          "Misc"
+        ],
+        "operationId": "OauthTokenPost",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/GetTokenrequest"
+            }
+          },
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/GetToken"
+            },
+            "examples": {
+              "application/json": {
+                "access_token": "3b0ce748abf92788d187de07e0aca78bd935f1185dd44713e38940f797874de0",
+                "token_type": "bearer",
+                "expires_in": 7200,
+                "created_at": 1525291742
+              }
+            }
+          }
+        },
+        "security": [],
+        "x-unitTests": [
+          {
+            "request": {
+              "method": "POST",
+              "uri": "/oauth/token/",
+              "headers": {
+                "Content-Type": "application/json"
+              },
+              "body": "{\"grant_type\":\"authorization_code\",\"client_id\":\"03ec875017760158c3b11f4d294fbd0571990c412e5bde96dedb0307028c6d89\",\"client_secret\":\"68e9b88f2cb60adc8f965bf4ff51d7ed964baa75fd733f280245f3edaeab0b1a\",\"code\":\"c71604dc5d6fe5beeaf8f79261c630a54951793a288236efe9c9807930a77c95\",\"redirect_uri\":\"urn:ietf:wg:oauth:2.0:oob\"}"
+            },
+            "expectedResponse": {
+              "x-allowExtraHeaders": true,
+              "x-bodyMatchMode": "RAW",
+              "x-arrayOrderedMatching": false,
+              "x-arrayCheckCount": false,
+              "x-matchResponseSchema": true,
+              "headers": {
+                "Cache-Control": "no-store",
+                "Connection": "close",
+                "Content-Type": "application/json; charset=utf-8",
+                "ETag": "W/\"fc632b08ade9f8eeae0d5e2854c14ca7\"",
+                "Pragma": "no-cache",
+                "Server": "thin",
+                "X-Content-Type-Options": "nosniff",
+                "X-Frame-Options": "SAMEORIGIN",
+                "X-Request-Id": "4a88cb85-36bd-4768-a117-c991f5d6ecaa",
+                "X-Runtime": "0.173054",
+                "X-XSS-Protection": "1; mode=block"
+              },
+              "body": "{\"access_token\":\"3b0ce748abf92788d187de07e0aca78bd935f1185dd44713e38940f797874de0\",\"token_type\":\"bearer\",\"expires_in\":7200,\"created_at\":1525291742}"
+            },
+            "x-testShouldPass": true,
+            "x-testEnabled": true,
+            "x-testName": "Get token",
+            "x-testDescription": "TODO: Add Description"
+          }
+        ],
+        "x-operation-settings": {
+          "CollectParameters": false,
+          "AllowDynamicQueryParameters": false,
+          "AllowDynamicFormParameters": false,
+          "IsMultiContentStreaming": false
+        }
+      }
+    },
+    "/api/v1/profiles": {
+      "get": {
+        "description": "TODO: Add Description",
+        "summary": "/profiles",
+        "tags": [
+          "Misc"
+        ],
+        "operationId": "ApiV1ProfilesGet",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/~1profiles"
+            },
+            "examples": {
+              "application/json": {
+                "users": [
+                  {
+                    "id": 1,
+                    "created_at": "2018-05-02T18:07:18.959Z",
+                    "updated_at": "2018-05-02T19:18:07.61Z",
+                    "email": "bainst4@gmail.com",
+                    "admin": true
+                  }
+                ]
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "auth": []
+          }
+        ],
+        "x-unitTests": [
+          {
+            "request": {
+              "method": "GET",
+              "uri": "/api/v1/profiles",
+              "headers": {
+                "Content-Type": "application/json"
+              }
+            },
+            "expectedResponse": {
+              "x-allowExtraHeaders": true,
+              "x-bodyMatchMode": "RAW",
+              "x-arrayOrderedMatching": false,
+              "x-arrayCheckCount": false,
+              "x-matchResponseSchema": true,
+              "headers": {
+                "Cache-Control": "max-age=0, private, must-revalidate",
+                "Connection": "close",
+                "Content-Type": "application/json; charset=utf-8",
+                "ETag": "W/\"705a5c7b2cb6a7f8eb488c86fd7771b7\"",
+                "Server": "thin",
+                "X-Content-Type-Options": "nosniff",
+                "X-Frame-Options": "SAMEORIGIN",
+                "X-Request-Id": "db801f3f-cd5b-404e-b529-05deca0ce395",
+                "X-Runtime": "0.313745",
+                "X-XSS-Protection": "1; mode=block"
+              },
+              "body": "{\"users\":[{\"id\":1,\"created_at\":\"2018-05-02T18:07:18.959Z\",\"updated_at\":\"2018-05-02T19:18:07.61Z\",\"email\":\"bainst4@gmail.com\",\"admin\":true}]}"
+            },
+            "x-testShouldPass": true,
+            "x-testEnabled": true,
+            "x-testName": "/profiles",
+            "x-testDescription": "TODO: Add Description"
+          }
+        ],
+        "x-operation-settings": {
+          "CollectParameters": false,
+          "AllowDynamicQueryParameters": false,
+          "AllowDynamicFormParameters": false,
+          "IsMultiContentStreaming": false
+        }
+      }
+    },
+    "/api/v1/profiles/me": {
+      "get": {
+        "description": "TODO: Add Description",
+        "summary": "/profiles/me",
+        "tags": [
+          "Misc"
+        ],
+        "operationId": "ApiV1ProfilesMeGet",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/~1profiles~1me"
+            },
+            "examples": {
+              "application/json": {
+                "id": 2,
+                "created_at": "2018-05-02T18:11:15.18Z",
+                "updated_at": "2018-05-02T18:11:15.196Z",
+                "email": "test@test.ru",
+                "admin": null
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "auth": []
+          }
+        ],
+        "x-unitTests": [
+          {
+            "request": {
+              "method": "GET",
+              "uri": "/api/v1/profiles/me",
+              "headers": {
+                "Content-Type": "application/json"
+              }
+            },
+            "expectedResponse": {
+              "x-allowExtraHeaders": true,
+              "x-bodyMatchMode": "RAW",
+              "x-arrayOrderedMatching": false,
+              "x-arrayCheckCount": false,
+              "x-matchResponseSchema": true,
+              "headers": {
+                "Cache-Control": "max-age=0, private, must-revalidate",
+                "Connection": "close",
+                "Content-Type": "application/json; charset=utf-8",
+                "ETag": "W/\"0d4ec1528d962776322033873956130f\"",
+                "Server": "thin",
+                "X-Content-Type-Options": "nosniff",
+                "X-Frame-Options": "SAMEORIGIN",
+                "X-Request-Id": "30567911-cb93-4c6b-8afb-cc61ee044126",
+                "X-Runtime": "0.131298",
+                "X-XSS-Protection": "1; mode=block"
+              },
+              "body": "{\"id\":2,\"created_at\":\"2018-05-02T18:11:15.18Z\",\"updated_at\":\"2018-05-02T18:11:15.196Z\",\"email\":\"test@test.ru\",\"admin\":null}"
+            },
+            "x-testShouldPass": true,
+            "x-testEnabled": true,
+            "x-testName": "/profiles/me",
+            "x-testDescription": "TODO: Add Description"
+          }
+        ],
+        "x-operation-settings": {
+          "CollectParameters": false,
+          "AllowDynamicQueryParameters": false,
+          "AllowDynamicFormParameters": false,
+          "IsMultiContentStreaming": false
+        }
+      }
+    },
+    "/api/v1/questions/": {
+      "get": {
+        "description": "TODO: Add Description",
+        "summary": "/questions",
+        "tags": [
+          "Misc"
+        ],
+        "operationId": "ApiV1QuestionsGet",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/~1questions"
+            },
+            "examples": {
+              "application/json": {
+                "questions": [
+                  {
+                    "id": 1,
+                    "title": "asd",
+                    "body": "asd",
+                    "created_at": "2018-05-02T18:16:36.866Z",
+                    "updated_at": "2018-05-02T18:16:36.866Z",
+                    "answers": [
+                      {
+                        "id": 1,
+                        "body": "asdasd",
+                        "created_at": "2018-05-02T18:29:08.064Z",
+                        "updated_at": "2018-05-02T18:29:08.064Z",
+                        "comments": [],
+                        "attachments": []
+                      }
+                    ]
+                  },
+                  {
+                    "id": 2,
+                    "title": "Test question from API",
+                    "body": "Nothing interesting here",
+                    "created_at": "2018-05-02T19:59:48.559Z",
+                    "updated_at": "2018-05-02T19:59:48.559Z",
+                    "answers": [
+                      {
+                        "id": 2,
+                        "body": "Test body answer from API",
+                        "created_at": "2018-05-02T20:01:34.209Z",
+                        "updated_at": "2018-05-02T20:01:34.209Z",
+                        "comments": [],
+                        "attachments": []
+                      }
+                    ]
+                  }
+                ]
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "auth": []
+          }
+        ],
+        "x-unitTests": [
+          {
+            "request": {
+              "method": "GET",
+              "uri": "/api/v1/questions/",
+              "headers": {
+                "Content-Type": "application/json"
+              }
+            },
+            "expectedResponse": {
+              "x-allowExtraHeaders": true,
+              "x-bodyMatchMode": "RAW",
+              "x-arrayOrderedMatching": false,
+              "x-arrayCheckCount": false,
+              "x-matchResponseSchema": true,
+              "headers": {
+                "Cache-Control": "max-age=0, private, must-revalidate",
+                "Connection": "close",
+                "Content-Type": "application/json; charset=utf-8",
+                "ETag": "W/\"03f2a3e196414eeecdd4aa93dda7f952\"",
+                "Server": "thin",
+                "X-Content-Type-Options": "nosniff",
+                "X-Frame-Options": "SAMEORIGIN",
+                "X-Request-Id": "da183bed-4141-4eef-936d-0582b07a9803",
+                "X-Runtime": "0.145798",
+                "X-XSS-Protection": "1; mode=block"
+              },
+              "body": "{\"questions\":[{\"id\":1,\"title\":\"asd\",\"body\":\"asd\",\"created_at\":\"2018-05-02T18:16:36.866Z\",\"updated_at\":\"2018-05-02T18:16:36.866Z\",\"answers\":[{\"id\":1,\"body\":\"asdasd\",\"created_at\":\"2018-05-02T18:29:08.064Z\",\"updated_at\":\"2018-05-02T18:29:08.064Z\",\"comments\":[],\"attachments\":[]}]},{\"id\":2,\"title\":\"Test question from API\",\"body\":\"Nothing interesting here\",\"created_at\":\"2018-05-02T19:59:48.559Z\",\"updated_at\":\"2018-05-02T19:59:48.559Z\",\"answers\":[{\"id\":2,\"body\":\"Test body answer from API\",\"created_at\":\"2018-05-02T20:01:34.209Z\",\"updated_at\":\"2018-05-02T20:01:34.209Z\",\"comments\":[],\"attachments\":[]}]}]}"
+            },
+            "x-testShouldPass": true,
+            "x-testEnabled": true,
+            "x-testName": "/questions",
+            "x-testDescription": "TODO: Add Description"
+          }
+        ],
+        "x-operation-settings": {
+          "CollectParameters": false,
+          "AllowDynamicQueryParameters": false,
+          "AllowDynamicFormParameters": false,
+          "IsMultiContentStreaming": false
+        }
+      }
+    },
+    "/api/v1/questions": {
+      "post": {
+        "description": "TODO: Add Description",
+        "summary": "/questions",
+        "tags": [
+          "Misc"
+        ],
+        "operationId": "ApiV1QuestionsPost",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/~1questionsrequest"
+            }
+          },
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/~1questions9"
+            },
+            "examples": {
+              "application/json": {
+                "question": {
+                  "id": 3,
+                  "title": "Test question from API",
+                  "body": "Nothing interesting here",
+                  "created_at": "2018-05-02T20:13:38.008Z",
+                  "updated_at": "2018-05-02T20:13:38.008Z",
+                  "comments": [],
+                  "attachments": []
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "auth": []
+          }
+        ],
+        "x-unitTests": [
+          {
+            "request": {
+              "method": "POST",
+              "uri": "/api/v1/questions",
+              "headers": {
+                "Content-Type": "application/json"
+              },
+              "body": "{\"title\":\"Test question from API\",\"body\":\"Nothing interesting here\"}"
+            },
+            "expectedResponse": {
+              "x-allowExtraHeaders": true,
+              "x-bodyMatchMode": "RAW",
+              "x-arrayOrderedMatching": false,
+              "x-arrayCheckCount": false,
+              "x-matchResponseSchema": true,
+              "headers": {
+                "Cache-Control": "max-age=0, private, must-revalidate",
+                "Connection": "close",
+                "Content-Type": "application/json; charset=utf-8",
+                "ETag": "W/\"a454153cb26ba4f1616f0599f4a4913a\"",
+                "Location": "http://0.0.0.0:3000/questions/3",
+                "Server": "thin",
+                "Set-Cookie": "request_method=POST; path=/",
+                "X-Content-Type-Options": "nosniff",
+                "X-Frame-Options": "SAMEORIGIN",
+                "X-Request-Id": "e127b6b4-1a84-4581-a9c9-bfcf486511b2",
+                "X-Runtime": "0.242820",
+                "X-XSS-Protection": "1; mode=block"
+              },
+              "body": "{\"question\":{\"id\":3,\"title\":\"Test question from API\",\"body\":\"Nothing interesting here\",\"created_at\":\"2018-05-02T20:13:38.008Z\",\"updated_at\":\"2018-05-02T20:13:38.008Z\",\"comments\":[],\"attachments\":[]}}"
+            },
+            "x-testShouldPass": true,
+            "x-testEnabled": true,
+            "x-testName": "/questions1",
+            "x-testDescription": "TODO: Add Description"
+          }
+        ],
+        "x-operation-settings": {
+          "CollectParameters": false,
+          "AllowDynamicQueryParameters": false,
+          "AllowDynamicFormParameters": false,
+          "IsMultiContentStreaming": false
+        }
+      }
+    },
+    "/api/v1/questions/1": {
+      "get": {
+        "description": "TODO: Add Description",
+        "summary": "/questions/:id",
+        "tags": [
+          "Misc"
+        ],
+        "operationId": "ApiV1Questions1Get",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/~1questions~1:id"
+            },
+            "examples": {
+              "application/json": {
+                "question": {
+                  "id": 1,
+                  "title": "asd",
+                  "body": "asd",
+                  "created_at": "2018-05-02T18:16:36.866Z",
+                  "updated_at": "2018-05-02T18:16:36.866Z",
+                  "comments": [],
+                  "attachments": []
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "auth": []
+          }
+        ],
+        "x-unitTests": [
+          {
+            "request": {
+              "method": "GET",
+              "uri": "/api/v1/questions/1",
+              "headers": {
+                "Content-Type": "application/json"
+              }
+            },
+            "expectedResponse": {
+              "x-allowExtraHeaders": true,
+              "x-bodyMatchMode": "RAW",
+              "x-arrayOrderedMatching": false,
+              "x-arrayCheckCount": false,
+              "x-matchResponseSchema": true,
+              "headers": {
+                "Cache-Control": "max-age=0, private, must-revalidate",
+                "Connection": "close",
+                "Content-Type": "application/json; charset=utf-8",
+                "ETag": "W/\"dbb7edf122e9324ce1f244b6c1a06c4f\"",
+                "Server": "thin",
+                "Set-Cookie": "request_method=; path=/; max-age=0; expires=Thu, 01 Jan 1970 00:00:00 -0000",
+                "X-Content-Type-Options": "nosniff",
+                "X-Frame-Options": "SAMEORIGIN",
+                "X-Request-Id": "12d81431-8169-45e0-8905-a3e7d5e0a353",
+                "X-Runtime": "0.141323",
+                "X-XSS-Protection": "1; mode=block"
+              },
+              "body": "{\"question\":{\"id\":1,\"title\":\"asd\",\"body\":\"asd\",\"created_at\":\"2018-05-02T18:16:36.866Z\",\"updated_at\":\"2018-05-02T18:16:36.866Z\",\"comments\":[],\"attachments\":[]}}"
+            },
+            "x-testShouldPass": true,
+            "x-testEnabled": true,
+            "x-testName": "/questions/:id",
+            "x-testDescription": "TODO: Add Description"
+          }
+        ],
+        "x-operation-settings": {
+          "CollectParameters": false,
+          "AllowDynamicQueryParameters": false,
+          "AllowDynamicFormParameters": false,
+          "IsMultiContentStreaming": false
+        }
+      }
+    },
+    "/api/v1/questions/1/answers": {
+      "get": {
+        "description": "TODO: Add Description",
+        "summary": "/questions/:id/answers",
+        "tags": [
+          "Misc"
+        ],
+        "operationId": "ApiV1Questions1AnswersGet",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/~1questions~1:id~1answers"
+            },
+            "examples": {
+              "application/json": {
+                "answers": [
+                  {
+                    "id": 1,
+                    "body": "asdasd",
+                    "created_at": "2018-05-02T18:29:08.064Z",
+                    "updated_at": "2018-05-02T18:29:08.064Z"
+                  }
+                ]
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "auth": []
+          }
+        ],
+        "x-unitTests": [
+          {
+            "request": {
+              "method": "GET",
+              "uri": "/api/v1/questions/1/answers",
+              "headers": {
+                "Content-Type": "application/json"
+              }
+            },
+            "expectedResponse": {
+              "x-allowExtraHeaders": true,
+              "x-bodyMatchMode": "RAW",
+              "x-arrayOrderedMatching": false,
+              "x-arrayCheckCount": false,
+              "x-matchResponseSchema": true,
+              "headers": {
+                "Cache-Control": "max-age=0, private, must-revalidate",
+                "Connection": "close",
+                "Content-Type": "application/json; charset=utf-8",
+                "ETag": "W/\"51b593185ec6a652935755846f2e83f4\"",
+                "Server": "thin",
+                "X-Content-Type-Options": "nosniff",
+                "X-Frame-Options": "SAMEORIGIN",
+                "X-Request-Id": "525ef92c-2196-490c-9a93-1e48be94c85c",
+                "X-Runtime": "0.200115",
+                "X-XSS-Protection": "1; mode=block"
+              },
+              "body": "{\"answers\":[{\"id\":1,\"body\":\"asdasd\",\"created_at\":\"2018-05-02T18:29:08.064Z\",\"updated_at\":\"2018-05-02T18:29:08.064Z\"}]}"
+            },
+            "x-testShouldPass": true,
+            "x-testEnabled": true,
+            "x-testName": "/questions/:id/answers",
+            "x-testDescription": "TODO: Add Description"
+          }
+        ],
+        "x-operation-settings": {
+          "CollectParameters": false,
+          "AllowDynamicQueryParameters": false,
+          "AllowDynamicFormParameters": false,
+          "IsMultiContentStreaming": false
+        }
+      }
+    },
+    "/api/v1/questions/2/answers": {
+      "post": {
+        "description": "TODO: Add Description",
+        "summary": "/questions/:id/answers",
+        "tags": [
+          "Misc"
+        ],
+        "operationId": "ApiV1Questions2AnswersPost",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/~1questions~1:id~1answersrequest"
+            }
+          },
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/~1questions~1:id~1answers16"
+            },
+            "examples": {
+              "application/json": {
+                "answer": {
+                  "id": 3,
+                  "body": "Test body answer from API",
+                  "created_at": "2018-05-02T20:14:09.109Z",
+                  "updated_at": "2018-05-02T20:14:09.109Z",
+                  "comments": [],
+                  "attachments": []
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "auth": []
+          }
+        ],
+        "x-unitTests": [
+          {
+            "request": {
+              "method": "POST",
+              "uri": "/api/v1/questions/2/answers",
+              "headers": {
+                "Content-Type": "application/json"
+              },
+              "body": "{\"body\":\"Test body answer from API\"}"
+            },
+            "expectedResponse": {
+              "x-allowExtraHeaders": true,
+              "x-bodyMatchMode": "RAW",
+              "x-arrayOrderedMatching": false,
+              "x-arrayCheckCount": false,
+              "x-matchResponseSchema": true,
+              "headers": {
+                "Cache-Control": "max-age=0, private, must-revalidate",
+                "Connection": "close",
+                "Content-Type": "application/json; charset=utf-8",
+                "ETag": "W/\"86b0184e9dcb9c69eefc844e20fb73ff\"",
+                "Location": "http://0.0.0.0:3000/answers/3",
+                "Server": "thin",
+                "Set-Cookie": "request_method=POST; path=/",
+                "X-Content-Type-Options": "nosniff",
+                "X-Frame-Options": "SAMEORIGIN",
+                "X-Request-Id": "36e798eb-2eeb-41ba-8b10-4e9e81cebcaa",
+                "X-Runtime": "1.588164",
+                "X-XSS-Protection": "1; mode=block"
+              },
+              "body": "{\"answer\":{\"id\":3,\"body\":\"Test body answer from API\",\"created_at\":\"2018-05-02T20:14:09.109Z\",\"updated_at\":\"2018-05-02T20:14:09.109Z\",\"comments\":[],\"attachments\":[]}}"
+            },
+            "x-testShouldPass": true,
+            "x-testEnabled": true,
+            "x-testName": "/questions/:id/answers1",
+            "x-testDescription": "TODO: Add Description"
+          }
+        ],
+        "x-operation-settings": {
+          "CollectParameters": false,
+          "AllowDynamicQueryParameters": false,
+          "AllowDynamicFormParameters": false,
+          "IsMultiContentStreaming": false
+        }
+      }
+    }
+  },
+  "definitions": {
+    "GetTokenrequest": {
+      "title": "Get tokenRequest",
+      "example": {
+        "grant_type": "authorization_code",
+        "client_id": "03ec875017760158c3b11f4d294fbd0571990c412e5bde96dedb0307028c6d89",
+        "client_secret": "68e9b88f2cb60adc8f965bf4ff51d7ed964baa75fd733f280245f3edaeab0b1a",
+        "code": "c71604dc5d6fe5beeaf8f79261c630a54951793a288236efe9c9807930a77c95",
+        "redirect_uri": "urn:ietf:wg:oauth:2.0:oob"
+      },
+      "type": "object",
+      "properties": {
+        "grant_type": {
+          "description": "",
+          "example": "authorization_code",
+          "type": "string"
+        },
+        "client_id": {
+          "description": "",
+          "example": "03ec875017760158c3b11f4d294fbd0571990c412e5bde96dedb0307028c6d89",
+          "type": "string"
+        },
+        "client_secret": {
+          "description": "",
+          "example": "68e9b88f2cb60adc8f965bf4ff51d7ed964baa75fd733f280245f3edaeab0b1a",
+          "type": "string"
+        },
+        "code": {
+          "description": "",
+          "example": "c71604dc5d6fe5beeaf8f79261c630a54951793a288236efe9c9807930a77c95",
+          "type": "string"
+        },
+        "redirect_uri": {
+          "description": "",
+          "example": "urn:ietf:wg:oauth:2.0:oob",
+          "type": "string"
+        }
+      },
+      "required": [
+        "grant_type",
+        "client_id",
+        "client_secret",
+        "code",
+        "redirect_uri"
+      ]
+    },
+    "GetToken": {
+      "title": "Get token",
+      "example": {
+        "access_token": "3b0ce748abf92788d187de07e0aca78bd935f1185dd44713e38940f797874de0",
+        "token_type": "bearer",
+        "expires_in": 7200,
+        "created_at": 1525291742
+      },
+      "type": "object",
+      "properties": {
+        "access_token": {
+          "description": "",
+          "example": "3b0ce748abf92788d187de07e0aca78bd935f1185dd44713e38940f797874de0",
+          "type": "string"
+        },
+        "token_type": {
+          "description": "",
+          "example": "bearer",
+          "type": "string"
+        },
+        "expires_in": {
+          "description": "",
+          "example": 7200,
+          "type": "integer",
+          "format": "int32"
+        },
+        "created_at": {
+          "description": "",
+          "example": 1525291742,
+          "type": "integer",
+          "format": "int32"
+        }
+      },
+      "required": [
+        "access_token",
+        "token_type",
+        "expires_in",
+        "created_at"
+      ]
+    },
+    "/profiles": {
+      "title": "/profiles",
+      "example": {
+        "users": [
+          {
+            "id": 1,
+            "created_at": "2018-05-02T18:07:18.959Z",
+            "updated_at": "2018-05-02T19:18:07.61Z",
+            "email": "bainst4@gmail.com",
+            "admin": true
+          }
+        ]
+      },
+      "type": "object",
+      "properties": {
+        "users": {
+          "description": "",
+          "example": [
+            {
+              "id": 1,
+              "created_at": "2018-05-02T18:07:18.959Z",
+              "updated_at": "2018-05-02T19:18:07.61Z",
+              "email": "bainst4@gmail.com",
+              "admin": true
+            }
+          ],
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/User"
+          }
+        }
+      },
+      "required": [
+        "users"
+      ]
+    },
+    "User": {
+      "title": "User",
+      "example": {
+        "id": 1,
+        "created_at": "2018-05-02T18:07:18.959Z",
+        "updated_at": "2018-05-02T19:18:07.61Z",
+        "email": "bainst4@gmail.com",
+        "admin": true
+      },
+      "type": "object",
+      "properties": {
+        "id": {
+          "description": "",
+          "example": 1,
+          "type": "integer",
+          "format": "int32"
+        },
+        "created_at": {
+          "description": "",
+          "example": "5/2/2018 6:07:18 PM",
+          "type": "string"
+        },
+        "updated_at": {
+          "description": "",
+          "example": "5/2/2018 7:18:07 PM",
+          "type": "string"
+        },
+        "email": {
+          "description": "",
+          "example": "bainst4@gmail.com",
+          "type": "string"
+        },
+        "admin": {
+          "description": "",
+          "example": true,
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "id",
+        "created_at",
+        "updated_at",
+        "email",
+        "admin"
+      ]
+    },
+    "/profiles/me": {
+      "title": "/profiles/me",
+      "example": {
+        "id": 2,
+        "created_at": "2018-05-02T18:11:15.18Z",
+        "updated_at": "2018-05-02T18:11:15.196Z",
+        "email": "test@test.ru",
+        "admin": null
+      },
+      "type": "object",
+      "properties": {
+        "id": {
+          "description": "",
+          "example": 2,
+          "type": "integer",
+          "format": "int32"
+        },
+        "created_at": {
+          "description": "",
+          "example": "5/2/2018 6:11:15 PM",
+          "type": "string"
+        },
+        "updated_at": {
+          "description": "",
+          "example": "5/2/2018 6:11:15 PM",
+          "type": "string"
+        },
+        "email": {
+          "description": "",
+          "example": "test@test.ru",
+          "type": "string"
+        },
+        "admin": {
+          "description": "",
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "created_at",
+        "updated_at",
+        "email",
+        "admin"
+      ]
+    },
+    "/questions": {
+      "title": "/questions",
+      "example": {
+        "questions": [
+          {
+            "id": 1,
+            "title": "asd",
+            "body": "asd",
+            "created_at": "2018-05-02T18:16:36.866Z",
+            "updated_at": "2018-05-02T18:16:36.866Z",
+            "answers": [
+              {
+                "id": 1,
+                "body": "asdasd",
+                "created_at": "2018-05-02T18:29:08.064Z",
+                "updated_at": "2018-05-02T18:29:08.064Z",
+                "comments": [],
+                "attachments": []
+              }
+            ]
+          },
+          {
+            "id": 2,
+            "title": "Test question from API",
+            "body": "Nothing interesting here",
+            "created_at": "2018-05-02T19:59:48.559Z",
+            "updated_at": "2018-05-02T19:59:48.559Z",
+            "answers": [
+              {
+                "id": 2,
+                "body": "Test body answer from API",
+                "created_at": "2018-05-02T20:01:34.209Z",
+                "updated_at": "2018-05-02T20:01:34.209Z",
+                "comments": [],
+                "attachments": []
+              }
+            ]
+          }
+        ]
+      },
+      "type": "object",
+      "properties": {
+        "questions": {
+          "description": "",
+          "example": [
+            {
+              "id": 1,
+              "title": "asd",
+              "body": "asd",
+              "created_at": "2018-05-02T18:16:36.866Z",
+              "updated_at": "2018-05-02T18:16:36.866Z",
+              "answers": [
+                {
+                  "id": 1,
+                  "body": "asdasd",
+                  "created_at": "2018-05-02T18:29:08.064Z",
+                  "updated_at": "2018-05-02T18:29:08.064Z",
+                  "comments": [],
+                  "attachments": []
+                }
+              ]
+            },
+            {
+              "id": 2,
+              "title": "Test question from API",
+              "body": "Nothing interesting here",
+              "created_at": "2018-05-02T19:59:48.559Z",
+              "updated_at": "2018-05-02T19:59:48.559Z",
+              "answers": [
+                {
+                  "id": 2,
+                  "body": "Test body answer from API",
+                  "created_at": "2018-05-02T20:01:34.209Z",
+                  "updated_at": "2018-05-02T20:01:34.209Z",
+                  "comments": [],
+                  "attachments": []
+                }
+              ]
+            }
+          ],
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Questions6"
+          }
+        }
+      },
+      "required": [
+        "questions"
+      ]
+    },
+    "Questions6": {
+      "title": "Questions6",
+      "example": {
+        "id": 1,
+        "title": "asd",
+        "body": "asd",
+        "created_at": "2018-05-02T18:16:36.866Z",
+        "updated_at": "2018-05-02T18:16:36.866Z",
+        "answers": [
+          {
+            "id": 1,
+            "body": "asdasd",
+            "created_at": "2018-05-02T18:29:08.064Z",
+            "updated_at": "2018-05-02T18:29:08.064Z",
+            "comments": [],
+            "attachments": []
+          }
+        ]
+      },
+      "type": "object",
+      "properties": {
+        "id": {
+          "description": "",
+          "example": 1,
+          "type": "integer",
+          "format": "int32"
+        },
+        "title": {
+          "description": "",
+          "example": "asd",
+          "type": "string"
+        },
+        "body": {
+          "description": "",
+          "example": "asd",
+          "type": "string"
+        },
+        "created_at": {
+          "description": "",
+          "example": "5/2/2018 6:16:36 PM",
+          "type": "string"
+        },
+        "updated_at": {
+          "description": "",
+          "example": "5/2/2018 6:16:36 PM",
+          "type": "string"
+        },
+        "answers": {
+          "description": "",
+          "example": [
+            {
+              "id": 1,
+              "body": "asdasd",
+              "created_at": "2018-05-02T18:29:08.064Z",
+              "updated_at": "2018-05-02T18:29:08.064Z",
+              "comments": [],
+              "attachments": []
+            }
+          ],
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Answer"
+          }
+        }
+      },
+      "required": [
+        "id",
+        "title",
+        "body",
+        "created_at",
+        "updated_at",
+        "answers"
+      ]
+    },
+    "Answer": {
+      "title": "Answer",
+      "example": {
+        "id": 1,
+        "body": "asdasd",
+        "created_at": "2018-05-02T18:29:08.064Z",
+        "updated_at": "2018-05-02T18:29:08.064Z",
+        "comments": [],
+        "attachments": []
+      },
+      "type": "object",
+      "properties": {
+        "id": {
+          "description": "",
+          "example": 1,
+          "type": "integer",
+          "format": "int32"
+        },
+        "body": {
+          "description": "",
+          "example": "asdasd",
+          "type": "string"
+        },
+        "created_at": {
+          "description": "",
+          "example": "5/2/2018 6:29:08 PM",
+          "type": "string"
+        },
+        "updated_at": {
+          "description": "",
+          "example": "5/2/2018 6:29:08 PM",
+          "type": "string"
+        },
+        "comments": {
+          "description": "",
+          "example": [],
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "attachments": {
+          "description": "",
+          "example": [],
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "required": [
+        "id",
+        "body",
+        "created_at",
+        "updated_at",
+        "comments",
+        "attachments"
+      ]
+    },
+    "/questionsrequest": {
+      "title": "/questionsRequest",
+      "example": {
+        "title": "Test question from API",
+        "body": "Nothing interesting here"
+      },
+      "type": "object",
+      "properties": {
+        "title": {
+          "description": "",
+          "example": "Test question from API",
+          "type": "string"
+        },
+        "body": {
+          "description": "",
+          "example": "Nothing interesting here",
+          "type": "string"
+        }
+      },
+      "required": [
+        "title",
+        "body"
+      ]
+    },
+    "/questions9": {
+      "title": "/questions9",
+      "example": {
+        "question": {
+          "id": 3,
+          "title": "Test question from API",
+          "body": "Nothing interesting here",
+          "created_at": "2018-05-02T20:13:38.008Z",
+          "updated_at": "2018-05-02T20:13:38.008Z",
+          "comments": [],
+          "attachments": []
+        }
+      },
+      "type": "object",
+      "properties": {
+        "question": {
+          "$ref": "#/definitions/Question"
+        }
+      },
+      "required": [
+        "question"
+      ]
+    },
+    "Question": {
+      "title": "Question",
+      "example": {
+        "id": 3,
+        "title": "Test question from API",
+        "body": "Nothing interesting here",
+        "created_at": "2018-05-02T20:13:38.008Z",
+        "updated_at": "2018-05-02T20:13:38.008Z",
+        "comments": [],
+        "attachments": []
+      },
+      "type": "object",
+      "properties": {
+        "id": {
+          "description": "",
+          "example": 3,
+          "type": "integer",
+          "format": "int32"
+        },
+        "title": {
+          "description": "",
+          "example": "Test question from API",
+          "type": "string"
+        },
+        "body": {
+          "description": "",
+          "example": "Nothing interesting here",
+          "type": "string"
+        },
+        "created_at": {
+          "description": "",
+          "example": "5/2/2018 8:13:38 PM",
+          "type": "string"
+        },
+        "updated_at": {
+          "description": "",
+          "example": "5/2/2018 8:13:38 PM",
+          "type": "string"
+        },
+        "comments": {
+          "description": "",
+          "example": [],
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "attachments": {
+          "description": "",
+          "example": [],
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "required": [
+        "id",
+        "title",
+        "body",
+        "created_at",
+        "updated_at",
+        "comments",
+        "attachments"
+      ]
+    },
+    "/questions/:id": {
+      "title": "/questions/:id",
+      "example": {
+        "question": {
+          "id": 1,
+          "title": "asd",
+          "body": "asd",
+          "created_at": "2018-05-02T18:16:36.866Z",
+          "updated_at": "2018-05-02T18:16:36.866Z",
+          "comments": [],
+          "attachments": []
+        }
+      },
+      "type": "object",
+      "properties": {
+        "question": {
+          "$ref": "#/definitions/Question"
+        }
+      },
+      "required": [
+        "question"
+      ]
+    },
+    "/questions/:id/answers": {
+      "title": "/questions/:id/answers",
+      "example": {
+        "answers": [
+          {
+            "id": 1,
+            "body": "asdasd",
+            "created_at": "2018-05-02T18:29:08.064Z",
+            "updated_at": "2018-05-02T18:29:08.064Z"
+          }
+        ]
+      },
+      "type": "object",
+      "properties": {
+        "answers": {
+          "description": "",
+          "example": [
+            {
+              "id": 1,
+              "body": "asdasd",
+              "created_at": "2018-05-02T18:29:08.064Z",
+              "updated_at": "2018-05-02T18:29:08.064Z"
+            }
+          ],
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Answer14"
+          }
+        }
+      },
+      "required": [
+        "answers"
+      ]
+    },
+    "Answer14": {
+      "title": "Answer14",
+      "example": {
+        "id": 1,
+        "body": "asdasd",
+        "created_at": "2018-05-02T18:29:08.064Z",
+        "updated_at": "2018-05-02T18:29:08.064Z"
+      },
+      "type": "object",
+      "properties": {
+        "id": {
+          "description": "",
+          "example": 1,
+          "type": "integer",
+          "format": "int32"
+        },
+        "body": {
+          "description": "",
+          "example": "asdasd",
+          "type": "string"
+        },
+        "created_at": {
+          "description": "",
+          "example": "5/2/2018 6:29:08 PM",
+          "type": "string"
+        },
+        "updated_at": {
+          "description": "",
+          "example": "5/2/2018 6:29:08 PM",
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "body",
+        "created_at",
+        "updated_at"
+      ]
+    },
+    "/questions/:id/answersrequest": {
+      "title": "/questions/:id/answersRequest",
+      "example": {
+        "body": "Test body answer from API"
+      },
+      "type": "object",
+      "properties": {
+        "body": {
+          "description": "",
+          "example": "Test body answer from API",
+          "type": "string"
+        }
+      },
+      "required": [
+        "body"
+      ]
+    },
+    "/questions/:id/answers16": {
+      "title": "/questions/:id/answers16",
+      "example": {
+        "answer": {
+          "id": 3,
+          "body": "Test body answer from API",
+          "created_at": "2018-05-02T20:14:09.109Z",
+          "updated_at": "2018-05-02T20:14:09.109Z",
+          "comments": [],
+          "attachments": []
+        }
+      },
+      "type": "object",
+      "properties": {
+        "answer": {
+          "$ref": "#/definitions/Answer"
+        }
+      },
+      "required": [
+        "answer"
+      ]
+    }
+  }
+}

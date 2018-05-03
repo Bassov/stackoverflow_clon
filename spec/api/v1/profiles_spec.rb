@@ -9,7 +9,7 @@ describe "Profile API" do
   describe "GET /me" do
     it_behaves_like "API Authenticable"
 
-    context "authorized" do
+    context "authorized", positive: true do
       before { get "/api/v1/profiles/me", format: :json, access_token: access_token.token }
 
       it_behaves_like "API #get response 200"
@@ -35,7 +35,7 @@ describe "Profile API" do
   describe "GET /profiles" do
     it_behaves_like "API Authenticable"
 
-    context "authorized" do
+    context "authorized", positive: true do
       let!(:users) { create_list(:user, 3) }
 
       before { get "/api/v1/profiles", format: :json, access_token: access_token.token }

@@ -7,8 +7,8 @@ feature "User sign in with vk", '
   In order to simplify authentication
   As a guest
   I want to be able to sign in with vk
-' do
-  scenario "user signs in with valid account" do
+', integration: true, ui: true do
+  scenario "user signs in with valid account", positive: true do
     visit "users/sign_in"
     vk_oauth
     click_on "Sign in with Vk"
@@ -17,7 +17,7 @@ feature "User sign in with vk", '
     expect(page).to have_link("Выйти")
   end
 
-  scenario "user signs in with invalid account" do
+  scenario "user signs in with invalid account", negative: true do
     visit "users/sign_in"
     OmniAuth.config.mock_auth[:vk] = :invalid_credentials
     click_on "Sign in with Vk"

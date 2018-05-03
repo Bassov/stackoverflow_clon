@@ -3,7 +3,7 @@
 
 require "rails_helper"
 
-RSpec.describe Answer, type: :model do
+RSpec.describe Answer, type: :model, unit: true, positive: true do
   it_behaves_like "Attachable"
 
   it { should belong_to(:question) }

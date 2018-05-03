@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<ns2:test-suite xmlns="" xmlns:ns2="urn:model.allure.qatools.yandex.ru" start="1525349859305" stop="1525349859528">
+  <name>VotesController PATCH #create_vote author of votable tries to create_vote</name>
+  <title>VotesController PATCH #create_vote author of votable tries to create_vote</title>
+  <test-cases>
+    <test-case start="1525349859305" stop="1525349859413" status="passed">
+      <name>VotesController PATCH #create_vote author of votable tries to create_vote assigns requested votable to @votable</name>
+      <title>VotesController PATCH #create_vote author of votable tries to create_vote assigns requested votable to @votable</title>
+      <steps/>
+      <attachments/>
+      <labels>
+        <label name="thread" value="47221494962580"/>
+        <label name="host" value="120013e358d9"/>
+      </labels>
+      <parameters/>
+    </test-case>
+    <test-case start="1525349859415" stop="1525349859527" status="passed">
+      <name>VotesController PATCH #create_vote author of votable tries to create_vote don`t changes votable.votes</name>
+      <title>VotesController PATCH #create_vote author of votable tries to create_vote don`t changes votable.votes</title>
+      <steps/>
+      <attachments/>
+      <labels>
+        <label name="thread" value="47221494962580"/>
+        <label name="host" value="120013e358d9"/>
+      </labels>
+      <parameters/>
+    </test-case>
+  </test-cases>
+  <labels>
+    <label name="thread" value="47221494962580"/>
+    <label name="host" value="120013e358d9"/>
+  </labels>
+</ns2:test-suite>

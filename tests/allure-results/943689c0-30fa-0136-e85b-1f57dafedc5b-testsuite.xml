@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<ns2:test-suite xmlns="" xmlns:ns2="urn:model.allure.qatools.yandex.ru" start="1525349862328" stop="1525349868060">
+  <name>Answers API POST /create authorized valid attributes</name>
+  <title>Answers API POST /create authorized valid attributes</title>
+  <test-cases>
+    <test-case start="1525349862329" stop="1525349864067" status="passed">
+      <name>Answers API POST /create authorized valid attributes should be success status</name>
+      <title>Answers API POST /create authorized valid attributes should be success status</title>
+      <steps/>
+      <attachments/>
+      <labels>
+        <label name="thread" value="47221494962580"/>
+        <label name="host" value="120013e358d9"/>
+      </labels>
+      <parameters/>
+    </test-case>
+    <test-case start="1525349864069" stop="1525349865772" status="passed">
+      <name>Answers API POST /create authorized valid attributes creates new answer for defined question</name>
+      <title>Answers API POST /create authorized valid attributes creates new answer for defined question</title>
+      <steps/>
+      <attachments/>
+      <labels>
+        <label name="thread" value="47221494962580"/>
+        <label name="host" value="120013e358d9"/>
+      </labels>
+      <parameters/>
+    </test-case>
+    <test-case start="1525349865774" stop="1525349868058" status="passed">
+      <name>Answers API POST /create authorized valid attributes assigns resource_owner_id to user_id of answer</name>
+      <title>Answers API POST /create authorized valid attributes assigns resource_owner_id to user_id of answer</title>
+      <steps/>
+      <attachments/>
+      <labels>
+        <label name="thread" value="47221494962580"/>
+        <label name="host" value="120013e358d9"/>
+      </labels>
+      <parameters/>
+    </test-case>
+  </test-cases>
+  <labels>
+    <label name="thread" value="47221494962580"/>
+    <label name="host" value="120013e358d9"/>
+  </labels>
+</ns2:test-suite>

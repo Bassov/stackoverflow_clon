@@ -11,6 +11,8 @@ services:
       - db
       - redis
     restart: always
+    environment:
+     - RAILS_ENV=development
 
   db:
     image: postgres

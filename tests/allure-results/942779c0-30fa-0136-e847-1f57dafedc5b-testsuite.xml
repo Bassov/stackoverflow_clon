@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<ns2:test-suite xmlns="" xmlns:ns2="urn:model.allure.qatools.yandex.ru" start="1525349793927" stop="1525349798904">
+  <name>AnswersController PATCH #update author of answer updates answer</name>
+  <title>AnswersController PATCH #update author of answer updates answer</title>
+  <test-cases>
+    <test-case start="1525349793928" stop="1525349795540" status="passed">
+      <name>AnswersController PATCH #update author of answer updates answer change answer attributes</name>
+      <title>AnswersController PATCH #update author of answer updates answer change answer attributes</title>
+      <steps/>
+      <attachments/>
+      <labels>
+        <label name="thread" value="47221494962580"/>
+        <label name="host" value="120013e358d9"/>
+      </labels>
+      <parameters/>
+    </test-case>
+    <test-case start="1525349795542" stop="1525349797315" status="passed">
+      <name>AnswersController PATCH #update author of answer updates answer assigns the requested answer to @answer</name>
+      <title>AnswersController PATCH #update author of answer updates answer assigns the requested answer to @answer</title>
+      <steps/>
+      <attachments/>
+      <labels>
+        <label name="thread" value="47221494962580"/>
+        <label name="host" value="120013e358d9"/>
+      </labels>
+      <parameters/>
+    </test-case>
+    <test-case start="1525349797318" stop="1525349798902" status="passed">
+      <name>AnswersController PATCH #update author of answer updates answer renders update template</name>
+      <title>AnswersController PATCH #update author of answer updates answer renders update template</title>
+      <steps/>
+      <attachments/>
+      <labels>
+        <label name="thread" value="47221494962580"/>
+        <label name="host" value="120013e358d9"/>
+      </labels>
+      <parameters/>
+    </test-case>
+  </test-cases>
+  <labels>
+    <label name="thread" value="47221494962580"/>
+    <label name="host" value="120013e358d9"/>
+  </labels>
+</ns2:test-suite>

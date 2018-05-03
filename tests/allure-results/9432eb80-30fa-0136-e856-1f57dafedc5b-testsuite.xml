@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<ns2:test-suite xmlns="" xmlns:ns2="urn:model.allure.qatools.yandex.ru" start="1525349859060" stop="1525349859296">
+  <name>UsersController GET #show</name>
+  <title>UsersController GET #show</title>
+  <test-cases>
+    <test-case start="1525349859060" stop="1525349859179" status="passed">
+      <name>UsersController GET #show renders show view</name>
+      <title>UsersController GET #show renders show view</title>
+      <steps/>
+      <attachments/>
+      <labels>
+        <label name="thread" value="47221494962580"/>
+        <label name="host" value="120013e358d9"/>
+      </labels>
+      <parameters/>
+    </test-case>
+    <test-case start="1525349859181" stop="1525349859295" status="passed">
+      <name>UsersController GET #show assigns the requested user to @user</name>
+      <title>UsersController GET #show assigns the requested user to @user</title>
+      <steps/>
+      <attachments/>
+      <labels>
+        <label name="thread" value="47221494962580"/>
+        <label name="host" value="120013e358d9"/>
+      </labels>
+      <parameters/>
+    </test-case>
+  </test-cases>
+  <labels>
+    <label name="thread" value="47221494962580"/>
+    <label name="host" value="120013e358d9"/>
+  </labels>
+</ns2:test-suite>

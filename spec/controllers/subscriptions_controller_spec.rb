@@ -2,14 +2,14 @@
 
 require "rails_helper"
 
-RSpec.describe SubscriptionsController, type: :controller do
+RSpec.describe SubscriptionsController, type: :controller, integration: true do
   let(:user) { create :user }
   let(:question) { create :question }
 
   describe "POST #create" do
     sign_in_user
 
-    context "with valid attribute" do
+    context "with valid attribute", positive: true do
       subject { post :create, question_id: question.id, format: :js }
 
       it "creates new answer" do
@@ -26,7 +26,7 @@ RSpec.describe SubscriptionsController, type: :controller do
   describe "DELETE #destroy" do
     sign_in_user
 
-    context "subscriber deletes own subscription" do
+    context "subscriber deletes own subscription", positive: true do
       subject { delete :destroy, question_id: question.id, format: :js }
       before { post :create, question_id: question.id, format: :js }
 

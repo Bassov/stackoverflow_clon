@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<ns2:test-suite xmlns="" xmlns:ns2="urn:model.allure.qatools.yandex.ru" start="1525350035706" stop="1525350036137">
+  <name>Answer after_create#send_notification</name>
+  <title>Answer after_create#send_notification</title>
+  <test-cases>
+    <test-case start="1525350035707" stop="1525350035963" status="passed">
+      <name>Answer after_create#send_notification peforms job</name>
+      <title>Answer after_create#send_notification peforms job</title>
+      <steps/>
+      <attachments/>
+      <labels>
+        <label name="thread" value="47221494962580"/>
+        <label name="host" value="120013e358d9"/>
+      </labels>
+      <parameters/>
+    </test-case>
+    <test-case start="1525350035965" stop="1525350036135" status="passed">
+      <name>Answer after_create#send_notification sends method to answer after create</name>
+      <title>Answer after_create#send_notification sends method to answer after create</title>
+      <steps/>
+      <attachments/>
+      <labels>
+        <label name="thread" value="47221494962580"/>
+        <label name="host" value="120013e358d9"/>
+      </labels>
+      <parameters/>
+    </test-case>
+  </test-cases>
+  <labels>
+    <label name="thread" value="47221494962580"/>
+    <label name="host" value="120013e358d9"/>
+  </labels>
+</ns2:test-suite>

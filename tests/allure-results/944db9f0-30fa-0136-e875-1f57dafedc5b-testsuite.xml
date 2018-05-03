@@ -1,0 +1,55 @@
+<?xml version="1.0"?>
+<ns2:test-suite xmlns="" xmlns:ns2="urn:model.allure.qatools.yandex.ru" start="1525350003532" stop="1525350009715">
+  <name>User sign in with vk 
+  In order to simplify authentication
+  As a guest
+  I want to be able to sign in with vk</name>
+  <title>User sign in with vk 
+  In order to simplify authentication
+  As a guest
+  I want to be able to sign in with vk</title>
+  <test-cases>
+    <test-case start="1525350003532" stop="1525350006641" status="passed">
+      <name>User sign in with vk 
+  In order to simplify authentication
+  As a guest
+  I want to be able to sign in with vk
+ user signs in with valid account</name>
+      <title>User sign in with vk 
+  In order to simplify authentication
+  As a guest
+  I want to be able to sign in with vk
+ user signs in with valid account</title>
+      <steps/>
+      <attachments/>
+      <labels>
+        <label name="thread" value="47221494962580"/>
+        <label name="host" value="120013e358d9"/>
+      </labels>
+      <parameters/>
+    </test-case>
+    <test-case start="1525350006643" stop="1525350009713" status="passed">
+      <name>User sign in with vk 
+  In order to simplify authentication
+  As a guest
+  I want to be able to sign in with vk
+ user signs in with invalid account</name>
+      <title>User sign in with vk 
+  In order to simplify authentication
+  As a guest
+  I want to be able to sign in with vk
+ user signs in with invalid account</title>
+      <steps/>
+      <attachments/>
+      <labels>
+        <label name="thread" value="47221494962580"/>
+        <label name="host" value="120013e358d9"/>
+      </labels>
+      <parameters/>
+    </test-case>
+  </test-cases>
+  <labels>
+    <label name="thread" value="47221494962580"/>
+    <label name="host" value="120013e358d9"/>
+  </labels>
+</ns2:test-suite>

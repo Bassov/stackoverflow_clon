@@ -1,0 +1,55 @@
+<?xml version="1.0"?>
+<ns2:test-suite xmlns="" xmlns:ns2="urn:model.allure.qatools.yandex.ru" start="1525349921326" stop="1525349929924">
+  <name>registration 
+  In oreder to become user
+  As a guest
+  I want to be able to sign up</name>
+  <title>registration 
+  In oreder to become user
+  As a guest
+  I want to be able to sign up</title>
+  <test-cases>
+    <test-case start="1525349921326" stop="1525349925477" status="passed">
+      <name>registration 
+  In oreder to become user
+  As a guest
+  I want to be able to sign up
+ guest signs up with correct data</name>
+      <title>registration 
+  In oreder to become user
+  As a guest
+  I want to be able to sign up
+ guest signs up with correct data</title>
+      <steps/>
+      <attachments/>
+      <labels>
+        <label name="thread" value="47221494962580"/>
+        <label name="host" value="120013e358d9"/>
+      </labels>
+      <parameters/>
+    </test-case>
+    <test-case start="1525349925479" stop="1525349929922" status="passed">
+      <name>registration 
+  In oreder to become user
+  As a guest
+  I want to be able to sign up
+ guest tries to sign up with wrong data</name>
+      <title>registration 
+  In oreder to become user
+  As a guest
+  I want to be able to sign up
+ guest tries to sign up with wrong data</title>
+      <steps/>
+      <attachments/>
+      <labels>
+        <label name="thread" value="47221494962580"/>
+        <label name="host" value="120013e358d9"/>
+      </labels>
+      <parameters/>
+    </test-case>
+  </test-cases>
+  <labels>
+    <label name="thread" value="47221494962580"/>
+    <label name="host" value="120013e358d9"/>
+  </labels>
+</ns2:test-suite>

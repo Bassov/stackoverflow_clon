@@ -7,7 +7,7 @@ feature "Vote answer", '
   In order to mark answers
   As an authenticated user
   I want to be able to create for answers
-' do
+', integration: true, ui: true do
   given(:user) { create(:user) }
   given!(:question) { create(:question) }
   given!(:user_answer) { create(:answer, user: user, question: question) }
@@ -17,7 +17,7 @@ feature "Vote answer", '
     given(:selector) { "#answer_#{answer.id}" }
   end
 
-  scenario "Author of votable cant vote for it" do
+  scenario "Author of votable cant vote for it", negative: true do
     sign_in user
     visit question_path(question)
 

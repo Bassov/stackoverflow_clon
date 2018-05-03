@@ -7,12 +7,12 @@ feature "Delete answer", '
   In order to delete answer
   As an author of answer
   I want to be able to delete answer
-' do
+', integration: true, ui: true do
   given(:user) { create(:user) }
   given!(:question) { create(:question) }
   given!(:answer) { create(:answer, question: question, user: user) }
 
-  scenario "Author of answer deletes answer", js: true do
+  scenario "Author of answer deletes answer", js: true, positive: true do
     sign_in(user)
 
     visit question_path(question)

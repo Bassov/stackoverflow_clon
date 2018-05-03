@@ -1,0 +1,55 @@
+<?xml version="1.0"?>
+<ns2:test-suite xmlns="" xmlns:ns2="urn:model.allure.qatools.yandex.ru" start="1525349811735" stop="1525349817816">
+  <name>User sign in 
+  In order to ask questions
+  As a user
+  I want to be able to sign in</name>
+  <title>User sign in 
+  In order to ask questions
+  As a user
+  I want to be able to sign in</title>
+  <test-cases>
+    <test-case start="1525349811735" stop="1525349814765" status="passed">
+      <name>User sign in 
+  In order to ask questions
+  As a user
+  I want to be able to sign in
+ Non-registred user try to sign in</name>
+      <title>User sign in 
+  In order to ask questions
+  As a user
+  I want to be able to sign in
+ Non-registred user try to sign in</title>
+      <steps/>
+      <attachments/>
+      <labels>
+        <label name="thread" value="47221494962580"/>
+        <label name="host" value="120013e358d9"/>
+      </labels>
+      <parameters/>
+    </test-case>
+    <test-case start="1525349814767" stop="1525349817814" status="passed">
+      <name>User sign in 
+  In order to ask questions
+  As a user
+  I want to be able to sign in
+ Registered user try to sign in</name>
+      <title>User sign in 
+  In order to ask questions
+  As a user
+  I want to be able to sign in
+ Registered user try to sign in</title>
+      <steps/>
+      <attachments/>
+      <labels>
+        <label name="thread" value="47221494962580"/>
+        <label name="host" value="120013e358d9"/>
+      </labels>
+      <parameters/>
+    </test-case>
+  </test-cases>
+  <labels>
+    <label name="thread" value="47221494962580"/>
+    <label name="host" value="120013e358d9"/>
+  </labels>
+</ns2:test-suite>

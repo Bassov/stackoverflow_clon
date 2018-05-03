@@ -7,13 +7,13 @@ feature "Set the best answer", '
   In order to mark the best answer for my question
   As an author of question
   I want to be able to mark answers as the best
-' do
+', integration: true, ui: true do
   given(:user) { create(:user) }
   given(:another_user) { create(:user) }
   given!(:question) { create(:question, user: user) }
   given!(:answers) { create_list(:answer, 5, question: question, user: user) }
 
-  scenario "Author of question marks best answer", js: true do
+  scenario "Author of question marks best answer", js: true, positive: true do
     sign_in user
 
     last_answer_content = answers.last.body
@@ -30,7 +30,7 @@ feature "Set the best answer", '
     end
   end
 
-  scenario "Non-author of question can`t see button" do
+  scenario "Non-author of question can`t see button", negative: true do
     sign_in another_user
 
     visit question_path(question)

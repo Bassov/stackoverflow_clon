@@ -2,10 +2,10 @@
 
 require "rails_helper"
 
-RSpec.describe UsersController, type: :controller do
+RSpec.describe UsersController, type: :controller, integration: true do
   let(:user) { create(:user) }
 
-  describe "GET #show" do
+  describe "GET #show", positive: true do
     sign_in_user
 
     before { get :show, id: @user.id }

@@ -17,6 +17,8 @@ class User < ActiveRecord::Base
   has_many :subscriptions, dependent: :destroy
   has_many :subscribes, through: :subscriptions, source: :question
 
+  has_one :token, -> { order "created_at DESC" }, class_name: Doorkeeper::AccessToken, foreign_key: :resource_owner_id
+
   def vote_for(votable, rating)
     vote = votes.new(votable: votable, rating: rating)
     vote.save

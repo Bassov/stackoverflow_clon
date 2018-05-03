@@ -3,7 +3,7 @@
 
 require "rails_helper"
 
-RSpec.describe Comment, type: :model do
+RSpec.describe Comment, type: :model, unit: true, positive: true do
   it { should belong_to :commentable }
   it { should belong_to :user }
 

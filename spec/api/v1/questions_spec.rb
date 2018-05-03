@@ -2,13 +2,13 @@
 
 require "rails_helper"
 
-describe "Questions API" do
+describe "Questions API", integration: true do
   let(:access_token) { create :access_token }
 
   describe "GET /index" do
     it_behaves_like "API Authenticable"
 
-    context "authorized" do
+    context "authorized", positive: true do
       let!(:questions) { create_list(:question, 2) }
       let(:question)  { questions.first }
       let!(:answer) { create :answer, question: question }
@@ -50,7 +50,7 @@ describe "Questions API" do
 
     it_behaves_like "API Authenticable"
 
-    context "authorized" do
+    context "authorized", positive: true do
       let!(:answer) { create(:answer, question: question) }
       let!(:comment) { create(:comment, commentable: question) }
       let!(:attachment) { create(:attachment, attachable: question) }
@@ -96,7 +96,7 @@ describe "Questions API" do
     it_behaves_like "API Authenticable"
 
     context "authorized" do
-      context "invalid attributes" do
+      context "invalid attributes", negative: true do
         let(:request) { post "/api/v1/questions", question: attributes_for(:invalid_question),
                              format: :json, access_token: access_token.token }
 
@@ -110,7 +110,7 @@ describe "Questions API" do
         end
       end
 
-      context "valid attributes" do
+      context "valid attributes", positive: true do
         let(:request) { post "/api/v1/questions", question: attributes_for(:question),
                              format: :json, access_token: access_token.token }
 

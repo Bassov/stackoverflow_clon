@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<ns2:test-suite xmlns="" xmlns:ns2="urn:model.allure.qatools.yandex.ru" start="1525350143065" stop="1525350152605">
+  <name>Edit question 
+  In order to edit my question
+  As an author of question
+  I want to be able to edit my question</name>
+  <title>Edit question 
+  In order to edit my question
+  As an author of question
+  I want to be able to edit my question</title>
+  <test-cases>
+    <test-case start="1525350143065" stop="1525350152602" status="passed">
+      <name>Edit question 
+  In order to edit my question
+  As an author of question
+  I want to be able to edit my question
+ Author of question edits it</name>
+      <title>Edit question 
+  In order to edit my question
+  As an author of question
+  I want to be able to edit my question
+ Author of question edits it</title>
+      <steps/>
+      <attachments/>
+      <labels>
+        <label name="thread" value="47221494962580"/>
+        <label name="host" value="120013e358d9"/>
+      </labels>
+      <parameters/>
+    </test-case>
+  </test-cases>
+  <labels>
+    <label name="thread" value="47221494962580"/>
+    <label name="host" value="120013e358d9"/>
+  </labels>
+</ns2:test-suite>

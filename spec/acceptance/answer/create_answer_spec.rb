@@ -7,11 +7,11 @@ feature "Answer questions", '
   In order to help users
   As an authenticated user
   I want to be able to answer questions
-' do
+', integration: true, ui: true do
   given(:user) { create(:user) }
   given!(:question) { create(:question, user: user) }
 
-  scenario "Authenticated user answers question", js: true do
+  scenario "Authenticated user answers question", js: true, positive: true do
     sign_in(user)
 
     visit question_path(question)
@@ -24,7 +24,7 @@ feature "Answer questions", '
     end
   end
 
-  scenario "Authenticated user tries to answer question with invalid attributes", js: true do
+  scenario "Authenticated user tries to answer question with invalid attributes", js: true, negative: true do
     sign_in(user)
 
     visit question_path(question)
@@ -34,7 +34,7 @@ feature "Answer questions", '
     expect(page).to have_content "Ответ не может быть пустым"
   end
 
-  scenario "Non-authenticated cant see form" do
+  scenario "Non-authenticated cant see form", negative: true do
     visit question_path(question)
 
     expect(page).to_not have_selector "form"

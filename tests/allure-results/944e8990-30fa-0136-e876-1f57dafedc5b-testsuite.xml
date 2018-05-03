@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<ns2:test-suite xmlns="" xmlns:ns2="urn:model.allure.qatools.yandex.ru" start="1525350009720" stop="1525350009912">
+  <name>Question after_create#subscribe_author</name>
+  <title>Question after_create#subscribe_author</title>
+  <test-cases>
+    <test-case start="1525350009721" stop="1525350009820" status="passed">
+      <name>Question after_create#subscribe_author subscribes author of question to question</name>
+      <title>Question after_create#subscribe_author subscribes author of question to question</title>
+      <steps/>
+      <attachments/>
+      <labels>
+        <label name="thread" value="47221494962580"/>
+        <label name="host" value="120013e358d9"/>
+      </labels>
+      <parameters/>
+    </test-case>
+    <test-case start="1525350009822" stop="1525350009911" status="passed">
+      <name>Question after_create#subscribe_author sends method to question after create</name>
+      <title>Question after_create#subscribe_author sends method to question after create</title>
+      <steps/>
+      <attachments/>
+      <labels>
+        <label name="thread" value="47221494962580"/>
+        <label name="host" value="120013e358d9"/>
+      </labels>
+      <parameters/>
+    </test-case>
+  </test-cases>
+  <labels>
+    <label name="thread" value="47221494962580"/>
+    <label name="host" value="120013e358d9"/>
+  </labels>
+</ns2:test-suite>

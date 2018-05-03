@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<ns2:test-suite xmlns="" xmlns:ns2="urn:model.allure.qatools.yandex.ru" start="1525349823084" stop="1525349826589">
+  <name>CommentsController POST #create with invalid attributes</name>
+  <title>CommentsController POST #create with invalid attributes</title>
+  <test-cases>
+    <test-case start="1525349823084" stop="1525349824718" status="passed">
+      <name>CommentsController POST #create with invalid attributes do not creates new comment</name>
+      <title>CommentsController POST #create with invalid attributes do not creates new comment</title>
+      <steps/>
+      <attachments/>
+      <labels>
+        <label name="thread" value="47221494962580"/>
+        <label name="host" value="120013e358d9"/>
+      </labels>
+      <parameters/>
+    </test-case>
+    <test-case start="1525349824720" stop="1525349826587" status="passed">
+      <name>CommentsController POST #create with invalid attributes renders create template</name>
+      <title>CommentsController POST #create with invalid attributes renders create template</title>
+      <steps/>
+      <attachments/>
+      <labels>
+        <label name="thread" value="47221494962580"/>
+        <label name="host" value="120013e358d9"/>
+      </labels>
+      <parameters/>
+    </test-case>
+  </test-cases>
+  <labels>
+    <label name="thread" value="47221494962580"/>
+    <label name="host" value="120013e358d9"/>
+  </labels>
+</ns2:test-suite>

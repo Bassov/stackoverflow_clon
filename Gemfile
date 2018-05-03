@@ -70,9 +70,6 @@ gem "foreman"
 
 gem "allure-rspec"
 
-gem "rubycritic", require: false
-gem "fukuzatsu"
-
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem "byebug"
@@ -85,11 +82,12 @@ group :development, :test do
   gem "database_cleaner"
   gem "capybara-webkit"
   gem "pry"
-  gem "letter_opener"
+  gem "letter_opener_web", "~> 1.0"
+  gem "grape-swagger-rails"
 end
 
 group :test do
-  gem "shoulda"
+  gem "shoulda-matchers", require: false
   gem "json_spec"
   gem "simplecov", require: false
 end

@@ -1,0 +1,66 @@
+<?xml version="1.0"?>
+<ns2:test-suite xmlns="" xmlns:ns2="urn:model.allure.qatools.yandex.ru" start="1525349918873" stop="1525349919758">
+  <name>User.find_for_oauth user has not authorization user does not exist provider gives email</name>
+  <title>User.find_for_oauth user has not authorization user does not exist provider gives email</title>
+  <test-cases>
+    <test-case start="1525349918873" stop="1525349919049" status="passed">
+      <name>User.find_for_oauth user has not authorization user does not exist provider gives email creates authorization with provider and uid</name>
+      <title>User.find_for_oauth user has not authorization user does not exist provider gives email creates authorization with provider and uid</title>
+      <steps/>
+      <attachments/>
+      <labels>
+        <label name="thread" value="47221494962580"/>
+        <label name="host" value="120013e358d9"/>
+      </labels>
+      <parameters/>
+    </test-case>
+    <test-case start="1525349919051" stop="1525349919229" status="passed">
+      <name>User.find_for_oauth user has not authorization user does not exist provider gives email creates new user</name>
+      <title>User.find_for_oauth user has not authorization user does not exist provider gives email creates new user</title>
+      <steps/>
+      <attachments/>
+      <labels>
+        <label name="thread" value="47221494962580"/>
+        <label name="host" value="120013e358d9"/>
+      </labels>
+      <parameters/>
+    </test-case>
+    <test-case start="1525349919232" stop="1525349919403" status="passed">
+      <name>User.find_for_oauth user has not authorization user does not exist provider gives email fills user email</name>
+      <title>User.find_for_oauth user has not authorization user does not exist provider gives email fills user email</title>
+      <steps/>
+      <attachments/>
+      <labels>
+        <label name="thread" value="47221494962580"/>
+        <label name="host" value="120013e358d9"/>
+      </labels>
+      <parameters/>
+    </test-case>
+    <test-case start="1525349919405" stop="1525349919584" status="passed">
+      <name>User.find_for_oauth user has not authorization user does not exist provider gives email returns new user</name>
+      <title>User.find_for_oauth user has not authorization user does not exist provider gives email returns new user</title>
+      <steps/>
+      <attachments/>
+      <labels>
+        <label name="thread" value="47221494962580"/>
+        <label name="host" value="120013e358d9"/>
+      </labels>
+      <parameters/>
+    </test-case>
+    <test-case start="1525349919586" stop="1525349919756" status="passed">
+      <name>User.find_for_oauth user has not authorization user does not exist provider gives email creates authorization for user</name>
+      <title>User.find_for_oauth user has not authorization user does not exist provider gives email creates authorization for user</title>
+      <steps/>
+      <attachments/>
+      <labels>
+        <label name="thread" value="47221494962580"/>
+        <label name="host" value="120013e358d9"/>
+      </labels>
+      <parameters/>
+    </test-case>
+  </test-cases>
+  <labels>
+    <label name="thread" value="47221494962580"/>
+    <label name="host" value="120013e358d9"/>
+  </labels>
+</ns2:test-suite>

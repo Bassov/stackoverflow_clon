@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<ns2:test-suite xmlns="" xmlns:ns2="urn:model.allure.qatools.yandex.ru" start="1525349827314" stop="1525349828210">
+  <name>AttachmentsController DELETE #destroy Non-author of message tries to delete it</name>
+  <title>AttachmentsController DELETE #destroy Non-author of message tries to delete it</title>
+  <test-cases>
+    <test-case start="1525349827314" stop="1525349827601" status="passed">
+      <name>AttachmentsController DELETE #destroy Non-author of message tries to delete it Returns 403 (forbidden) status</name>
+      <title>AttachmentsController DELETE #destroy Non-author of message tries to delete it Returns 403 (forbidden) status</title>
+      <steps/>
+      <attachments/>
+      <labels>
+        <label name="thread" value="47221494962580"/>
+        <label name="host" value="120013e358d9"/>
+      </labels>
+      <parameters/>
+    </test-case>
+    <test-case start="1525349827603" stop="1525349827902" status="passed">
+      <name>AttachmentsController DELETE #destroy Non-author of message tries to delete it Don`t destroys attachment</name>
+      <title>AttachmentsController DELETE #destroy Non-author of message tries to delete it Don`t destroys attachment</title>
+      <steps/>
+      <attachments/>
+      <labels>
+        <label name="thread" value="47221494962580"/>
+        <label name="host" value="120013e358d9"/>
+      </labels>
+      <parameters/>
+    </test-case>
+    <test-case start="1525349827905" stop="1525349828208" status="passed">
+      <name>AttachmentsController DELETE #destroy Non-author of message tries to delete it Assigns attachment to @attachment</name>
+      <title>AttachmentsController DELETE #destroy Non-author of message tries to delete it Assigns attachment to @attachment</title>
+      <steps/>
+      <attachments/>
+      <labels>
+        <label name="thread" value="47221494962580"/>
+        <label name="host" value="120013e358d9"/>
+      </labels>
+      <parameters/>
+    </test-case>
+  </test-cases>
+  <labels>
+    <label name="thread" value="47221494962580"/>
+    <label name="host" value="120013e358d9"/>
+  </labels>
+</ns2:test-suite>

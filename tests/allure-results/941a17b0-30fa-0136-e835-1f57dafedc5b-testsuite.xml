@@ -1,0 +1,57 @@
+<?xml version="1.0"?>
+<ns2:test-suite xmlns="" xmlns:ns2="urn:model.allure.qatools.yandex.ru" start="1525349733144" stop="1525349743038">
+  <name>Add comments 
+  In order to discus question
+  As an authenticated user
+  I want to be able to add comments
+ behaves like Acceptance commentable</name>
+  <title>Add comments 
+  In order to discus question
+  As an authenticated user
+  I want to be able to add comments
+ behaves like Acceptance commentable</title>
+  <test-cases>
+    <test-case start="1525349733145" stop="1525349739922" status="passed">
+      <name>Add comments 
+  In order to discus question
+  As an authenticated user
+  I want to be able to add comments
+ behaves like Acceptance commentable Authenticated user adds comment to commentable</name>
+      <title>Add comments 
+  In order to discus question
+  As an authenticated user
+  I want to be able to add comments
+ behaves like Acceptance commentable Authenticated user adds comment to commentable</title>
+      <steps/>
+      <attachments/>
+      <labels>
+        <label name="thread" value="47221494962580"/>
+        <label name="host" value="120013e358d9"/>
+      </labels>
+      <parameters/>
+    </test-case>
+    <test-case start="1525349739924" stop="1525349743037" status="passed">
+      <name>Add comments 
+  In order to discus question
+  As an authenticated user
+  I want to be able to add comments
+ behaves like Acceptance commentable Non authenticated user cannot see comment button</name>
+      <title>Add comments 
+  In order to discus question
+  As an authenticated user
+  I want to be able to add comments
+ behaves like Acceptance commentable Non authenticated user cannot see comment button</title>
+      <steps/>
+      <attachments/>
+      <labels>
+        <label name="thread" value="47221494962580"/>
+        <label name="host" value="120013e358d9"/>
+      </labels>
+      <parameters/>
+    </test-case>
+  </test-cases>
+  <labels>
+    <label name="thread" value="47221494962580"/>
+    <label name="host" value="120013e358d9"/>
+  </labels>
+</ns2:test-suite>

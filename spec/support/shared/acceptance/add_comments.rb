@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 shared_examples_for "Acceptance commentable" do
-  scenario "Authenticated user adds comment to commentable", js: true do
+  scenario "Authenticated user adds comment to commentable", js: true, positive: true do
     sign_in user
 
     visit question_path(question)
@@ -15,7 +15,7 @@ shared_examples_for "Acceptance commentable" do
     end
   end
 
-  scenario "Non authenticated user cannot see comment button" do
+  scenario "Non authenticated user cannot see comment button", negative: true do
     visit question_path(question)
     within selector do
       expect(page).to_not have_link "Комментировать"

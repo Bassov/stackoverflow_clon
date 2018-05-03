@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<ns2:test-suite xmlns="" xmlns:ns2="urn:model.allure.qatools.yandex.ru" start="1525349917313" stop="1525349917733">
+  <name>Answers API GET /index behaves like API Authenticable unauthorized</name>
+  <title>Answers API GET /index behaves like API Authenticable unauthorized</title>
+  <test-cases>
+    <test-case start="1525349917314" stop="1525349917525" status="passed">
+      <name>Answers API GET /index behaves like API Authenticable unauthorized should returns 401 status if access_token is invalid</name>
+      <title>Answers API GET /index behaves like API Authenticable unauthorized should returns 401 status if access_token is invalid</title>
+      <steps/>
+      <attachments/>
+      <labels>
+        <label name="thread" value="47221494962580"/>
+        <label name="host" value="120013e358d9"/>
+      </labels>
+      <parameters/>
+    </test-case>
+    <test-case start="1525349917526" stop="1525349917731" status="passed">
+      <name>Answers API GET /index behaves like API Authenticable unauthorized should returns 401 status if there is no access_token</name>
+      <title>Answers API GET /index behaves like API Authenticable unauthorized should returns 401 status if there is no access_token</title>
+      <steps/>
+      <attachments/>
+      <labels>
+        <label name="thread" value="47221494962580"/>
+        <label name="host" value="120013e358d9"/>
+      </labels>
+      <parameters/>
+    </test-case>
+  </test-cases>
+  <labels>
+    <label name="thread" value="47221494962580"/>
+    <label name="host" value="120013e358d9"/>
+  </labels>
+</ns2:test-suite>

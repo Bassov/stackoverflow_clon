@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<ns2:test-suite xmlns="" xmlns:ns2="urn:model.allure.qatools.yandex.ru" start="1525350135108" stop="1525350135430">
+  <name>QuestionsController PATCH #update author of question updates question invalid attributes</name>
+  <title>QuestionsController PATCH #update author of question updates question invalid attributes</title>
+  <test-cases>
+    <test-case start="1525350135109" stop="1525350135270" status="passed">
+      <name>QuestionsController PATCH #update author of question updates question invalid attributes re-renders edit template</name>
+      <title>QuestionsController PATCH #update author of question updates question invalid attributes re-renders edit template</title>
+      <steps/>
+      <attachments/>
+      <labels>
+        <label name="thread" value="47221494962580"/>
+        <label name="host" value="120013e358d9"/>
+      </labels>
+      <parameters/>
+    </test-case>
+    <test-case start="1525350135272" stop="1525350135429" status="passed">
+      <name>QuestionsController PATCH #update author of question updates question invalid attributes does not change question attributes</name>
+      <title>QuestionsController PATCH #update author of question updates question invalid attributes does not change question attributes</title>
+      <steps/>
+      <attachments/>
+      <labels>
+        <label name="thread" value="47221494962580"/>
+        <label name="host" value="120013e358d9"/>
+      </labels>
+      <parameters/>
+    </test-case>
+  </test-cases>
+  <labels>
+    <label name="thread" value="47221494962580"/>
+    <label name="host" value="120013e358d9"/>
+  </labels>
+</ns2:test-suite>

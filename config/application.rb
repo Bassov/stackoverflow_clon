@@ -3,6 +3,7 @@
 require File.expand_path("../boot", __FILE__)
 
 require "rails/all"
+require "sprockets/railtie"
 
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
@@ -36,5 +37,7 @@ module StackoverflowClon
           controller_spec: true
       g.fixture_replacement :factory_girl, dir: "spec/factories"
     end
+
+    config.web_console.whitelisted_ips = "172.19.0.1"
   end
 end

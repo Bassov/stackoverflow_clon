@@ -7,11 +7,11 @@ feature "Edit question", '
   In order to edit my question
   As an author of question
   I want to be able to edit my question
-' do
+', integration: true, ui: true do
   given(:user) { create(:user) }
   given!(:question) { create(:question, user: user) }
 
-  scenario "Author of question edits it" do
+  scenario "Author of question edits it", positive: true do
     sign_in(user)
 
     visit questions_path

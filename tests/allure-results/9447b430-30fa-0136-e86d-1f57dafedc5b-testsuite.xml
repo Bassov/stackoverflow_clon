@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<ns2:test-suite xmlns="" xmlns:ns2="urn:model.allure.qatools.yandex.ru" start="1525349921169" stop="1525349921324">
+  <name>User.find_for_oauth provider gives invalid hash no provider</name>
+  <title>User.find_for_oauth provider gives invalid hash no provider</title>
+  <test-cases>
+    <test-case start="1525349921169" stop="1525349921246" status="passed">
+      <name>User.find_for_oauth provider gives invalid hash no provider does not creates user</name>
+      <title>User.find_for_oauth provider gives invalid hash no provider does not creates user</title>
+      <steps/>
+      <attachments/>
+      <labels>
+        <label name="thread" value="47221494962580"/>
+        <label name="host" value="120013e358d9"/>
+      </labels>
+      <parameters/>
+    </test-case>
+    <test-case start="1525349921248" stop="1525349921322" status="passed">
+      <name>User.find_for_oauth provider gives invalid hash no provider returns nil</name>
+      <title>User.find_for_oauth provider gives invalid hash no provider returns nil</title>
+      <steps/>
+      <attachments/>
+      <labels>
+        <label name="thread" value="47221494962580"/>
+        <label name="host" value="120013e358d9"/>
+      </labels>
+      <parameters/>
+    </test-case>
+  </test-cases>
+  <labels>
+    <label name="thread" value="47221494962580"/>
+    <label name="host" value="120013e358d9"/>
+  </labels>
+</ns2:test-suite>

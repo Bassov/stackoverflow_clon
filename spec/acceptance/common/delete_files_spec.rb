@@ -7,7 +7,7 @@ feature "Delete files", '
   In order to remove unnecessary files
   As an author of message
   I want to be able to delete files
-' do
+', integration: true, ui: true do
   given(:user) { create(:user) }
   given(:another_user) { create(:user) }
   given!(:question) { create(:question, user: user) }
@@ -15,7 +15,7 @@ feature "Delete files", '
   given!(:question_attachment) { create(:attachment, attachable: question) }
   given!(:answer_attachment) { create(:attachment, attachable: answer) }
 
-  scenario "Non-author of message can`t see delete button" do
+  scenario "Non-author of message can`t see delete button", negative: true do
     sign_in another_user
     visit question_path(question)
 
@@ -28,7 +28,7 @@ feature "Delete files", '
     end
   end
 
-  scenario "Author of message can delete its files", js: true do
+  scenario "Author of message can delete its files", js: true, positive: true do
     sign_in user
     visit question_path(question)
 

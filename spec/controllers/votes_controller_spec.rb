@@ -3,7 +3,7 @@
 
 require "rails_helper"
 
-RSpec.describe VotesController, type: :controller do
+RSpec.describe VotesController, type: :controller, integration: true do
   let(:user) { create(:user) }
   let(:votable) { create(:question) }
 
@@ -11,7 +11,7 @@ RSpec.describe VotesController, type: :controller do
     sign_in_user
     let(:vote) { patch :create_vote, votable_type: votable.class, votable_id: votable.id, rating: 1, format: :json }
 
-    context "non-author of votable votes" do
+    context "non-author of votable votes", positive: true do
       it "assigns requested votable to @votable" do
         vote
 
@@ -36,7 +36,7 @@ RSpec.describe VotesController, type: :controller do
       end
     end
 
-    context "author of votable tries to create_vote" do
+    context "author of votable tries to create_vote", negative: true do
       let(:votable) { create(:question, user: @user) }
 
       it "assigns requested votable to @votable" do
@@ -50,7 +50,7 @@ RSpec.describe VotesController, type: :controller do
       end
     end
 
-    context "non-author votes second time" do
+    context "non-author votes second time", negative: true do
       it "assigns requested votable to @votable" do
         vote
 

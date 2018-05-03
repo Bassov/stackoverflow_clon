@@ -1,0 +1,55 @@
+<?xml version="1.0"?>
+<ns2:test-suite xmlns="" xmlns:ns2="urn:model.allure.qatools.yandex.ru" start="1525349920618" stop="1525349920992">
+  <name>User.find_for_oauth user has not authorization user already exists</name>
+  <title>User.find_for_oauth user has not authorization user already exists</title>
+  <test-cases>
+    <test-case start="1525349920618" stop="1525349920713" status="passed">
+      <name>User.find_for_oauth user has not authorization user already exists creates authorization for user</name>
+      <title>User.find_for_oauth user has not authorization user already exists creates authorization for user</title>
+      <steps/>
+      <attachments/>
+      <labels>
+        <label name="thread" value="47221494962580"/>
+        <label name="host" value="120013e358d9"/>
+      </labels>
+      <parameters/>
+    </test-case>
+    <test-case start="1525349920715" stop="1525349920808" status="passed">
+      <name>User.find_for_oauth user has not authorization user already exists does not create new user</name>
+      <title>User.find_for_oauth user has not authorization user already exists does not create new user</title>
+      <steps/>
+      <attachments/>
+      <labels>
+        <label name="thread" value="47221494962580"/>
+        <label name="host" value="120013e358d9"/>
+      </labels>
+      <parameters/>
+    </test-case>
+    <test-case start="1525349920810" stop="1525349920900" status="passed">
+      <name>User.find_for_oauth user has not authorization user already exists creates authorization with provider and uid</name>
+      <title>User.find_for_oauth user has not authorization user already exists creates authorization with provider and uid</title>
+      <steps/>
+      <attachments/>
+      <labels>
+        <label name="thread" value="47221494962580"/>
+        <label name="host" value="120013e358d9"/>
+      </labels>
+      <parameters/>
+    </test-case>
+    <test-case start="1525349920902" stop="1525349920990" status="passed">
+      <name>User.find_for_oauth user has not authorization user already exists returns the user</name>
+      <title>User.find_for_oauth user has not authorization user already exists returns the user</title>
+      <steps/>
+      <attachments/>
+      <labels>
+        <label name="thread" value="47221494962580"/>
+        <label name="host" value="120013e358d9"/>
+      </labels>
+      <parameters/>
+    </test-case>
+  </test-cases>
+  <labels>
+    <label name="thread" value="47221494962580"/>
+    <label name="host" value="120013e358d9"/>
+  </labels>
+</ns2:test-suite>

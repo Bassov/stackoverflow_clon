@@ -7,12 +7,12 @@ feature "Edit answer", '
   In order to fix mistakes
   As an author of answer
   I want to be able to edit my answer
-' do
+', integration: true, ui: true do
   given(:user) { create(:user) }
   given!(:question) { create(:question) }
   given!(:answer) { create(:answer, question: question, user: user) }
 
-  scenario "Author of answer edits his answer", js: true do
+  scenario "Author of answer edits his answer", js: true, positive: true do
     sign_in(user)
 
     visit question_path(question)
@@ -28,7 +28,7 @@ feature "Edit answer", '
     end
   end
 
-  scenario "Non-authenticated user tries to edit answer" do
+  scenario "Non-authenticated user tries to edit answer", negative: true do
     visit question_path(question)
 
     expect(page).to_not have_content "Изменить"

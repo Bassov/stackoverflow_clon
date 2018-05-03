@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<ns2:test-suite xmlns="" xmlns:ns2="urn:model.allure.qatools.yandex.ru" start="1525349781694" stop="1525349786223">
+  <name>AnswersController POST #create with valid attribute</name>
+  <title>AnswersController POST #create with valid attribute</title>
+  <test-cases>
+    <test-case start="1525349781694" stop="1525349783127" status="passed">
+      <name>AnswersController POST #create with valid attribute creates new answer</name>
+      <title>AnswersController POST #create with valid attribute creates new answer</title>
+      <steps/>
+      <attachments/>
+      <labels>
+        <label name="thread" value="47221494962580"/>
+        <label name="host" value="120013e358d9"/>
+      </labels>
+      <parameters/>
+    </test-case>
+    <test-case start="1525349783129" stop="1525349784717" status="passed">
+      <name>AnswersController POST #create with valid attribute renders create template</name>
+      <title>AnswersController POST #create with valid attribute renders create template</title>
+      <steps/>
+      <attachments/>
+      <labels>
+        <label name="thread" value="47221494962580"/>
+        <label name="host" value="120013e358d9"/>
+      </labels>
+      <parameters/>
+    </test-case>
+  </test-cases>
+  <labels>
+    <label name="thread" value="47221494962580"/>
+    <label name="host" value="120013e358d9"/>
+  </labels>
+</ns2:test-suite>

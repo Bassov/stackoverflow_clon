@@ -1,0 +1,55 @@
+<?xml version="1.0"?>
+<ns2:test-suite xmlns="" xmlns:ns2="urn:model.allure.qatools.yandex.ru" start="1525350010726" stop="1525350020747">
+  <name>Edit answer 
+  In order to fix mistakes
+  As an author of answer
+  I want to be able to edit my answer</name>
+  <title>Edit answer 
+  In order to fix mistakes
+  As an author of answer
+  I want to be able to edit my answer</title>
+  <test-cases>
+    <test-case start="1525350010726" stop="1525350017261" status="passed">
+      <name>Edit answer 
+  In order to fix mistakes
+  As an author of answer
+  I want to be able to edit my answer
+ Author of answer edits his answer</name>
+      <title>Edit answer 
+  In order to fix mistakes
+  As an author of answer
+  I want to be able to edit my answer
+ Author of answer edits his answer</title>
+      <steps/>
+      <attachments/>
+      <labels>
+        <label name="thread" value="47221494962580"/>
+        <label name="host" value="120013e358d9"/>
+      </labels>
+      <parameters/>
+    </test-case>
+    <test-case start="1525350017262" stop="1525350020745" status="passed">
+      <name>Edit answer 
+  In order to fix mistakes
+  As an author of answer
+  I want to be able to edit my answer
+ Non-authenticated user tries to edit answer</name>
+      <title>Edit answer 
+  In order to fix mistakes
+  As an author of answer
+  I want to be able to edit my answer
+ Non-authenticated user tries to edit answer</title>
+      <steps/>
+      <attachments/>
+      <labels>
+        <label name="thread" value="47221494962580"/>
+        <label name="host" value="120013e358d9"/>
+      </labels>
+      <parameters/>
+    </test-case>
+  </test-cases>
+  <labels>
+    <label name="thread" value="47221494962580"/>
+    <label name="host" value="120013e358d9"/>
+  </labels>
+</ns2:test-suite>

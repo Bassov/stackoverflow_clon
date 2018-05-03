@@ -1,0 +1,95 @@
+<?xml version="1.0"?>
+<ns2:test-suite xmlns="" xmlns:ns2="urn:model.allure.qatools.yandex.ru" start="1525349834796" stop="1525349859055">
+  <name>Vote question 
+  In order to mark question
+  As an authenticated user
+  I want to be able to vote for question
+ behaves like Acceptance votable Authenticated user</name>
+  <title>Vote question 
+  In order to mark question
+  As an authenticated user
+  I want to be able to vote for question
+ behaves like Acceptance votable Authenticated user</title>
+  <test-cases>
+    <test-case start="1525349834797" stop="1525349840391" status="passed">
+      <name>Vote question 
+  In order to mark question
+  As an authenticated user
+  I want to be able to vote for question
+ behaves like Acceptance votable Authenticated user User votes up</name>
+      <title>Vote question 
+  In order to mark question
+  As an authenticated user
+  I want to be able to vote for question
+ behaves like Acceptance votable Authenticated user User votes up</title>
+      <steps/>
+      <attachments/>
+      <labels>
+        <label name="thread" value="47221494962580"/>
+        <label name="host" value="120013e358d9"/>
+      </labels>
+      <parameters/>
+    </test-case>
+    <test-case start="1525349840393" stop="1525349846306" status="passed">
+      <name>Vote question 
+  In order to mark question
+  As an authenticated user
+  I want to be able to vote for question
+ behaves like Acceptance votable Authenticated user User can re-vote</name>
+      <title>Vote question 
+  In order to mark question
+  As an authenticated user
+  I want to be able to vote for question
+ behaves like Acceptance votable Authenticated user User can re-vote</title>
+      <steps/>
+      <attachments/>
+      <labels>
+        <label name="thread" value="47221494962580"/>
+        <label name="host" value="120013e358d9"/>
+      </labels>
+      <parameters/>
+    </test-case>
+    <test-case start="1525349846308" stop="1525349853332" status="passed">
+      <name>Vote question 
+  In order to mark question
+  As an authenticated user
+  I want to be able to vote for question
+ behaves like Acceptance votable Authenticated user If user votes second time it rejects previous vote</name>
+      <title>Vote question 
+  In order to mark question
+  As an authenticated user
+  I want to be able to vote for question
+ behaves like Acceptance votable Authenticated user If user votes second time it rejects previous vote</title>
+      <steps/>
+      <attachments/>
+      <labels>
+        <label name="thread" value="47221494962580"/>
+        <label name="host" value="120013e358d9"/>
+      </labels>
+      <parameters/>
+    </test-case>
+    <test-case start="1525349853334" stop="1525349859053" status="passed">
+      <name>Vote question 
+  In order to mark question
+  As an authenticated user
+  I want to be able to vote for question
+ behaves like Acceptance votable Authenticated user User votes down</name>
+      <title>Vote question 
+  In order to mark question
+  As an authenticated user
+  I want to be able to vote for question
+ behaves like Acceptance votable Authenticated user User votes down</title>
+      <steps/>
+      <attachments/>
+      <labels>
+        <label name="thread" value="47221494962580"/>
+        <label name="host" value="120013e358d9"/>
+      </labels>
+      <parameters/>
+    </test-case>
+  </test-cases>
+  <labels>
+    <label name="thread" value="47221494962580"/>
+    <label name="host" value="120013e358d9"/>
+  </labels>
+</ns2:test-suite>

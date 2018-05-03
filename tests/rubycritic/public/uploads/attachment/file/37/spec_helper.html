@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<!doctype html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Ruby Critic - Home</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- StyleSheets -->
+    <link href="../../../../../assets/stylesheets/bootstrap.min.css" media="screen, projection, print" rel="stylesheet" type="text/css">
+    <link href="../../../../../assets/stylesheets/font-awesome.min.css" media="screen, projection, print" rel="stylesheet" type="text/css">
+    <link href="../../../../../assets/stylesheets/prettify.custom_theme.css" media="screen, projection, print" rel="stylesheet" type="text/css">
+    <link href="../../../../../assets/stylesheets/application.css" media="screen, projection, print" rel="stylesheet" type="text/css">
+  </head>
+
+  <body>
+    <header class="navbar navbar-default navbar-fixed-top">
+      <a href="#menu-toggle" class="btn btn-default hidden-lg visible-sm-* hidden-md visible-xs-* pull-left" id="menu-toggle"><i class="fa fa-bars" aria-hidden="true"></i></a>
+      <a href="../../../../../overview.html"><img src="../../../../../assets/images/logo.png" title="Ruby Critic Logo" width="55"><span class="logo">RUBYCRITIC</span></a>
+    </header>
+    <div id="wrapper">
+      <!-- Sidebar -->
+      <aside id="sidebar-wrapper">
+        <ul class="sidebar-nav">
+          <li class="sidebar-item">
+            <a href="../../../../../overview.html" class="project-nav-item overview-nav"><i class="fa fa-dashboard"></i>Overview</a>
+          </li>
+          <li class="sidebar-item">
+            <a href="../../../../../code_index.html" class="project-nav-item code-index-nav"><i class="fa fa-code"></i>Code</a>
+          </li>
+          <li class="sidebar-item">
+            <a href="../../../../../smells_index.html" class="project-nav-item smells-index-nav"><i class="fa fa-warning"></i>Smells</a>
+          </li>
+        </ul>
+      </aside>
+      <!-- /#sidebar-wrapper -->
+      <div id="page-content-wrapper">
+        <div class="container-fluid">
+          <div class="row">
+  <!--Page Title -->
+  <div class="Page_Title">
+    <div class="file-time">
+      <span class="committed-at">
+        
+          Never committed
+        
+      </span>
+    </div>
+    <div>
+      <h3><small>public/uploads/attachment/file/37 /</small> spec_helper.rb</h3>
+    </div>
+  </div>
+  <!--End Page Title -->
+  <div class="Content_Wrapper">
+    <!-- code detail -->
+    <div class="code-top-detail clearfix row">
+      <div class="col-md-8">
+        <div class="row">
+          <div class="col-md-1">
+            <div class="rating f big">
+              F
+            </div>
+          </div>
+          <div class="code-statistics col-md-11">
+            <div class="col-md-3">
+              <div><span class="metric">24</span><small> lines of codes</small></div>
+              <div><span class="metric">0</span><small> methods</small></div>
+            </div>
+            <div class="col-md-3">
+              <div><span class="metric">N/A</span><small> complexity/method</small></div>
+              <div><span class="metric">0</span><small> churn</small></div>
+            </div>
+            <div class="col-md-3">
+              <div><span class="metric">0.0</span><small> complexity</small></div>
+              <div><span class="metric">25</span><small> duplications</small></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="code-tabs">
+          <ul class="nav nav-pills right-to-left">
+            <li><a href="#" id="toggle-code" class="toggle-button button">code</a></li>
+            <li class="active">
+              <a href="#" id="toggle-smells" class="toggle-button button">
+                1
+                smell
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <code class="prettyprint linenums lang-ruby file-code js-file-code"># encoding: utf-8
+# frozen_string_literal: true
+
+require &quot;allure-rspec&quot;
+require &quot;simplecov&quot;
+require &quot;capybara-webkit&quot;
+
+SimpleCov.start &quot;rails&quot;
+
+Capybara::Webkit.configure do |config|
+  config.allow_url(&quot;0.0.0.0&quot;)
+end
+
+RSpec.configure do |config|<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden"true"=""></i>          <a href="http://docs.seattlerb.org/flay/" target="_blank"><b>DuplicateCode</b></a>        </span>      </div>      <span>Identical code found in 38 nodes</span>              <span>Locations:</span>                  <a href="../1/spec_helper.html#L14" class="js-smell-location">0</a>                  <a href="../10/spec_helper.html#L14" class="js-smell-location">1</a>                  <a href="../11/spec_helper.html#L14" class="js-smell-location">2</a>                  <a href="../12/spec_helper.html#L14" class="js-smell-location">3</a>                  <a href="../13/spec_helper.html#L14" class="js-smell-location">4</a>                  <a href="../14/spec_helper.html#L14" class="js-smell-location">5</a>                  <a href="../15/spec_helper.html#L14" class="js-smell-location">6</a>                  <a href="../16/spec_helper.html#L14" class="js-smell-location">7</a>                  <a href="../17/spec_helper.html#L14" class="js-smell-location">8</a>                  <a href="../18/spec_helper.html#L14" class="js-smell-location">9</a>                  <a href="../19/spec_helper.html#L14" class="js-smell-location">10</a>                  <a href="../2/spec_helper.html#L14" class="js-smell-location">11</a>                  <a href="../20/spec_helper.html#L14" class="js-smell-location">12</a>                  <a href="../21/spec_helper.html#L14" class="js-smell-location">13</a>                  <a href="../22/spec_helper.html#L14" class="js-smell-location">14</a>                  <a href="../23/spec_helper.html#L14" class="js-smell-location">15</a>                  <a href="../24/spec_helper.html#L14" class="js-smell-location">16</a>                  <a href="../25/spec_helper.html#L14" class="js-smell-location">17</a>                  <a href="../26/spec_helper.html#L14" class="js-smell-location">18</a>                  <a href="../27/spec_helper.html#L14" class="js-smell-location">19</a>                  <a href="../28/spec_helper.html#L14" class="js-smell-location">20</a>                  <a href="../29/spec_helper.html#L14" class="js-smell-location">21</a>                  <a href="../3/spec_helper.html#L14" class="js-smell-location">22</a>                  <a href="../30/spec_helper.html#L14" class="js-smell-location">23</a>                  <a href="../31/spec_helper.html#L14" class="js-smell-location">24</a>                  <a href="../32/spec_helper.html#L14" class="js-smell-location">25</a>                  <a href="../33/spec_helper.html#L14" class="js-smell-location">26</a>                  <a href="../34/spec_helper.html#L14" class="js-smell-location">27</a>                  <a href="../35/spec_helper.html#L14" class="js-smell-location">28</a>                  <a href="../36/spec_helper.html#L14" class="js-smell-location">29</a>                  <a href="spec_helper.html#L14" class="js-smell-location">30</a>                  <a href="../4/spec_helper.html#L14" class="js-smell-location">31</a>                  <a href="../5/spec_helper.html#L14" class="js-smell-location">32</a>                  <a href="../6/spec_helper.html#L14" class="js-smell-location">33</a>                  <a href="../7/spec_helper.html#L14" class="js-smell-location">34</a>                  <a href="../8/spec_helper.html#L14" class="js-smell-location">35</a>                  <a href="../9/spec_helper.html#L14" class="js-smell-location">36</a>                  <a href="../../../../../spec/spec_helper.html#L14" class="js-smell-location">37</a>                  </div>  </li></ol>
+  config.include AllureRSpec::Adaptor
+
+  config.expect_with :rspec do |expectations|
+    expectations.include_chain_clauses_in_custom_matcher_descriptions = true
+  end
+
+  config.mock_with :rspec do |mocks|
+    mocks.verify_partial_doubles = true
+  end
+end
+</code>
+  </div>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- Javascripts -->
+    <script src='../../../../../assets/javascripts/jquery.min.js'></script>
+    <script src='../../../../../assets/javascripts/jquery.tablesorter.min.js'></script>
+    <script src='../../../../../assets/javascripts/jquery.scrollTo.min.js'></script>
+    <script src='../../../../../assets/javascripts/jquery.timeago.js'></script>
+    <script src='../../../../../assets/javascripts/highcharts.src-4.0.1.js'></script>
+    <script src='../../../../../assets/javascripts/prettify.js'></script>
+    <script src='../../../../../assets/javascripts/bootstrap.min.js'></script>
+    <script src='../../../../../assets/javascripts/application.js'></script>
+    <script src='../../../../../assets/javascripts/jquery.filtertable.min.js'></script>
+  </body>
+</html>

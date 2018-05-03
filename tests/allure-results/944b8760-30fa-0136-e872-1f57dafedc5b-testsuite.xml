@@ -1,0 +1,55 @@
+<?xml version="1.0"?>
+<ns2:test-suite xmlns="" xmlns:ns2="urn:model.allure.qatools.yandex.ru" start="1525349974065" stop="1525349985157">
+  <name>Delete files 
+  In order to remove unnecessary files
+  As an author of message
+  I want to be able to delete files</name>
+  <title>Delete files 
+  In order to remove unnecessary files
+  As an author of message
+  I want to be able to delete files</title>
+  <test-cases>
+    <test-case start="1525349974065" stop="1525349979218" status="passed">
+      <name>Delete files 
+  In order to remove unnecessary files
+  As an author of message
+  I want to be able to delete files
+ Non-author of message can`t see delete button</name>
+      <title>Delete files 
+  In order to remove unnecessary files
+  As an author of message
+  I want to be able to delete files
+ Non-author of message can`t see delete button</title>
+      <steps/>
+      <attachments/>
+      <labels>
+        <label name="thread" value="47221494962580"/>
+        <label name="host" value="120013e358d9"/>
+      </labels>
+      <parameters/>
+    </test-case>
+    <test-case start="1525349979221" stop="1525349985156" status="passed">
+      <name>Delete files 
+  In order to remove unnecessary files
+  As an author of message
+  I want to be able to delete files
+ Author of message can delete its files</name>
+      <title>Delete files 
+  In order to remove unnecessary files
+  As an author of message
+  I want to be able to delete files
+ Author of message can delete its files</title>
+      <steps/>
+      <attachments/>
+      <labels>
+        <label name="thread" value="47221494962580"/>
+        <label name="host" value="120013e358d9"/>
+      </labels>
+      <parameters/>
+    </test-case>
+  </test-cases>
+  <labels>
+    <label name="thread" value="47221494962580"/>
+    <label name="host" value="120013e358d9"/>
+  </labels>
+</ns2:test-suite>

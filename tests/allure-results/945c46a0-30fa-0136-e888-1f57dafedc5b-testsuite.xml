@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<ns2:test-suite xmlns="" xmlns:ns2="urn:model.allure.qatools.yandex.ru" start="1525350051983" stop="1525350056699">
+  <name>Sign out 
+  In order to leave session
+  As an authenticated user
+  I want to be able to sign out</name>
+  <title>Sign out 
+  In order to leave session
+  As an authenticated user
+  I want to be able to sign out</title>
+  <test-cases>
+    <test-case start="1525350051984" stop="1525350056697" status="passed">
+      <name>Sign out 
+  In order to leave session
+  As an authenticated user
+  I want to be able to sign out
+ authenticated user signs out</name>
+      <title>Sign out 
+  In order to leave session
+  As an authenticated user
+  I want to be able to sign out
+ authenticated user signs out</title>
+      <steps/>
+      <attachments/>
+      <labels>
+        <label name="thread" value="47221494962580"/>
+        <label name="host" value="120013e358d9"/>
+      </labels>
+      <parameters/>
+    </test-case>
+  </test-cases>
+  <labels>
+    <label name="thread" value="47221494962580"/>
+    <label name="host" value="120013e358d9"/>
+  </labels>
+</ns2:test-suite>

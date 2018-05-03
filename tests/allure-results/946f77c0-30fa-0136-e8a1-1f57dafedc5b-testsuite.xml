@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<ns2:test-suite xmlns="" xmlns:ns2="urn:model.allure.qatools.yandex.ru" start="1525350136265" stop="1525350136550">
+  <name>QuestionsController GET #show</name>
+  <title>QuestionsController GET #show</title>
+  <test-cases>
+    <test-case start="1525350136265" stop="1525350136405" status="passed">
+      <name>QuestionsController GET #show renders show view</name>
+      <title>QuestionsController GET #show renders show view</title>
+      <steps/>
+      <attachments/>
+      <labels>
+        <label name="thread" value="47221494962580"/>
+        <label name="host" value="120013e358d9"/>
+      </labels>
+      <parameters/>
+    </test-case>
+    <test-case start="1525350136406" stop="1525350136549" status="passed">
+      <name>QuestionsController GET #show assigns the requested question to @question</name>
+      <title>QuestionsController GET #show assigns the requested question to @question</title>
+      <steps/>
+      <attachments/>
+      <labels>
+        <label name="thread" value="47221494962580"/>
+        <label name="host" value="120013e358d9"/>
+      </labels>
+      <parameters/>
+    </test-case>
+  </test-cases>
+  <labels>
+    <label name="thread" value="47221494962580"/>
+    <label name="host" value="120013e358d9"/>
+  </labels>
+</ns2:test-suite>

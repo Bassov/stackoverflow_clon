@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<ns2:test-suite xmlns="" xmlns:ns2="urn:model.allure.qatools.yandex.ru" start="1525349859532" stop="1525349860217">
+  <name>VotesController PATCH #create_vote non-author votes second time</name>
+  <title>VotesController PATCH #create_vote non-author votes second time</title>
+  <test-cases>
+    <test-case start="1525349859532" stop="1525349859761" status="passed">
+      <name>VotesController PATCH #create_vote non-author votes second time render create_vote template</name>
+      <title>VotesController PATCH #create_vote non-author votes second time render create_vote template</title>
+      <steps/>
+      <attachments/>
+      <labels>
+        <label name="thread" value="47221494962580"/>
+        <label name="host" value="120013e358d9"/>
+      </labels>
+      <parameters/>
+    </test-case>
+    <test-case start="1525349859762" stop="1525349859991" status="passed">
+      <name>VotesController PATCH #create_vote non-author votes second time assigns requested votable to @votable</name>
+      <title>VotesController PATCH #create_vote non-author votes second time assigns requested votable to @votable</title>
+      <steps/>
+      <attachments/>
+      <labels>
+        <label name="thread" value="47221494962580"/>
+        <label name="host" value="120013e358d9"/>
+      </labels>
+      <parameters/>
+    </test-case>
+    <test-case start="1525349859992" stop="1525349860216" status="passed">
+      <name>VotesController PATCH #create_vote non-author votes second time unvote for votable</name>
+      <title>VotesController PATCH #create_vote non-author votes second time unvote for votable</title>
+      <steps/>
+      <attachments/>
+      <labels>
+        <label name="thread" value="47221494962580"/>
+        <label name="host" value="120013e358d9"/>
+      </labels>
+      <parameters/>
+    </test-case>
+  </test-cases>
+  <labels>
+    <label name="thread" value="47221494962580"/>
+    <label name="host" value="120013e358d9"/>
+  </labels>
+</ns2:test-suite>

@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<ns2:test-suite xmlns="" xmlns:ns2="urn:model.allure.qatools.yandex.ru" start="1525349802757" stop="1525349805875">
+  <name>AnswersController PATCH #make_best author of question sets answer to be best</name>
+  <title>AnswersController PATCH #make_best author of question sets answer to be best</title>
+  <test-cases>
+    <test-case start="1525349802757" stop="1525349804339" status="passed">
+      <name>AnswersController PATCH #make_best author of question sets answer to be best assigns the requested answer to @answer</name>
+      <title>AnswersController PATCH #make_best author of question sets answer to be best assigns the requested answer to @answer</title>
+      <steps/>
+      <attachments/>
+      <labels>
+        <label name="thread" value="47221494962580"/>
+        <label name="host" value="120013e358d9"/>
+      </labels>
+      <parameters/>
+    </test-case>
+    <test-case start="1525349804341" stop="1525349805873" status="passed">
+      <name>AnswersController PATCH #make_best author of question sets answer to be best makes selected answer to be the best</name>
+      <title>AnswersController PATCH #make_best author of question sets answer to be best makes selected answer to be the best</title>
+      <steps/>
+      <attachments/>
+      <labels>
+        <label name="thread" value="47221494962580"/>
+        <label name="host" value="120013e358d9"/>
+      </labels>
+      <parameters/>
+    </test-case>
+  </test-cases>
+  <labels>
+    <label name="thread" value="47221494962580"/>
+    <label name="host" value="120013e358d9"/>
+  </labels>
+</ns2:test-suite>

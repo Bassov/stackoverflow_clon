@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<ns2:test-suite xmlns="" xmlns:ns2="urn:model.allure.qatools.yandex.ru" start="1525350137659" stop="1525350143062">
+  <name>DailyDigestJob</name>
+  <title>DailyDigestJob</title>
+  <test-cases>
+    <test-case start="1525350137659" stop="1525350140378" status="passed">
+      <name>DailyDigestJob sends 2 emails</name>
+      <title>DailyDigestJob sends 2 emails</title>
+      <steps/>
+      <attachments/>
+      <labels>
+        <label name="thread" value="47221494962580"/>
+        <label name="host" value="120013e358d9"/>
+      </labels>
+      <parameters/>
+    </test-case>
+    <test-case start="1525350140379" stop="1525350143060" status="passed">
+      <name>DailyDigestJob use QuestionMailer to send emails</name>
+      <title>DailyDigestJob use QuestionMailer to send emails</title>
+      <steps/>
+      <attachments/>
+      <labels>
+        <label name="thread" value="47221494962580"/>
+        <label name="host" value="120013e358d9"/>
+      </labels>
+      <parameters/>
+    </test-case>
+  </test-cases>
+  <labels>
+    <label name="thread" value="47221494962580"/>
+    <label name="host" value="120013e358d9"/>
+  </labels>
+</ns2:test-suite>

@@ -3,14 +3,14 @@
 
 require "rails_helper"
 
-RSpec.describe CommentsController, type: :controller do
+RSpec.describe CommentsController, type: :controller, integration: true do
   let(:user) { create(:user) }
   let(:commentable) { create(:answer) }
 
   describe "POST #create" do
     sign_in_user
 
-    context "with valid attribute" do
+    context "with valid attribute", positive: true do
       subject { post :create, answer_id: commentable.id, comment: attributes_for(:comment), format: :js }
       let(:question_id) { commentable.question.id }
 
@@ -29,7 +29,7 @@ RSpec.describe CommentsController, type: :controller do
       end
     end
 
-    context "with invalid attributes" do
+    context "with invalid attributes", negative: true do
       subject { post :create, answer_id: commentable.id, comment: { body: "" }, format: :js }
 
       it "do not creates new comment" do

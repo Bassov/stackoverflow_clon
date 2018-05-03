@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<ns2:test-suite xmlns="" xmlns:ns2="urn:model.allure.qatools.yandex.ru" start="1525349918577" stop="1525349918760">
+  <name>User#unvote_for</name>
+  <title>User#unvote_for</title>
+  <test-cases>
+    <test-case start="1525349918578" stop="1525349918759" status="passed">
+      <name>User#unvote_for removes user create from object</name>
+      <title>User#unvote_for removes user create from object</title>
+      <steps/>
+      <attachments/>
+      <labels>
+        <label name="thread" value="47221494962580"/>
+        <label name="host" value="120013e358d9"/>
+      </labels>
+      <parameters/>
+    </test-case>
+  </test-cases>
+  <labels>
+    <label name="thread" value="47221494962580"/>
+    <label name="host" value="120013e358d9"/>
+  </labels>
+</ns2:test-suite>

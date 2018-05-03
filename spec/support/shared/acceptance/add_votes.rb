@@ -7,7 +7,7 @@ shared_examples_for "Acceptance votable" do
       visit question_path(question)
     end
 
-    scenario "User votes up" do
+    scenario "User votes up", positive: true do
       within selector do
         click_on "+"
 
@@ -17,7 +17,7 @@ shared_examples_for "Acceptance votable" do
       end
     end
 
-    scenario "User votes down" do
+    scenario "User votes down", positive: true do
       within selector do
         click_on "-"
 
@@ -27,7 +27,7 @@ shared_examples_for "Acceptance votable" do
       end
     end
 
-    scenario "If user votes second time it rejects previous vote" do
+    scenario "If user votes second time it rejects previous vote", negative: true do
       within selector do
         click_on "+"
         sleep(1)
@@ -39,7 +39,7 @@ shared_examples_for "Acceptance votable" do
       end
     end
 
-    scenario "User can re-vote" do
+    scenario "User can re-vote", positive: true do
       within selector do
         click_on "+"
 
@@ -62,7 +62,7 @@ shared_examples_for "Acceptance votable" do
     end
   end
 
-  scenario "Non-authenticated user cant see vote buttons" do
+  scenario "Non-authenticated user cant see vote buttons", negative: true do
     visit question_path(question)
 
     expect(page).to_not have_content "+"

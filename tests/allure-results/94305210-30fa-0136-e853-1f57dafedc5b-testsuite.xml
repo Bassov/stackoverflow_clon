@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<ns2:test-suite xmlns="" xmlns:ns2="urn:model.allure.qatools.yandex.ru" start="1525349828214" stop="1525349859055">
+  <name>Vote question 
+  In order to mark question
+  As an authenticated user
+  I want to be able to vote for question</name>
+  <title>Vote question 
+  In order to mark question
+  As an authenticated user
+  I want to be able to vote for question</title>
+  <test-cases>
+    <test-case start="1525349828214" stop="1525349833123" status="passed">
+      <name>Vote question 
+  In order to mark question
+  As an authenticated user
+  I want to be able to vote for question
+ Author of votable cant vote for it</name>
+      <title>Vote question 
+  In order to mark question
+  As an authenticated user
+  I want to be able to vote for question
+ Author of votable cant vote for it</title>
+      <steps/>
+      <attachments/>
+      <labels>
+        <label name="thread" value="47221494962580"/>
+        <label name="host" value="120013e358d9"/>
+      </labels>
+      <parameters/>
+    </test-case>
+  </test-cases>
+  <labels>
+    <label name="thread" value="47221494962580"/>
+    <label name="host" value="120013e358d9"/>
+  </labels>
+</ns2:test-suite>

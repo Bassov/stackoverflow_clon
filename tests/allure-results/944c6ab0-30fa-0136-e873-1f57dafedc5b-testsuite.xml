@@ -1,0 +1,74 @@
+<?xml version="1.0"?>
+<ns2:test-suite xmlns="" xmlns:ns2="urn:model.allure.qatools.yandex.ru" start="1525349985159" stop="1525349997185">
+  <name>Answer questions 
+  In order to help users
+  As an authenticated user
+  I want to be able to answer questions</name>
+  <title>Answer questions 
+  In order to help users
+  As an authenticated user
+  I want to be able to answer questions</title>
+  <test-cases>
+    <test-case start="1525349985160" stop="1525349986508" status="passed">
+      <name>Answer questions 
+  In order to help users
+  As an authenticated user
+  I want to be able to answer questions
+ Non-authenticated cant see form</name>
+      <title>Answer questions 
+  In order to help users
+  As an authenticated user
+  I want to be able to answer questions
+ Non-authenticated cant see form</title>
+      <steps/>
+      <attachments/>
+      <labels>
+        <label name="thread" value="47221494962580"/>
+        <label name="host" value="120013e358d9"/>
+      </labels>
+      <parameters/>
+    </test-case>
+    <test-case start="1525349986510" stop="1525349991235" status="passed">
+      <name>Answer questions 
+  In order to help users
+  As an authenticated user
+  I want to be able to answer questions
+ Authenticated user tries to answer question with invalid attributes</name>
+      <title>Answer questions 
+  In order to help users
+  As an authenticated user
+  I want to be able to answer questions
+ Authenticated user tries to answer question with invalid attributes</title>
+      <steps/>
+      <attachments/>
+      <labels>
+        <label name="thread" value="47221494962580"/>
+        <label name="host" value="120013e358d9"/>
+      </labels>
+      <parameters/>
+    </test-case>
+    <test-case start="1525349991237" stop="1525349997183" status="passed">
+      <name>Answer questions 
+  In order to help users
+  As an authenticated user
+  I want to be able to answer questions
+ Authenticated user answers question</name>
+      <title>Answer questions 
+  In order to help users
+  As an authenticated user
+  I want to be able to answer questions
+ Authenticated user answers question</title>
+      <steps/>
+      <attachments/>
+      <labels>
+        <label name="thread" value="47221494962580"/>
+        <label name="host" value="120013e358d9"/>
+      </labels>
+      <parameters/>
+    </test-case>
+  </test-cases>
+  <labels>
+    <label name="thread" value="47221494962580"/>
+    <label name="host" value="120013e358d9"/>
+  </labels>
+</ns2:test-suite>

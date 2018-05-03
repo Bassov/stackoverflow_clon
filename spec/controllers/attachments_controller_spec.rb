@@ -3,7 +3,7 @@
 
 require "rails_helper"
 
-RSpec.describe AttachmentsController, type: :controller do
+RSpec.describe AttachmentsController, type: :controller, integration: true do
   let(:attachment) { create(:attachment, attachable: question) }
   let(:question) { create(:question, user: user) }
   let(:user_attachment) { create(:attachment, attachable: user_question) }
@@ -13,7 +13,7 @@ RSpec.describe AttachmentsController, type: :controller do
   describe "DELETE #destroy" do
     sign_in_user
 
-    context "Author of message deletes attachment" do
+    context "Author of message deletes attachment", positive: true do
       before { @message = user_attachment.attachable }
 
       it "Assigns attachment to @attachment" do
@@ -33,7 +33,7 @@ RSpec.describe AttachmentsController, type: :controller do
       end
     end
 
-    context "Non-author of message tries to delete it" do
+    context "Non-author of message tries to delete it", negative: true do
       before { @message = attachment.attachable }
 
       it "Assigns attachment to @attachment" do

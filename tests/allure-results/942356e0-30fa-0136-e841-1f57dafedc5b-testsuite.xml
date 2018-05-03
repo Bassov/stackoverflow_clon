@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<ns2:test-suite xmlns="" xmlns:ns2="urn:model.allure.qatools.yandex.ru" start="1525349781182" stop="1525349781690">
+  <name>AnswersController POST #create with invalid attributes</name>
+  <title>AnswersController POST #create with invalid attributes</title>
+  <test-cases>
+    <test-case start="1525349781183" stop="1525349781449" status="passed">
+      <name>AnswersController POST #create with invalid attributes renders create template</name>
+      <title>AnswersController POST #create with invalid attributes renders create template</title>
+      <steps/>
+      <attachments/>
+      <labels>
+        <label name="thread" value="47221494962580"/>
+        <label name="host" value="120013e358d9"/>
+      </labels>
+      <parameters/>
+    </test-case>
+    <test-case start="1525349781451" stop="1525349781689" status="passed">
+      <name>AnswersController POST #create with invalid attributes does not save the question</name>
+      <title>AnswersController POST #create with invalid attributes does not save the question</title>
+      <steps/>
+      <attachments/>
+      <labels>
+        <label name="thread" value="47221494962580"/>
+        <label name="host" value="120013e358d9"/>
+      </labels>
+      <parameters/>
+    </test-case>
+  </test-cases>
+  <labels>
+    <label name="thread" value="47221494962580"/>
+    <label name="host" value="120013e358d9"/>
+  </labels>
+</ns2:test-suite>

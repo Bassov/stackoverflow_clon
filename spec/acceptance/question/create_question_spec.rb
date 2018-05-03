@@ -7,10 +7,10 @@ feature "Create question", '
   In order to get answers from community
   As an authenticated user
   I want to be able to ask questions
-' do
+', integration: true, ui: true do
   given(:user) { create(:user) }
 
-  scenario "Authenticated user creates question" do
+  scenario "Authenticated user creates question", positive: true do
     sign_in(user)
 
     visit questions_path
@@ -22,7 +22,7 @@ feature "Create question", '
     expect(page).to have_content "Test question"
   end
 
-  scenario "Non-authenticated user tries to create question" do
+  scenario "Non-authenticated user tries to create question", negative: true do
     visit questions_path
 
     expect(page).to_not have_content "Задать вопрос"

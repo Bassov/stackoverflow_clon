@@ -1,0 +1,55 @@
+<?xml version="1.0"?>
+<ns2:test-suite xmlns="" xmlns:ns2="urn:model.allure.qatools.yandex.ru" start="1525349860221" stop="1525349861370">
+  <name>VotesController PATCH #create_vote non-author of votable votes</name>
+  <title>VotesController PATCH #create_vote non-author of votable votes</title>
+  <test-cases>
+    <test-case start="1525349860221" stop="1525349860610" status="passed">
+      <name>VotesController PATCH #create_vote non-author of votable votes assigns requested votable to @votable</name>
+      <title>VotesController PATCH #create_vote non-author of votable votes assigns requested votable to @votable</title>
+      <steps/>
+      <attachments/>
+      <labels>
+        <label name="thread" value="47221494962580"/>
+        <label name="host" value="120013e358d9"/>
+      </labels>
+      <parameters/>
+    </test-case>
+    <test-case start="1525349860614" stop="1525349860883" status="passed">
+      <name>VotesController PATCH #create_vote non-author of votable votes render create_vote template</name>
+      <title>VotesController PATCH #create_vote non-author of votable votes render create_vote template</title>
+      <steps/>
+      <attachments/>
+      <labels>
+        <label name="thread" value="47221494962580"/>
+        <label name="host" value="120013e358d9"/>
+      </labels>
+      <parameters/>
+    </test-case>
+    <test-case start="1525349860885" stop="1525349861131" status="passed">
+      <name>VotesController PATCH #create_vote non-author of votable votes creates new vote with rating 1</name>
+      <title>VotesController PATCH #create_vote non-author of votable votes creates new vote with rating 1</title>
+      <steps/>
+      <attachments/>
+      <labels>
+        <label name="thread" value="47221494962580"/>
+        <label name="host" value="120013e358d9"/>
+      </labels>
+      <parameters/>
+    </test-case>
+    <test-case start="1525349861133" stop="1525349861368" status="passed">
+      <name>VotesController PATCH #create_vote non-author of votable votes assigns current user to new vote</name>
+      <title>VotesController PATCH #create_vote non-author of votable votes assigns current user to new vote</title>
+      <steps/>
+      <attachments/>
+      <labels>
+        <label name="thread" value="47221494962580"/>
+        <label name="host" value="120013e358d9"/>
+      </labels>
+      <parameters/>
+    </test-case>
+  </test-cases>
+  <labels>
+    <label name="thread" value="47221494962580"/>
+    <label name="host" value="120013e358d9"/>
+  </labels>
+</ns2:test-suite>
